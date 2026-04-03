@@ -62,7 +62,9 @@
               "api-reference/endpoint/create-contact",
               "api-reference/endpoint/get-contact",
               "api-reference/endpoint/update-contact",
-              "api-reference/endpoint/delete-contact"
+              "api-reference/endpoint/delete-contact",
+              "api-reference/endpoint/assign-contact-tag",
+              "api-reference/endpoint/unassign-contact-tag"
             ]
           },
           {
@@ -117,11 +119,68 @@
             ]
           },
           {
+            "group": "Whop",
+            "pages": [
+              "api-reference/endpoint/whop-payments",
+              "api-reference/endpoint/whop-connections",
+              "api-reference/endpoint/whop-customers",
+              "api-reference/endpoint/whop-memberships"
+            ]
+          },
+          {
             "group": "Voice Calls",
             "pages": [
               "api-reference/endpoint/list-calls",
               "api-reference/endpoint/get-call",
               "api-reference/endpoint/get-call-transcript"
+            ]
+          },
+          {
+            "group": "Appointments",
+            "pages": [
+              "api-reference/endpoint/list-appointments",
+              "api-reference/endpoint/create-appointment",
+              "api-reference/endpoint/get-appointment",
+              "api-reference/endpoint/update-appointment",
+              "api-reference/endpoint/delete-appointment"
+            ]
+          },
+          {
+            "group": "Tags",
+            "pages": [
+              "api-reference/endpoint/list-tags",
+              "api-reference/endpoint/create-tag",
+              "api-reference/endpoint/get-tag",
+              "api-reference/endpoint/update-tag",
+              "api-reference/endpoint/delete-tag"
+            ]
+          },
+          {
+            "group": "Custom Fields",
+            "pages": [
+              "api-reference/endpoint/list-custom-fields",
+              "api-reference/endpoint/create-custom-field",
+              "api-reference/endpoint/get-custom-field",
+              "api-reference/endpoint/update-custom-field",
+              "api-reference/endpoint/delete-custom-field"
+            ]
+          },
+          {
+            "group": "Conversions",
+            "pages": [
+              "api-reference/endpoint/list-conversion-configs",
+              "api-reference/endpoint/get-conversion-config",
+              "api-reference/endpoint/list-conversion-entries",
+              "api-reference/endpoint/create-conversion-entry",
+              "api-reference/endpoint/get-conversion-entry",
+              "api-reference/endpoint/delete-conversion-entry"
+            ]
+          },
+          {
+            "group": "Tracking Sessions",
+            "pages": [
+              "api-reference/endpoint/list-tracking-sessions",
+              "api-reference/endpoint/get-tracking-session"
             ]
           }
         ]
