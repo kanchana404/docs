@@ -9,7 +9,7 @@
   "colors": {
     "primary": "#a855f7"
   },
-  "theme": "maple",
+  "theme": "palm",
   "layout": "sidenav",
   "sidebar": {
     "items": "border"
