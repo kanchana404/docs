@@ -1,0 +1,139 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Agent Kong",
+  "logo": {
+    "dark": "/images/logo-dark.svg",
+    "light": "/images/logo-light.svg"
+  },
+  "favicon": "/images/favicon.png",
+  "colors": {
+    "primary": "#a855f7",
+    "light": "#c084fc",
+    "dark": "#9333ea",
+    "anchors": {
+      "from": "#a855f7",
+      "to": "#7c3aed"
+    },
+    "background": {
+      "dark": "#08000f",
+      "light": "#faf8ff"
+    }
+  },
+  "theme": "venus",
+  "layout": "sidenav",
+  "sidebar": {
+    "items": "border"
+  },
+  "topbar": {
+    "style": "default"
+  },
+  "tabs": [
+    {
+      "name": "MCP Server",
+      "url": "mcp"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "introduction",
+        "authentication"
+      ]
+    },
+    {
+      "group": "MCP Server",
+      "pages": [
+        "mcp/overview",
+        "mcp/setup",
+        "mcp/tools",
+        "mcp/examples"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/overview"
+      ]
+    },
+    {
+      "group": "Contacts",
+      "pages": [
+        "api-reference/contacts/list-contacts",
+        "api-reference/contacts/create-contact",
+        "api-reference/contacts/get-contact",
+        "api-reference/contacts/update-contact",
+        "api-reference/contacts/delete-contact"
+      ]
+    },
+    {
+      "group": "Conversations",
+      "pages": [
+        "api-reference/conversations/list-conversations",
+        "api-reference/conversations/get-conversation",
+        "api-reference/conversations/update-conversation"
+      ]
+    },
+    {
+      "group": "Messages",
+      "pages": [
+        "api-reference/messages/list-messages",
+        "api-reference/messages/send-message"
+      ]
+    },
+    {
+      "group": "Stripe",
+      "pages": [
+        "api-reference/stripe/payments",
+        "api-reference/stripe/subscriptions",
+        "api-reference/stripe/customers",
+        "api-reference/stripe/metrics",
+        "api-reference/stripe/products"
+      ]
+    },
+    {
+      "group": "Shopify",
+      "pages": [
+        "api-reference/shopify/orders",
+        "api-reference/shopify/customers",
+        "api-reference/shopify/products",
+        "api-reference/shopify/analytics",
+        "api-reference/shopify/abandoned-carts"
+      ]
+    },
+    {
+      "group": "Attribution",
+      "pages": [
+        "api-reference/attribution/data",
+        "api-reference/attribution/utms",
+        "api-reference/attribution/presets",
+        "api-reference/attribution/contacts-by-ltv"
+      ]
+    }
+  ],
+  "api": {
+    "baseUrl": "https://agent-kong-app.vercel.app",
+    "auth": {
+      "method": "bearer",
+      "name": "Authorization"
+    },
+    "playground": {
+      "mode": "simple"
+    }
+  },
+  "openapi": "openapi.json",
+  "footerSocials": {
+    "github": "https://github.com/AgentKong",
+    "website": "https://agentkong.com"
+  },
+  "feedback": {
+    "thumbsRating": true
+  },
+  "mcp": {
+    "enabled": true
+  }
+}
