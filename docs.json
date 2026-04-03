@@ -7,121 +7,123 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#a855f7",
-    "light": "#c084fc",
-    "dark": "#9333ea"
+    "primary": "#a855f7"
   },
   "theme": "maple",
   "layout": "sidenav",
   "sidebar": {
     "items": "border"
   },
-  "tabs": [
-    {
-      "name": "MCP Server",
-      "url": "mcp"
-    },
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "navigation": {
-    "main": [
+    "tabs": [
       {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart",
-          "authentication"
-        ]
-      }
-    ],
-    "mcp": [
-      {
-        "group": "MCP Server",
-        "pages": [
-          "mcp/overview",
-          "mcp/setup",
-          "mcp/tools",
-          "mcp/examples"
-        ]
-      }
-    ],
-    "api-reference": [
-      {
-        "group": "Overview",
-        "pages": [
-          "api-reference/introduction"
+        "tab": "Documentation",
+        "icon": "book-open",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "index",
+              "quickstart",
+              "authentication"
+            ]
+          }
         ]
       },
       {
-        "group": "Contacts",
-        "pages": [
-          "api-reference/endpoint/list-contacts",
-          "api-reference/endpoint/create-contact",
-          "api-reference/endpoint/get-contact",
-          "api-reference/endpoint/update-contact",
-          "api-reference/endpoint/delete-contact"
+        "tab": "MCP Server",
+        "icon": "robot",
+        "groups": [
+          {
+            "group": "MCP Server",
+            "pages": [
+              "mcp/overview",
+              "mcp/setup",
+              "mcp/tools",
+              "mcp/examples"
+            ]
+          }
         ]
       },
       {
-        "group": "Conversations",
-        "pages": [
-          "api-reference/endpoint/list-conversations",
-          "api-reference/endpoint/get-conversation",
-          "api-reference/endpoint/update-conversation"
-        ]
-      },
-      {
-        "group": "Messages",
-        "pages": [
-          "api-reference/endpoint/list-messages",
-          "api-reference/endpoint/send-message"
-        ]
-      },
-      {
-        "group": "Agents",
-        "pages": [
-          "api-reference/endpoint/list-agents",
-          "api-reference/endpoint/get-agent"
-        ]
-      },
-      {
-        "group": "Stripe",
-        "pages": [
-          "api-reference/endpoint/stripe-payments",
-          "api-reference/endpoint/stripe-subscriptions",
-          "api-reference/endpoint/stripe-customers",
-          "api-reference/endpoint/stripe-metrics",
-          "api-reference/endpoint/stripe-products"
-        ]
-      },
-      {
-        "group": "Shopify",
-        "pages": [
-          "api-reference/endpoint/shopify-orders",
-          "api-reference/endpoint/shopify-customers",
-          "api-reference/endpoint/shopify-products",
-          "api-reference/endpoint/shopify-analytics",
-          "api-reference/endpoint/shopify-abandoned-carts"
-        ]
-      },
-      {
-        "group": "Attribution",
-        "pages": [
-          "api-reference/endpoint/attribution-data",
-          "api-reference/endpoint/attribution-utms",
-          "api-reference/endpoint/attribution-presets",
-          "api-reference/endpoint/attribution-contacts-by-ltv"
-        ]
-      },
-      {
-        "group": "Voice Calls",
-        "pages": [
-          "api-reference/endpoint/list-calls",
-          "api-reference/endpoint/get-call",
-          "api-reference/endpoint/get-call-transcript"
+        "tab": "API Reference",
+        "icon": "square-terminal",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Contacts",
+            "pages": [
+              "api-reference/endpoint/list-contacts",
+              "api-reference/endpoint/create-contact",
+              "api-reference/endpoint/get-contact",
+              "api-reference/endpoint/update-contact",
+              "api-reference/endpoint/delete-contact"
+            ]
+          },
+          {
+            "group": "Conversations",
+            "pages": [
+              "api-reference/endpoint/list-conversations",
+              "api-reference/endpoint/get-conversation",
+              "api-reference/endpoint/update-conversation"
+            ]
+          },
+          {
+            "group": "Messages",
+            "pages": [
+              "api-reference/endpoint/list-messages",
+              "api-reference/endpoint/send-message"
+            ]
+          },
+          {
+            "group": "Agents",
+            "pages": [
+              "api-reference/endpoint/list-agents",
+              "api-reference/endpoint/get-agent"
+            ]
+          },
+          {
+            "group": "Stripe",
+            "pages": [
+              "api-reference/endpoint/stripe-payments",
+              "api-reference/endpoint/stripe-subscriptions",
+              "api-reference/endpoint/stripe-customers",
+              "api-reference/endpoint/stripe-metrics",
+              "api-reference/endpoint/stripe-products"
+            ]
+          },
+          {
+            "group": "Shopify",
+            "pages": [
+              "api-reference/endpoint/shopify-orders",
+              "api-reference/endpoint/shopify-customers",
+              "api-reference/endpoint/shopify-products",
+              "api-reference/endpoint/shopify-analytics",
+              "api-reference/endpoint/shopify-abandoned-carts"
+            ]
+          },
+          {
+            "group": "Attribution",
+            "pages": [
+              "api-reference/endpoint/attribution-data",
+              "api-reference/endpoint/attribution-utms",
+              "api-reference/endpoint/attribution-presets",
+              "api-reference/endpoint/attribution-contacts-by-ltv"
+            ]
+          },
+          {
+            "group": "Voice Calls",
+            "pages": [
+              "api-reference/endpoint/list-calls",
+              "api-reference/endpoint/get-call",
+              "api-reference/endpoint/get-call-transcript"
+            ]
+          }
         ]
       }
     ]
