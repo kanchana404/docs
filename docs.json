@@ -19,23 +19,25 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Documentation",
-        "icon": "book-open",
+        "tab": "Ad Tracking Docs",
+        "icon": "crosshairs"
+      },
+      {
+        "tab": "AI Agent Docs",
+        "icon": "robot"
+      },
+      {
+        "tab": "Developer Docs",
+        "icon": "code",
         "groups": [
           {
             "group": "Getting Started",
             "pages": [
               "index",
-              "quickstart",
-              "authentication"
+              "authentication",
+              "quickstart"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "MCP Server",
-        "icon": "robot",
-        "groups": [
+          },
           {
             "group": "MCP Server",
             "pages": [
@@ -194,6 +196,9 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Cortana Platform Guide"
       }
     ]
   },
