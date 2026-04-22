@@ -2,19 +2,87 @@
 title: "4) Conversion Tracking"
 ---
 
-<Tabs>
-  <Tab title="Webhooks">
-  </Tab>
-  <Tab title="Pixel">
-  </Tab>
-  <Tab title="Shopify">
-  </Tab>
-  <Tab title="WooCommerce">
-  </Tab>
-  <Tab title="Go High Level">
-  </Tab>
-  <Tab title="Shopify">
-  </Tab>
-  <Tab title="Tab">
-  </Tab>
-</Tabs>
+## <u>Conversion Sources</u>
+
+<Accordion title="Webhooks">
+</Accordion>
+
+<Accordion title="Pixel">
+</Accordion>
+
+<Accordion title="Shopify">
+</Accordion>
+
+# Pixel Conversion Sources
+
+Alright, the next conversion source we’re going to look at is the **Pixel** source. This is for when you already have our pixel installed on your website and you want to trigger a specific conversion event when a user takes an action or lands on a specific page.
+
+We have two ways to fire these conversions: **URL Parameters** and **Body Tracking Snippets**.
+
+## 1. URL Parameters
+
+This method is perfect for redirects. If you redirect a lead to a specific "Thank You" page only after they qualify, you can use a URL parameter to count them as a "Qualified Lead."
+
+\<Steps\>\<Step title="Select Pixel Type"\>Inside your event settings, click **Add Source**, select **Pixel**, and choose **URL Parameter**.\</Step\>\<Step title="Configure & Set De-dup"\>Give your source a name and set your **Deduplication (De-dup) Window**.
+
+codeCode
+
+`<Note> **What is a De-dup window?** This prevents us from double-counting conversions if someone refreshes the page. For something like a lead, I’d typically set this to at least **2 days**. This means if they refresh 7,000 times in 48 hours, we still only count it once. </Note>`
+
+\</Step\>\<Step title="Copy and Append"\>Click **Submit**, then copy the generated parameter. You’ll simply append this to the end of your success URL (e.g., `yourwebsite.com/thanks?conv=12345`).\</Step\>\</Steps\>
+
+## 2. Body Tracking Snippets
+
+If you’re familiar with how the Meta (Facebook) pixel fires standard events, this will feel very natural. This is a small script you paste into the body of a specific page.
+
+\<Steps\>\<Step title="Select Snippet Type"\>Choose **Body Tracking Snippet** from the Pixel Type dropdown.\</Step\>\<Step title="Copy the Snippet"\>Once you hit submit, copy the generated code. It’ll look like a small script tag starting with `corq('track', ...)`.\</Step\>\<Step title="Install on Your Page"\>Go to your website builder (like GoHighLevel, as shown in the video) and find the **Tracking Code** or **Custom JS** section for that specific page.
+
+codeCode
+
+`Paste the snippet into the **Body/Footer Tracking** area—not the header. Hit **Save** and **Publish**.`
+
+\</Step\>\</Steps\>
+
+## Testing Your Setup
+
+Once you’ve added your parameter or snippet, load the page in your browser.
+
+\<Tip\>
+
+You don't need the URL parameter visible in the address bar if you used the Body Snippet; the script fires silently in the background.
+
+\</Tip\>
+
+Go back to your Conversion Setup dashboard and refresh the view. You should see a "1" appear in the **Success** column, confirming the pixel is communicating perfectly with our server.
+
+This is a bit more on the technical side, so if you're feeling stuck with URL parameters or code snippets, just reach out to the support team and we’ll help you get it sorted!
+
+---
+
+title: "Test Page"
+
+description: "Checking if components work"
+
+---
+
+# Component Test
+
+\<Tip\>If you can see this in a green box, it's working!\</Tip\>
+
+\<Note\>This should be a blue box.\</Note\>
+
+\<Steps\>
+
+  \<Step title="Step One"\>
+
+    Do this first.
+
+  \</Step\>
+
+  \<Step title="Step Two"\>
+
+    Do this second.
+
+  \</Step\>
+
+\</Steps\>
