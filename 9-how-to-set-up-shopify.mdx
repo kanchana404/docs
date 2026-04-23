@@ -1,0 +1,73 @@
+---
+title: "9) How to set up Shopify"
+---
+
+<div style={{position: 'relative', paddingBottom: '58.019687319050384%', height: 0}}><iframe src="https://www.loom.com/embed/e80f1c3d40a34c619f1ce1c591a70cd5" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}></iframe></div>
+
+
+# Shopify Integration & Conversion Tracking
+
+Alright, guys, Shopify has a bit of a specific setup process to ensure we track every single visit and purchase on your site. I’m going to walk you through the end-to-end process, from installing the pixel to mapping your conversion webhooks.
+
+### Step 1: Connect Your Store
+
+First, head over to the **Integrations** tab and find **Shopify**.
+
+1. Click **Connect**.
+2. Enter your **Shopify Store URL** (e.g., admin.shopify.com/store/your-store-name).
+3. Click **Continue**.
+
+### Step 2: Install the Header Snippet
+
+The system will generate a script snippet. We need to add this to your theme’s code:
+
+1. Copy the snippet provided in the dashboard.
+2. Click **Theme Editor** (or navigate to **Online Store > Themes > Edit Code** in Shopify).
+3. Open the theme.liquid file.
+4. Search (Cmd/Ctrl + F) for `</head>`.
+5. Paste your snippet on a new line just **before** the `</head>` tag.
+6. Hit **Save**, then return to our dashboard and click **I pasted the snippet**.
+
+### Step 3: Set Up the Custom Pixel
+
+Next, we’ll use Shopify’s "Customer Events" to track deep data like cart additions and checkouts:
+
+1. Copy the **Pixel Code** provided in the second step.
+2. Click the **Events** button in the dashboard to jump to the right spot in Shopify.
+3. Click **Add custom pixel**, give it a name (e.g., "Our Pixel"), and click **Add pixel**.
+4. Paste the code into the editor.
+5. **Customer Privacy Settings:**
+    - **Permission:** Select **Not required**.
+    - **Data sale:** Select **Data collected does not qualify as data sale**.
+6. Click **Save**, then click **Connect** at the top.
+7. Return to the dashboard and click **Verify your site**. This will open your store in a new tab to confirm the pixel is firing.
+
+### Step 4: Map Your Conversions (Webhooks)
+
+Now that the tracking is live, we need to map specific events like purchases back to the system.
+
+1. Go to **Conversion Setup** and select the event you want to track (e.g., **Order Payment** or **Purchase Paid**).
+2. Click **Add Source**, select **Shopify**, and choose the corresponding **Shopify Event**.
+3. Copy the **Webhook URL** provided.
+4. Click **Open Shopify Webhooks** (or go to **Shopify Settings > Notifications > Webhooks**).
+5. Click **Create Webhook**:
+    - **Event:** Select the matching event (e.g., "Order payment").
+    - **Format:** JSON.
+    - **URL:** Paste the Webhook URL you copied.
+    - **API Version:** October 2025 (or the latest recommended).
+6. Click **Save**.
+
+<Tip>
+**Verify Your Webhook:** After saving, click the three dots next to your new webhook in Shopify and hit **Send test notification**. You should see a "Received" status with a green checkmark in our dashboard.
+</Tip>
+
+### Standard Shopify Events
+
+Most users will want to map these core events to get the best attribution data:
+
+- **View Product:** Triggered when a customer views a specific product page.
+- **Add to Cart:** Triggered when an item is added to the shopping bag.
+- **Initiate Checkout:** Triggered when the customer reaches the first stage of the checkout.
+- **Order Payment:** This is the big one—it triggers once the payment is successfully processed.
+
+And that’s it! You now have a complete, end-to-end Shopify setup for your attribution. If you run into any issues, just reach out to the support team.
