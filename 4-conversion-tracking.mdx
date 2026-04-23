@@ -149,9 +149,41 @@ Go back to your Conversion Setup dashboard and refresh the view. You should see 
 
 This is a bit more on the technical side, so if you're feeling stuck with URL parameters or code snippets, just reach out to the support team and we’ll help you get it sorted!
 
+
 </Accordion>
 
 <Accordion title="CSV">
+
+<div style={{position: 'relative', paddingBottom: '57.84597563803706%', height: 0}}><iframe src="https://www.loom.com/embed/ea33cd1f07de4ecea8a00d40c348859c" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}></iframe></div>
+
+CSV Lead & Conversion Imports
+If you need to upload leads or conversion data from another platform, the CSV upload is your go-to tool. Here is how to get your data synced and mapped correctly.
+<Note>
+**Pro Tip:** Before you start your import, make sure you have **AI Ad Optimization** turned on and set up. When you upload your CSV, the system can send that data back to your Meta pixel to help train it, giving you a major leg up on your ad performance.
+</Note>
+Step 1: Create the Source
+Select CSV Upload from the integration menu.
+Give your source a clear name (e.g., "Historical Leads Import").
+Click Continue.
+Step 2: Upload and Map Your Data
+Drag and drop your CSV file into the uploader. Once uploaded, you’ll need to map your file’s columns to the system fields:
+Required Fields: Ensure Contact Email and Contact Phone are mapped correctly, as these are vital for identifying your leads.
+Identity Fields: Map First Name and Last Name.
+Value Fields: If you’re importing sales, map the Conversion Value and Currency columns.
+Time & Attribution: Map the Conversion Date. You can also map Ad Name (Last Touch) or Ad Name (First Touch) if you want the system to try and match the data against your existing ad campaigns.
+Step 3: Data Cleaning
+You have the option to Remove Duplicates.
+Enabled: The system will only count the first conversion it finds for a specific contact.
+Disabled: Every row in your CSV will be imported as a unique conversion event.
+Step 4: Preview and Import
+Before finalizing, the system will show you an Attribution Breakdown:
+Ad Match Rate: See how many leads successfully matched to your existing ad data.
+Total Revenue: Verify the total value of the import.
+Invalid Rows: Review any rows that will be skipped (usually due to missing email or phone data).
+Once everything looks good, hit Start Import. Your data will begin syncing immediately, and you’ll see the progress update in real-time on your dashboard.
+<Tip>
+If you see rows being skipped under "Invalid Rows," double-check your CSV to ensure every contact has at least an email or a phone number before re-uploading.
+</Tip>
 
 </Accordion>
 
