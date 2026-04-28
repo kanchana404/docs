@@ -61,46 +61,46 @@ title: "5) URL Parameters (CRITICAL)"
   </Accordion>
 </AccordionGroup>
 
-<AccordionGroup>
-  <Accordion title="Google Ads">
-    <div style={{position: 'relative', paddingBottom: '57.961783439490446%', height: 0}}>
+<Accordion title="Google Ads">
+  <div style={{position: 'relative', paddingBottom: '57.961783439490446%', height: 0}}>
   <iframe src="https://www.loom.com/embed/3a7cedf0ea0f416a93eb953f300a605d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}} />
 </div>
 
-    # URL Parameters for Google Ads
+  # URL Parameters for Google Ads
 
-    Adding URL parameters to your Google Ads account is quite simple. Whether you're updating your existing campaigns or starting a fresh one, here’s how to get your tracking set up.
+  Adding URL parameters to your Google Ads account is quite simple. Whether you're updating your existing campaigns or starting a fresh one, here’s how to get your tracking set up.
 
-    ### For Existing Campaigns
+  ### For Existing Campaigns
 
-    If you already have Google ads running, follow these steps to bulk update your tracking:
+  If you already have Google ads running, follow these steps to bulk update your tracking:
 
-    1. Navigate to **Campaigns** in your Google Ads dashboard.
-    2. Click the **Settings** tab.
-    3. Select all the campaigns you want to track.
-    4. Click the **Edit** button and select **Change tracking templates**.
-    5. Copy and paste the URL parameter string provided in your dashboard into the **New tracking template** field. It should look something like this: {lpurl}?utm\_campaign={campaignname}&utm\_medium={medium}&utm\_id={campaignid}.
-    6. Hit **Apply**.
+  1. Navigate to **Campaigns** in your Google Ads dashboard.
+  2. Click the **Settings** tab.
+  3. Select all the campaigns you want to track.
+  4. Click the **Edit** button and select **Change tracking templates**.
+  5. Copy and paste the URL parameters below in your dashboard into the **New tracking template** field.
+  6. Hit **Apply**.
 
-    <Note>
-      The `{lpurl}` tag is essentially the landing page URL that Google will forward to, followed by your specific campaign ID, medium ID, ad ID, and keywords for accurate attribution.
-    </Note>
+  <Note>
+    ```text wrap
+    {lpurl}?campaign_id={campaignid}&medium_id={adgroupid}&ad_id={creative}&utm_keyword={keyword}
+    ```
+  </Note>
 
-    ### For New Campaigns
+  ### For New Campaigns
 
-    If you’re creating a new campaign from scratch, you can set your tracking template during the setup process:
+  If you’re creating a new campaign from scratch, you can set your tracking template during the setup process:
 
-    1. Start your new campaign creation.
-    2. Navigate to the **Campaign settings** section.
-    3. Scroll to the bottom, click **More settings**, and then select **Campaign URL options**.
-    4. Paste your tracking code into the **Tracking template** field.
-    5. Click **Next** and continue with your campaign build—away you go!
+  1. Start your new campaign creation.
+  2. Navigate to the **Campaign settings** section.
+  3. Scroll to the bottom, click **More settings**, and then select **Campaign URL options**.
+  4. Paste your tracking code into the **Tracking template** field.
+  5. Click **Next** and continue with your campaign build—away you go!
 
-    <Tip>
-      Setting your tracking at the campaign level ensures that all ads within that campaign automatically inherit the correct URL parameters, saving you time and preventing manual errors.
-    </Tip>
-  </Accordion>
-</AccordionGroup>
+  <Tip>
+    Setting your tracking at the campaign level ensures that all ads within that campaign automatically inherit the correct URL parameters, saving you time and preventing manual errors.
+  </Tip>
+</Accordion>
 
 <AccordionGroup>
   <Accordion title="TikTok Ads">
