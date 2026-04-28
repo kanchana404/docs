@@ -2,61 +2,61 @@
 title: "7) Customizing Your Dashboard"
 ---
 
-## <u>Customizing Your Dashboard</u>
+<div style={{position: 'relative', paddingBottom: '58.019687319050384%', height: 0}}><iframe src="https://www.loom.com/embed/28b2b5f8668240aeaa4513ee24a39126" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}></iframe></div>
 
-    <div style={{position: 'relative', paddingBottom: '58.01968731905038%', height: 0}}>
-      <iframe src="https://www.loom.com/embed/28b2b5f8668240aea4513ee24a39126" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}></iframe>
-    </div>
+# Customizing Your Attribution Table
 
-    # Customizing Your Attribution Table
+Now that your conversions are set up and your pixel and URL parameters are firing correctly, it's time to configure your dashboard. You need to make sure the data you're seeing in your attribution table is formatted specifically for your business needs.
 
-    Now that your conversions are set up and your pixel and URL parameters are firing correctly, it’s time to configure your dashboard. You need to make sure the data you're seeing in your attribution table is formatted specifically for your business needs.
+### Managing Column Presets
 
-    ### Managing Column Presets
+When you first open the column preset menu, you'll see four auto-generated defaults:
 
-    When you first open the column preset menu, you’ll see four auto-generated defaults:
+- **Sales Call (1-Click Close)**
+- **Sales Call (2-Click Close)**
+- **Low Ticket**
+- **Free Trial**
 
-    - **Sales Call (1-Click Close)**
-    - **Sales Call (2-Click Close)**
-    - **Low Ticket**
-    - **Free Trial**
+You can keep these, delete them, or create your own from scratch. These presets allow you to quickly toggle between different views depending on which part of your funnel you're analyzing.
 
-    You can keep these, delete them, or create your own from scratch. These presets allow you to quickly toggle between different views depending on which part of your funnel you’re analyzing.
+### Customizing Your Columns
 
-    ### Customizing Your Columns
+Clicking **Create New Preset** opens the customization window. On the left, you'll find all available metrics:
 
-    Clicking **Create New Preset** opens the customization window. On the left, you’ll find all available metrics:
+- **Video Performance:** Hook rate, hold rate, and completion percentage.
+- **Engagement:** Likes, comments, shares, and saves.
+- **Standard Ad Conversions:** Cost-per-purchase, cost-per-lead, etc.
+- **Your Conversion Events:** This is where you'll find the custom events you created during setup.
 
-    - **Video Performance:** Hook rate, hold rate, and completion percentage.
-    - **Engagement:** Likes, comments, shares, and saves.
-    - **Standard Ad Conversions:** Cost-per-purchase, cost-per-lead, etc.
-    - **Your Conversion Events:** This is where you’ll find the custom events you created during setup.
+To add a metric, just hit the **+** button. You can then drag and drop the fields on the right to reorder them.
 
-    To add a metric, just hit the **+** button. You can then drag and drop the fields on the right to reorder them.
+<Note>
+  **Pro Tip:** The order of metrics from top-to-bottom in the selection menu translates to left-to-right in your attribution table.
+</Note>
 
-    <Note>**Pro Tip:** The order of metrics from top-to-bottom in the selection menu translates to left-to-right in your attribution table.</Note>
+### Unique Conversion Reporting
 
-    ### Unique Conversion Reporting
+This is one of the most important settings for keeping your data clean. In your conversion setup, you chose a "tracking mode" (either track every event or just the first one). The **Show Unique** setting in this menu allows you to filter that data even further for your reports.
 
-    This is one of the most important settings for keeping your data clean. In your conversion setup, you chose a "tracking mode" (either track every event or just the first one). The **Show Unique** setting in this menu allows you to filter that data even further for your reports.
+### The "Reschedule" Problem (A Case Study)
 
-    ### The "Reschedule" Problem (A Case Study)
+Imagine you're running an appointment-booking funnel. A lead books a call today, realizes they have a conflict 10 minutes later and reschedules, then reschedules _again_ tomorrow.
 
-    Imagine you’re running an appointment-booking funnel. A lead books a call today, realizes they have a conflict 10 minutes later and reschedules, then reschedules *again* tomorrow.
+- **Without Filtering:** Your report shows 3 appointments for 1 person. This makes your "Cost per Appointment" look 3x cheaper than it actually is, leading to bad optimization decisions.
+- **With Filtering:** By setting the report to **Count Only 1 Per Contact**, we ignore the duplicates and show you the true cost of acquiring that one lead.
 
-    - **Without Filtering:** Your report shows 3 appointments for 1 person. This makes your "Cost per Appointment" look 3x cheaper than it actually is, leading to bad optimization decisions.
-    - **With Filtering:** By setting the report to **Count Only 1 Per Contact**, we ignore the duplicates and show you the true cost of acquiring that one lead.
+### Choosing a Window
 
-    ### Choosing a Window
+You can also set a **Rolling Window** for conversions (e.g., every 7, 14, or 30 days).
 
-    You can also set a **Rolling Window** for conversions (e.g., every 7, 14, or 30 days).
+- **7-Day Window:** If a lead books an appointment, reschedules twice in the first week, but then comes back through a different ad and re-books two weeks later, the system will count that second booking as a new event.
 
-    - **7-Day Window:** If a lead books an appointment, reschedules twice in the first week, but then comes back through a different ad and re-books two weeks later, the system will count that second booking as a new event.
+<Tip>
+  For most sales-call funnels, I recommend a 7 or 14-day rolling window to account for short-term reschedules while still capturing repeat business later on.
+</Tip>
 
-    <Tip>For most sales-call funnels, I recommend a 7 or 14-day rolling window to account for short-term reschedules while still capturing repeat business later on.</Tip>
+### Cost Metrics
 
-    ### Cost Metrics
+By default, the system displays the **Cost Per Conversion** for every event you track. If you find your dashboard is getting too cluttered, you can toggle this off for specific events within the preset editor.
 
-    By default, the system displays the **Cost Per Conversion** for every event you track. If you find your dashboard is getting too cluttered, you can toggle this off for specific events within the preset editor.
-
-    Once you’ve dialed in your columns and unique tracking logic, give your preset a name and hit **Save**. You’re now looking at a dashboard that shows exactly what matters to your bottom line.
+Once you've dialed in your columns and unique tracking logic, give your preset a name and hit **Save**. You're now looking at a dashboard that shows exactly what matters to your bottom line.
