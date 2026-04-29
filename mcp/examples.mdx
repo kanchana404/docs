@@ -92,3 +92,111 @@ Contacts ranked by total revenue with acquisition source and campaign.
 
 Lists calls by duration, pulls transcripts for AI summarization.
 </Accordion>
+
+## Fathom Meetings
+
+<Accordion title="Top objections this month">
+**You:** "What objections are coming up most on sales calls this month?"
+
+**Tools used:** `get_meetings` (mode: insights, fromDate: month start)
+
+Returns aggregated `objections` ranked by frequency with sample meeting IDs you can drill into. The AI uses these to identify the top blockers in your pipeline.
+</Accordion>
+
+<Accordion title="Pain points across discovery calls">
+**You:** "What are the top pain points prospects mention on Discovery calls?"
+
+**Tools used:** `get_meetings` (mode: insights, callTypeId: discovery)
+
+Filters insights to a specific call type so problems and pain points reflect early-funnel conversations only.
+</Accordion>
+
+<Accordion title="Read a specific meeting transcript">
+**You:** "Pull up the transcript of yesterday's demo with Kasey Flynn."
+
+**Tools used:** `get_meetings` (list, search) → `get_meetings` (transcript)
+
+Lists recent meetings to find the right ID, then pulls the full transcript with speaker, timestamp, and text per entry.
+</Accordion>
+
+<Accordion title="Action items from a meeting">
+**You:** "What action items came out of the meeting with `<contact name>`?"
+
+**Tools used:** `get_contacts` → `get_meetings` (list, contactId) → `get_meetings` (get)
+
+Looks up the contact, finds their meetings, then returns the structured `actionItems` and `nextSteps` from the meeting.
+</Accordion>
+
+<Accordion title="Sales rep performance">
+**You:** "Which sales rep ran the most meetings last week? What were the outcomes?"
+
+**Tools used:** `get_meetings` (mode: insights, fromDate: -7 days)
+
+Returns `salesRepBreakdown` (count per rep) and `outcomeBreakdown` (counts of `PURCHASED`, `LOST`, `STALLED`, etc.).
+</Accordion>
+
+<Accordion title="What questions do prospects ask?">
+**You:** "What are the top questions prospects ask on sales calls?"
+
+**Tools used:** `get_meetings` (mode: insights)
+
+Returns `aggregatedInsights.prospectQuestions` ranked by frequency — useful for sales enablement, FAQ writing, and product positioning.
+</Accordion>
+
+<Accordion title="Meetings linked to a deal that closed">
+**You:** "We just closed `<contact email>`. Pull all the meetings we had with them and summarize the journey."
+
+**Tools used:** `get_contacts` (email filter) → `get_meetings` (list, contactId) → `get_meetings` (get) per meeting
+
+Builds a deal narrative from first discovery to close — problems raised, objections handled, next steps that worked.
+</Accordion>
+
+## YouTube Performance
+
+<Accordion title="Channel-level views over a custom range">
+**You:** "How many YouTube views did my channel get in the last 7 days?"
+
+**Tools used:** `list_youtube_channels` → `get_youtube_channel_metrics` (channelId, ~7-day range)
+
+The AI picks the channel, then calls the channel-rollup tool **once** to return the total — no per-video summing.
+</Accordion>
+
+<Accordion title="Top videos with retention story">
+**You:** "What's my top-performing video by 30-day views? Why is it doing well?"
+
+**Tools used:** `list_youtube_videos` (sort: views30d, limit: 1) → `get_youtube_video`
+
+Returns the top video, then pulls full detail including retention curve and AI insight narrative.
+</Accordion>
+
+<Accordion title="Daily views breakdown">
+**You:** "Give me a day-by-day breakdown of YouTube views for the last 14 days."
+
+**Tools used:** `get_youtube_channel_metrics` (includeDaily: true)
+
+Returns the `daily[]` array with one row per date so the AI can present a chart-ready series.
+</Accordion>
+
+<Accordion title="Where do my views come from?">
+**You:** "What are the top traffic sources for my best video?"
+
+**Tools used:** `list_youtube_videos` (sort: views30d, limit: 1) → `get_youtube_metrics` (dimension: trafficSource)
+
+Drills into a single video's traffic source breakdown — YT Search vs. Suggested Video vs. External URL, etc.
+</Accordion>
+
+<Accordion title="Find videos by content">
+**You:** "Find all my videos that talk about Meta ads, then summarize the most-watched one."
+
+**Tools used:** `search_youtube_videos` (query: "meta ads") → `get_youtube_video` on the top match
+
+Full-text search across title + description + hook + transcript + AI insight narrative. Returns `matchedIn` so the AI knows whether the match was in the metadata, the transcript, or the analysis text.
+</Accordion>
+
+<Accordion title="Quote from a transcript">
+**You:** "What did I say about pricing in my Cortana Ads Manager video?"
+
+**Tools used:** `search_youtube_videos` (query: "Cortana Ads Manager") → `get_youtube_transcript`
+
+Finds the video, returns timestamped segments so the AI can quote the exact moment with `start` time references.
+</Accordion>

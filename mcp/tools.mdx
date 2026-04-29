@@ -143,6 +143,67 @@ Conversion entries and LTV analysis.
 
 ---
 
+## get_meetings
+
+Fathom meeting recordings — sales call data including transcripts, AI summaries, attendees, action items, and structured insights (problems, pain points, objections, prospect questions, next steps).
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `mode` | enum | Yes | `list`, `get`, `transcript`, `insights` |
+| `meetingId` | string | For get/transcript | Meeting ID |
+| `contactId` | string | No | Filter by contact |
+| `callTypeId` | string | No | Filter by call type ID |
+| `salesRepEmail` | string | No | Filter by recorded-by email |
+| `outcome` | enum | No | `PURCHASED`, `VERBAL_COMMIT`, `PROPOSAL_REQUESTED`, `FOLLOW_UP_SCHEDULED`, `UNDER_REVIEW`, `STALLED`, `LOST`, `NO_DECISION` |
+| `isStructured` | string | No | `true` / `false` — meetings with structured insights extracted |
+| `fromDate` / `toDate` | string | No | ISO 8601 date range — filters by meeting date |
+| `limit` | number | No | List mode page size (max 50, default 20) |
+| `cursor` | string | No | Pagination cursor for list mode |
+
+<Accordion title="Mode details">
+- **list** — Meeting metadata (title, date, duration, attendees, outcome, call type, recorded-by, insight counts). Paginated with cursor.
+- **get** — Single meeting with full structured data: `conversationSummary`, `problems`, `painPoints`, `objections`, `prospectQuestions`, `nextSteps`, `summary`, `actionItems`, `attendees`. Requires `meetingId`.
+- **transcript** — Full transcript with `speaker`, `timestamp`, and `text` per entry. Up to 2 MB per meeting. Requires `meetingId`.
+- **insights** — Aggregated breakdown across many meetings: top `problems` / `painPoints` / `objections` / `prospectQuestions` (with frequency and sample meeting IDs), plus `callTypeBreakdown`, `outcomeBreakdown`, and `salesRepBreakdown`. Use date filters to scope.
+</Accordion>
+
+**Example response (insights mode):**
+
+```json
+{
+  "data": {
+    "totalMeetings": 156,
+    "structuredMeetings": 142,
+    "truncated": false,
+    "callTypeBreakdown": [
+      { "callType": "Sales Call", "count": 89 },
+      { "callType": "Discovery", "count": 45 }
+    ],
+    "outcomeBreakdown": [
+      { "outcome": "FOLLOW_UP_SCHEDULED", "count": 62 },
+      { "outcome": "PURCHASED", "count": 18 }
+    ],
+    "salesRepBreakdown": [
+      { "email": "luis@usecortana.ai", "name": "Luis Vasquez", "count": 87 }
+    ],
+    "aggregatedInsights": {
+      "problems": [
+        { "text": "Manual attribution tracking is broken", "frequency": 23, "sampleMeetingIds": ["..."] }
+      ],
+      "painPoints": [...],
+      "objections": [...],
+      "prospectQuestions": [...]
+    }
+  }
+}
+```
+
+<Tip>**Workflow:** Use `list` to find meetings → `get` for full structured data → `transcript` for the actual conversation. Use `insights` for "what are prospects saying?" type questions across many meetings.</Tip>
+
+<Tip>The `insights` mode scans up to 5,000 meetings per call. Use `fromDate` / `toDate` to scope larger histories.</Tip>
+
+---
+
 ## get_utms
 
 Returns all available UTM values (sources, campaigns, mediums, ads) and their hierarchy. No parameters required.
@@ -152,3 +213,142 @@ Returns all available UTM values (sources, campaigns, mediums, ads) and their hi
 ## get_presets
 
 Returns attribution column presets (funnel views). No parameters required.
+
+---
+
+# YouTube Organic Tools
+
+These 7 tools query the YouTube data ingested by the YouTube Organic integration — channel rollups, video metrics, retention curves, transcripts, and AI-generated insight narratives. All scoped to the authenticated business.
+
+<Tip>
+**Prefer `get_youtube_channel_metrics` over summing per-video calls.** Channel rollups are an authoritative aggregate maintained by the daily sync. Per-video summing can drift because some channel views don't tie to a specific video (deleted videos, channel-page traffic, etc.).
+</Tip>
+
+## list_youtube_channels
+
+Connected & selected YouTube channels with last-30-day performance summary.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| _(none)_ | — | — | Returns all selected channels for the business |
+
+**Returns:** array of channels, each with `subscriberCount`, lifetime `viewCount`, `videoCount`, `syncStatus`, plus `last30d.{ views, estimatedMinutesWatched, subscribersGained, topTrafficSource }`.
+
+<Tip>Always start here — every other YouTube tool needs an internal `channelId` from this response (NOT the platform `UC...` id).</Tip>
+
+---
+
+## get_youtube_channel_metrics
+
+Channel-level totals + daily breakdown for any custom date range. Reads directly from the channel rollup table — one call answers "last 7 days," "this month," etc.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `channelId` | string | Yes | Internal channel id from `list_youtube_channels` |
+| `from` | string | No | Start date `YYYY-MM-DD`. Default: 30 days ago |
+| `to` | string | No | End date `YYYY-MM-DD`. Default: yesterday |
+| `includeDaily` | boolean | No | Include the daily array. Default: `true` |
+
+**Returns:**
+
+```json
+{
+  "channel": { "id": "...", "name": "Matei Parvu", "platformChannelId": "UC..." },
+  "range":   { "from": "2026-04-22", "to": "2026-04-28", "days": 7 },
+  "total": {
+    "views": "48",
+    "estimatedMinutesWatched": "39",
+    "likes": "0",
+    "comments": "0",
+    "shares": "0",
+    "subscribersGained": "0",
+    "subscribersLost": "0",
+    "averageViewDuration": 49
+  },
+  "daily": [{ "date": "2026-04-22", "views": "...", ... }, ...]
+}
+```
+
+<Tip>Use `includeDaily: false` for cheap totals when you don't need the day-by-day series.</Tip>
+
+---
+
+## list_youtube_videos
+
+Paginated video list for a channel — sortable by recency or 30-day performance.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `channelId` | string | Yes | Internal channel id |
+| `limit` | number | No | 1-100. Default: `20` |
+| `sort` | enum | No | `publishedAt` (default, newest first), `views30d`, `subscribersGained30d` |
+| `videoType` | enum | No | Filter to `VIDEO`, `SHORT`, or `LIVE` |
+
+**Returns:** for each video — `title`, `thumbnailUrl`, `publishedAt`, `videoType`, `durationSec`, `hook`, lifetime `viewCount/likeCount/commentCount`, plus `last30d.{ views, estimatedMinutesWatched, subscribersGained }`.
+
+---
+
+## get_youtube_video
+
+Full detail for one video.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `videoId` | string | Yes | Internal video id (NOT the 11-char platform id) |
+
+**Returns:** all video metadata, channel info, all transcripts (`language`, `fullText`, `segments`), latest retention curve, AI insight (if generated — see [insights](#get_youtube_video) note below), and three rollup windows: `lifetime`, `last30d`, `last7d`.
+
+<Tip>The `insight` field is populated by the nightly insight worker (08:00 UTC). It contains an AI-written 1-3 paragraph performance narrative + a structured `summaryJson` with topTrafficSource, retentionDropoffRatio, etc. Requires `ANTHROPIC_API_KEY` to be configured.</Tip>
+
+---
+
+## get_youtube_metrics
+
+Per-video analytics sliced by a dimension — daily time-series or breakouts.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `videoId` | string | Yes | Internal video id |
+| `dimension` | enum | Yes | `day`, `trafficSource`, `device`, `country`, `demographics` |
+| `from` | string | No | `YYYY-MM-DD`. Default: 30 days ago |
+| `to` | string | No | `YYYY-MM-DD`. Default: yesterday |
+
+**Dimension behaviour:**
+
+<Accordion title="Dimension details">
+- **day** — daily time-series of views, watch time, likes, comments, subs gained
+- **trafficSource** — `YT_SEARCH`, `EXT_URL`, `SUGGESTED_VIDEO`, `YT_OTHER_PAGE`, etc.
+- **device** — `DESKTOP`, `MOBILE`, `TABLET`, `TV`
+- **country** — single snapshot keyed at the period end (YouTube's API rejects `day,country` as a query shape, so we store a snapshot per backfill)
+- **demographics** — `viewerPercentage` by age × gender, refreshed weekly when the snapshot is older than 7 days
+</Accordion>
+
+---
+
+## get_youtube_transcript
+
+Full transcript text + timestamped segments for a video.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `videoId` | string | Yes | Internal video id |
+| `language` | string | No | Language code (e.g. `en`). Omit for the best available |
+
+**Returns:** `language`, `isAutoGenerated`, `fullText`, `segments[]` where each segment is `{ start, dur, text }`.
+
+<Tip>Picks the best transcript automatically: human-authored over auto-generated, then English over other languages.</Tip>
+
+---
+
+## search_youtube_videos
+
+Full-text search across the user's YouTube videos. Backed by MySQL FULLTEXT indexes covering **title + description + hook** (on the videos table), **transcript fullText**, and **insight narrative**.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | Yes | Search query, min 2 chars. MySQL natural-language mode |
+| `limit` | number | No | 1-50. Default: `10` |
+
+**Returns:** matching videos with `title`, channel name, `publishedAt`, `viewCount`, and `matchedIn` (`'video' | 'transcript' | 'insight'`) so you know whether the search hit metadata, transcript, or AI analysis text.
+
+<Tip>This is the entry point for "find videos that mention X" questions. The AI typically follows up with `get_youtube_video` on the top match for full detail.</Tip>
