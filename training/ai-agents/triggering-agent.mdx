@@ -1,0 +1,96 @@
+---
+title: "6. How To Trigger Your AI Agent"
+description: ""
+---
+
+*Below are going to be video tutorials for different ways to trigger your AI Agent.*
+
+<AccordionGroup>
+
+<Accordion title="📌 Webhook Trigger">
+
+<iframe src="https://www.loom.com/embed/cea0d7c5a2704e05b287458c2c49bfca" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+## How to Trigger Your Agent Using Custom Webhooks
+
+You can trigger your AI agent to perform tasks based on events from external platforms (like Jotform, Typeform, or Facebook Leads) using a **Custom Webhook**.
+
+This guide covers how to generate a webhook URL, configure it in your automation platform (using Zapier as an example), and map the incoming data to your agent.
+
+## 1. Create a Webhook in Agent Hub
+
+1. Navigate to your **AI Agents** dashboard and click **Train AI** on the specific agent you wish to edit.
+2. Locate the **Agent Trigger** node on the canvas.
+3. Click the **Settings (gear) icon** on the Agent Trigger node to open the configuration menu.
+4. Click **+ Add Your First Webhook**.
+5. **Name your webhook.**
+   - *Tip:* We recommend a naming convention that identifies the source and the action, such as Zapier - Jotform Submitted.
+6. Click **Next**.
+
+## 2. Connect Your Automation Platform
+
+Once your webhook is created, you need to send data to it from your external source.
+
+1. **Copy the Webhook URL** provided in the Agent Hub.
+2. Click the **Start Listening for Events** button. *Do not close this window yet.*
+3. Open your automation platform (e.g., Zapier, Make, n8n).
+
+### Configuring the Request (Zapier Example)
+
+1. Set up your trigger (e.g., "New Submission" in Jotform).
+2. Add a new action step and search for **Webhooks by Zapier**.
+3. Select **POST** as the Action Event.
+4. **Configure the action:**
+   - **URL:** Paste the Webhook URL you copied from Agent Hub.
+   - **Payload Type:** Set this to **JSON** (This is critical).
+   - **Data:** Ensure the relevant data from your trigger is passed through.
+5. Click **Continue** and **Test the Step**.
+   - *Note:* You must send a test request so Agent Hub can capture the data structure.
+
+## 3. Map Your Webhook Fields
+
+Back in the Agent Hub, you should see a "Webhook Captured" success message. You now need to map the incoming data to Create or Find a contact in your CRM.
+
+**How Contact Matching Works:**
+The system uses the mapped fields to identify the user. The priority logic is:
+
+1. **Search by Email:** If an email is mapped, we search for an existing contact with that email.
+2. **Search by Phone:** If no email is found (or provided), we search for an existing contact by phone number.
+3. **Create New:** If neither are found, a new contact is created.
+
+### Mapping Steps:
+
+1. **Map Email (Important):** Drag the email field from the "Webhook Fields" list on the left into the **Email** field on the right.
+2. **Map Phone (Important):** Drag the phone number field from the left into the **Phone** field on the right.
+   - *Note:* You can search the list on the left if you have a lot of data points (e.g., type "Phone" to find the number).
+3. **Map Contact Info (Optional):** You can map additional details like First Name, Last Name, or custom answers to create a richer contact profile.
+4. Click **Save & Create Webhook**.
+
+## 4. Using Webhook Data in Your Agent Flow
+
+Once the webhook is configured, you can use the specific data you captured (like a user's name or their answer to a specific question) inside your agent's instructions or messages.
+
+1. Open any node where you want to use the data (e.g., a "Milestone" or "Message" node).
+2. To insert a variable, type **@** or press **Shift + 2** on your keyboard.
+3. Scroll down to the **Webhook** section in the dropdown menu.
+4. Select the specific data point you want to insert.
+
+Your agent now has context on the lead and can use that information to send hyper-personalized follow-ups or perform lead qualification based on the initial form submission.
+
+</Accordion>
+
+<Accordion title="📌 Go High Level Trigger">
+
+![Go High Level Trigger](https://downloads.intercomcdn.com/i/o/nkz7jznk/1853798778/a40f9abd48e466724ceace1551cb/image.png?expires=1777430700&signature=71ce5399d57866b55f8daaa185b8b09016d1d5e35a822d428c41048080ae125f&req=dSgiFc53lYZYUfMW1HO4zbRrwn47lQ9zUJei2DUjDnogaiCkx9aLGhEYzJvF%0Ab0jT%0A)
+
+**Steps:**
+
+1. Open Go High Level Automations
+2. Define your GHL workflow trigger (ex: form submitted)
+3. Search for the "Trigger Agent" action step
+4. Select which agent you want to trigger
+5. Click save.
+
+</Accordion>
+
+</AccordionGroup>

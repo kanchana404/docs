@@ -1,0 +1,55 @@
+---
+title: "2) Connecting Integrations"
+description: "Learn how to connect AgentKong to your integrations"
+---
+
+# *Video Tutorial*
+
+<iframe src="https://www.loom.com/embed/797058400f744bb1960d906a9311396a" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Video Transcript">
+Alright, so now that we've gone ahead and we've actually created the business, next thing we're gonna have to do is actually set up this business so that it's functional. And in order to do that, we're gonna come down here, we're going to click on the settings within the business page, then we're going to see the nice integrations. So within the actual integrations, what we're going to have to do is we're going to have to connect a channel communication provider. So that would be something like GoHighLevel because we can send and receive messages from GoHighLevel. If you don't have a GoHighLevel, you need to get a new number. We also support Twilio as well. So again, we can come in, we can create a Twilio account, get our A2P verification through Twilio. We are actively right now working on iMessage within the next one and a half weeks. If you're watching this right now, it will be available, chances are you're probably watching this after we've already got it available. So iMessage is another one. Uh, we're building out our own WhatsApp, our own Instagram. You can also use Instagram through GoHighLevel, but we're also gonna be connecting Instagram through Meta, Facebook Messenger through Meta, etcetera. So there are going to be a lot of communications. Again, you can click on the communications tab up here to pretty much see everything available for communications. Um, but yes, first thing you're going to need to do is connect either a GoHighLevel, a Twilio, iMessage, these would give you pretty much your three for actual text messaging. iMessage also supports text and blue bubbles, which is really exciting. Then if we're going to talk about WhatsApp, you can do WhatsApp here, you can also do WhatsApp through HighLevel. As you can see, can connect also through HighLevel, email as well, Instagram also through HighLevel, so is Facebook or you can connect them individually. But first thing we're going to need to do is obviously set up a communications channel so that way Kong can actually go ahead and start speaking to people through specific channels. Now once that is done, we're then going to need to come in and connect your OpenAI key. So to do that, you're just gonna hit this, you're gonna click here to get your API key from OpenAI and then just go ahead and copy and paste it in there. And then we also do have Claude as a backup in case you have any sort of API errors or any sort of rate limit errors or any sort of issues with OpenAI whatsoever. Maybe the servers are down. Instead of Kong just dying out completely, we actually have a backup through Claude, which is pretty nice. You can go ahead, do the exact same thing, click on this link right here, get your API key from Anthropic and make sure that that is running. Now, very important to mention on these AI uh integrations is you need to make sure that you have auto-rebilling turned on because the last thing that you want to do is start leveraging AI agents to send and receive messages to book appointments and then you get upset because you're like, 'Yo, it stopped responding.' And then after doing a little bit of debugging and a little bit of looking into the account, it's like, 'Oh, you don't have any more credits on your AI platform.' So please, please, please make sure, spend the extra second on how to actually turn that on. We will have linked documentation from the actual uh platforms themselves on how to do it. It's very, very simple. You're just gonna go into billing and set up auto-rebilling. But that is an important caveat to mention when it comes to these AI providers is you do want the auto-billing to be turned on that way you don't have to worry about your AI agents not responding in production. And that is pretty much it when it comes to setting up integrations. Again, make sure that you have a communication layer, make sure that you have some AI integrated and away you go. All right, I'll catch you guys in the next video.
+</Accordion>
+
+---
+
+## Introduction
+
+Now that you have created a new business, the next crucial step is to set it up with the necessary integrations to make it fully functional. This involves connecting communication channels so your AI agents can interact with contacts, and linking your AI providers to power their conversations.
+
+## Step 1: Navigate to Business Settings
+
+All integrations are managed on a per-business basis. This allows you to use different phone numbers, communication apps, or AI keys for each client or department.
+
+1. From the left-hand navigation menu, ensure you have the correct business selected in the dropdown at the top.
+2. Click on the **"Settings"** tab at the bottom of the menu. This will take you to the **Integrations** page.
+
+## Step 2: Connect Your Communication Channels
+
+For an AI agent to send or receive messages (like SMS, iMessage, or Instagram DMs), you must first connect a communication service.
+
+- **Primary Options:** We recommend connecting either **GoHighLevel** or **Twilio**.
+  - **GoHighLevel:** A comprehensive platform that can manage your entire CRM, automated follow-ups, and multiple communication channels.
+  - **Twilio:** A direct integration that gives you access to voice calls, SMS, WhatsApp, and email.
+- **Other Channels:** We are continuously expanding our native integrations. Keep an eye out for direct connections to **iMessage**, **WhatsApp**, **Instagram**, **Facebook Messenger**, and more.
+
+You can filter the available integrations by clicking the **"Communication"** tab at the top of the page.
+
+## Step 3: Connect Your AI Providers
+
+To give your agents their "brain," you must connect at least one AI provider.
+
+1. While on the **Integrations** page, click the **"AI"** filter tab.
+2. **Connect OpenAI (Required):**
+   - Click the **"Connect with Business API Key"** button under the OpenAI option.
+   - A pop-up window will appear. Paste your OpenAI API key into the field.
+   - Click the link in the pop-up if you need help finding your API key on the OpenAI platform.
+   - Click **"Update API Key"**.
+3. **Connect Claude (Anthropic) (Optional but Recommended):**
+   - We highly recommend also connecting your Claude API key.
+   - Agent Kongai uses Claude as an automatic backup. If OpenAI's servers experience downtime or rate-limit errors, our system will seamlessly switch to Claude to ensure your agents continue to function without interruption.
+
+**⚠️ *CRITICAL: Enable Auto-Billing on Your AI Account***
+
+- It is extremely important that you enable **auto-billing** or **auto-recharge** for your credits within your OpenAI and/or Anthropic accounts.
+- If your account runs out of credits, **your AI agents will immediately stop working** and will not be able to respond to messages. Enabling auto-billing prevents service interruptions and ensures your agents are always online to capture leads and book appointments.

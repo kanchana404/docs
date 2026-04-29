@@ -1,0 +1,76 @@
+---
+title: "9. Editing & Adjusting Your AI Agent"
+description: "Learn how to make edits & adjust your AI Agent & Workflows"
+---
+
+# *Video Tutorial*
+
+<iframe src="https://www.loom.com/embed/49eb461c11124795a62fc18b3fbf5d75" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+---
+
+## Editing and Fine-Tuning Your AI Agent
+
+**Introduction**
+
+Once your AI agent is live and interacting with contacts, you'll gather valuable insights into its performance. You may find that people ask unexpected questions or that you want to adjust the conversation's flow. AgentKong provides powerful and flexible tools to make these adjustments. This guide will cover the two primary methods for editing your agent: training its knowledge base and modifying the conversational flow.
+
+## Method 1: Training the AI's Knowledge and Memory
+
+This method is best for when your agent needs to learn or correct factual information, handle new objections, or answer specific questions about your business.
+
+**Step-by-Step Instructions:**
+
+1. Go inside the Agent Hub & click the **"Train AI"** button (the brain icon) at the top of the screen. This will open the AI training panel.
+2. You have two options here: **Knowledge Base** and **Fine-Tuning**.
+
+### A) The Knowledge Base
+
+Use the Knowledge Base to add structured information the agent can reference at any time.
+
+- **When to use:** To add or update business hours, product/service details, FAQs, competitor information, or common objection handlers.
+- **How to use:**
+  1. Select a category, such as **"Objection Handling."**
+  2. Click **"+ Add Objection."**
+  3. In the "Objection" field, type the objection the user might raise (e.g., "Your price is too high.").
+  4. In the "Response" field, write the ideal way for the agent to respond.
+  5. Click **Save**. The agent will now use this information when it encounters this specific objection.
+
+### B) Fine-Tuning (Memory)
+
+Use Fine-Tuning to interactively teach your agent new pieces of information or correct things it has remembered incorrectly. This is ideal for less structured, conversational knowledge.
+
+- **When to use:** To add context from conversations or teach the agent random facts it might need to recall later.
+- **How to use:**
+  1. In the "Train AI" panel, select the **"Fine-Tuning"** tab.
+  2. Type a message to the agent to teach it something new. Use phrases like "save that" or "remember that." For example: "Her name is Alisha, remember that."
+  3. The agent will confirm it has saved the information to its memory.
+  4. You can test the memory by asking a related question, like "What is my wife's name?"
+  5. The **Agent's Memory** panel on the right will show the relevant memory it used to answer. You can view the full content or **delete** a specific memory if it's no longer needed or incorrect.
+
+## Method 2: Editing the Conversational Flow
+
+This method is for changing the agent's behavior, instructions, or the specific messages it sends at different stages of the conversation.
+
+### A) Local Adjustments (Extra Instructions in Nodes)
+
+Use this to provide specific instructions that are only relevant for one particular step (milestone node) in the conversation.
+
+- **When to use:** You want to add more context to a specific message. For example, when the agent checks for availability, you might want it to explain what the call will be about.
+- **How to use:**
+  1. In the Agent Workflow, click on the specific milestone node you want to edit (e.g., "Availability Check").
+  2. In the node's settings panel, locate the **"Extra Instructions"** box.
+  3. Type the additional context or instructions you want the agent to consider *only* when it reaches this node. For example: "This call is regarding our AI sales agent audit. On this call, we will see what the lead's sales process looks like."
+  4. Save the changes. These instructions are localized and will not affect other nodes in the flow.
+  5. P.S: This can work for conversation nodes as well
+
+### B) Global Adjustments (Advanced Response Rules)
+
+Use this to set overarching rules that apply to the agent's behavior throughout the entire conversation, regardless of which node it's in.
+
+- **When to use:** You need to enforce a rule for all agent responses, such as correcting language dialects or preventing the use of certain words.
+- **How to use:**
+  1. Click the **"Settings"** button (the gear icon) at the top of the flow editor.
+  2. Find the **"Advanced Response Rules (Optional)"** field.
+  3. Enter the rule you want to enforce. For example, a user in Quebec might add: "You are only to use French Canadian dialect and words, not France French."
+  4. This global rule will guide the agent's responses across the entire conversation flow.

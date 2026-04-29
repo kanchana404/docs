@@ -1,0 +1,63 @@
+---
+title: "Ad Tracking"
+description: "Monitor ad performance, manage tracking pixels, and analyze conversion data."
+---
+
+<iframe src="https://www.loom.com/embed/a4ebca42f32648b8add75564ea75caad" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+---
+
+The Ad Tracking page is the central hub for monitoring the granular performance of your traffic sources, managing your tracking infrastructure, and analyzing user behavior. While the Unified Attribution table gives you a global view, this dashboard allows you to drill down into specific campaigns, inspect individual pixel fires, and verify that your conversion data is accurate.
+
+## 1. Navigating the Data Hierarchy
+
+The Attribution Table is structured to let you drill down from a high-level source view all the way to individual ad creatives.
+
+1. **Select a Level:** Use the tabs above the data table to switch between **Sources** (e.g., Meta Ads, Direct/Organic), **Campaigns**, **Mediums** (Ad Sets), and **Ads**.
+2. **Filter by Source:** To see campaigns for a specific source, hover over the source name (e.g., "Meta Ads") and click the **Filter icon**.
+3. **Drill Down:** Once filtered, click the **Campaigns** tab to see only the campaigns associated with that source. Repeat this process to view Ad Sets (Mediums) and specific Ads.
+4. **View Unattributed Data:** If you see "Unattributed" or "Bot" traffic, this often indicates traffic from crawlers or clicks where UTM parameters were stripped.
+
+## 2. Display Settings (Currency & Timezone)
+
+You can normalize your data view to match your preferred reporting standards, regardless of the currency or time zone used in the ad accounts.
+
+1. Click the **Settings (Gear Icon)** located above the table.
+2. **Timezone:** Set the timezone to match your local time or the client's reporting timezone.
+3. **Currency:** Select your preferred display currency (e.g., USD).
+4. **Why this matters:** If an ad account spends in a foreign currency (e.g., CAD or INR) but you report in USD, the system will automatically convert the spend and conversion values for accurate reporting.
+
+## 3. Managing Data Columns
+
+Customize your table to view the exact metrics relevant to your specific funnel type.
+
+1. Click the **Columns** button in the top right.
+2. **Use Presets:** Select a pre-configured layout such as **Sales Funnel (1 Call)** or **Free Trial Funnel**.
+3. **Edit Columns:** Click **Edit** to add or remove specific metrics.
+4. **Cost Per Result:** Toggle the **Show Cost Per** switch next to any conversion event (e.g., Leads) to automatically calculate your CPA (Cost Per Acquisition) for that specific metric.
+
+## 4. Analyzing Page Views and Bot Traffic
+
+The system provides total transparency into every click and page load. You can inspect this data to verify valid traffic and identify bot activity.
+
+1. Click the hyperlinked number in the **Page Views** column.
+2. **Sessions vs. Contacts:** The top bar distinguishes between total sessions (visits) and unique contacts identified.
+3. **Inspect Session Data:** Click **View Data** on any specific entry to open the Session Data Details.
+4. **Identifying Bots:** Look at the **User Agent** field. If you see strings like "Meta External Ads" or "Webmasters Crawler," this indicates a bot sent by the ad platform to scan your landing page, not a real human visitor.
+
+## 5. Inspecting Conversion Data
+
+You can verify the quality and source of every conversion event (Leads, Purchases, etc.) by looking at the raw data received by the system.
+
+1. Click the hyperlinked number in a conversion column (e.g., **Leads**).
+2. Locate a specific contact and click **View Data**.
+3. **Attribution Data:** Review the Source, Medium, and Campaign associated with that lead.
+4. **Webhook Data:** Scroll to the bottom to see the raw JSON data received from the integration (e.g., GoHighLevel). This transparency allows you to debug exactly what information was passed to the system during the conversion event.
+
+## 6. Tracking Setup & Optimization Tabs
+
+The Ad Tracking page also houses the configuration tabs for your tracking infrastructure. *Note: Detailed setup instructions for these sections are available in the dedicated Training Portal.*
+
+- **Tracking Pixels:** Get your unique tracking script to place in the header of your websites.
+- **Conversion Setup:** Create and map specific events (e.g., "Booked Appointment") to your CRM or funnel builder.
+- **AI Ad Optimization:** Configure the Conversion API (CAPI) to send validated conversion data back to ad platforms (like Meta) to train their AI and improve ad performance.

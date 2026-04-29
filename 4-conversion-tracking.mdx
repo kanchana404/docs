@@ -4,280 +4,196 @@ title: "4.2) Conversion Sources"
 
 ## <u>Conversion Sources</u>
 
-Conversion sources can also be thought of as "Data Sources" for how you're going to feed data into a conversion.
-
 <AccordionGroup>
-  <Accordion title="Meta Lead Forms">
-    <div style={{position: "relative", paddingBottom: "57.903879559930516%", height: 0}}>
-  <iframe src="https://www.loom.com/embed/9c28beb09b1a413e9e0fecaf851e6c42" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}} />
-</div>
 
-    # Meta Lead Form Setup
+<Accordion title="Meta Lead Forms">
 
-    Alright, so we're going to walk through how to set up Meta Lead Forms as a conversion source. It's a bit more "complicated" than other sources, but that's really just because of how Meta handles permissions. Once you get the handshake right, it works like a charm.
+<div style={{position: "relative", paddingBottom: "57.903879559930516%", height: 0}}><iframe src="https://www.loom.com/embed/9c28beb09b1a413e9e0fecaf851e6c42" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></iframe></div>
 
-    ## 1. Connect Your Meta Pages
+# Meta Lead Form Setup
 
-    Meta Lead Forms have their own dedicated tab because there are a few extra steps to get them synced up.
+Alright, so we're going to walk through how to set up Meta Lead Forms as a conversion source. It's a bit more "complicated" than other sources, but that's really just because of how Meta handles permissions. Once you get the handshake right, it works like a charm.
 
-    <Steps>
-      <Step title="Navigate to Meta Lead Forms">
-        Go to 
-        **Conversion Setup**
-         and click the 
-        **Meta Lead Forms**
-         tab.
-      </Step>
-
-      <Step title="Select Your Pages">
-        Click the 
-        **All Pages**
-         button to see a list of every Facebook page you have access to. Toggle the switch to 
-        **On**
-         for any page you want to track.
-      </Step>
-
-      <Step title="Activate Specific Forms">
-        Once a page is connected, you'll see a list of its lead forms. By default, most of these will be turned on, but you can manually toggle individual forms on or off depending on what you want us to track.
-      </Step>
-    </Steps>
-
-    ## 2. Map Your Fields
-
-    By default, we automatically map the basics for you: **Email**, **Full Name**, and **Phone Number**. You don't have to lift a finger for those.
-
-    <Tip>
-      If you want to track extra data—like custom questions about their industry or budget—you can click **Map Fields**. You can map these to our **Contact Custom Fields**, which is especially useful if you're using AI Agents that need that context to handle follow-ups.
-    </Tip>
-
-    ## 3. The Meta "Handshake" (Important!)
-
-    Meta is notoriously picky with permissions. Even if everything looks right in our dashboard, you **must** verify the lead access permissions inside your Facebook Business Suite.
-
-    1. Go to [**business.facebook.com/settings**](https://www.google.com/url?sa=E&q=https%3A%2F%2Fbusiness.facebook.com%2Fsettings).
-    2. On the left-hand sidebar, go to **Integrations** \> **Lead Access**.
-    3. Click on the page you're tracking.
-    4. Click on the **CRMs** tab.
-    5. If you don't see **Cortana AI** listed, click **Assign CRM**, search for it, and hit **Confirm**.
-
-    <Warning>
-      If Cortana AI isn't assigned as the CRM for Lead Access inside Facebook, Meta will block us from pulling your leads. Always double-check this step!
-    </Warning>
-
-    ## 4. Finalize the Conversion Source
-
-    Now that the plumbing is set up, we just need to tell the system which "bucket" to put these leads in.
-
-    1. Go back to the **Conversion Events** tab.
-    2. Find your **Lead** event (or whichever event you use for new leads) and click the edit icon.
-    3. Click **Add Source**.
-    4. Select **Meta Ads** as the integration and **Lead Form Submissions** as the source.
-    5. Select your Ad Account and hit **Submit**.
-
-    That's it! Now, every time a lead form fires on Facebook or Instagram, that data will flow right into our system and be attributed to the correct campaign. If you run into any permission snags, just reach out to the support team in the bottom right.
-  </Accordion>
-
-  <Accordion title="Webhooks">
-    <div style={{position: "relative", paddingBottom: "57.903879559930516%", height: 0}}>
-  <iframe src="https://www.loom.com/embed/0dde051aba1b41fca4b468634045f96b" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}} />
-</div>
-
-    # Webhook Conversion Sources
-
-    Alright, to set up a conversion event via a Webhook source, we're going to dive into the event settings and get that data flowing from your external platforms.
-
-    ## 1. Create the Webhook Source
-
-    First, find the event you want to track and click the edit icon.
-
-    <Steps>
-      <Step title="Add Source">
-        Click the 
-        **Add Source**
-         button and select 
-        **Webhook**
-         from the integration dropdown.
-      </Step>
-
-      <Step title="Name Your Webhook">
-        Give your webhook a name so you know what it does (e.g., "Shopify Purchase" or "Calendly Booking").
-      </Step>
-
-      <Step title="Copy Your Webhook URL">
-        Once saved, you'll see a unique 
-        **Webhook URL**
-        . Copy this — you'll paste it into whatever platform you're connecting.
-      </Step>
-    </Steps>
-
-    ## 2. Map Your Fields
-
-    Once your external platform starts sending data, you'll need to tell our system how to connect the dots.
-
-    <Steps>
-      <Step title="Open the Mapping Tool">
-        Click 
-        **Map Fields**
-         inside your webhook source settings.
-      </Step>
-
-      <Step title="Match the Fields">
-        You'll see the raw data keys from the incoming payload on the left. Match them to our contact fields on the right (e.g., map 
-        `email`
-         → 
-        **Email**
-        , 
-        `name`
-         → 
-        **Full Name**
-        ).
-      </Step>
-
-      <Step title="Save Your Mapping">
-        Hit 
-        **Save Changes**
-         when done.
-      </Step>
-    </Steps>
-
-    ## 3. Test Your Webhook
-
-    Before going live, it's a good idea to fire a test event.
-
-    <Steps>
-      <Step title="Use Test Mode">
-        Toggle the source to 
-        **Test**
-         mode and fire a test event from your external platform.
-      </Step>
-
-      <Step title="Check the Logs">
-        Head to the 
-        **Requests**
-         column in your conversion source list. You should see the test event appear with all the data fields.
-      </Step>
-
-      <Step title="Promote to Live">
-        Once you're happy with the mapping, switch the source back to 
-        **Live**
-         mode.
-      </Step>
-    </Steps>
-
-    ### AI Agent Data
-
-    If you're using our AI Agents, you'll want to map fields like **Company**, **City**, or **Address**. This gives the agent the context it needs to have meaningful conversations with your leads.
-
-    ## 4. Managing Webhook Logs
-
-    If something isn't looking right, or you just want to verify the data, check the **Requests** column in your conversion source list.
-
-    <AccordionGroup>
-      <Accordion title="Promoting Test Events" icon="circle-check">
-        If you sent a real event while in "Test" mode, you can go into the logs, find that request, and swap the status from 
-        **Test**
-         to 
-        **Successful**
-         to count it.
-      </Accordion>
-
-      <Accordion title="Re-Mapping Data" icon="route">
-        Mess up a mapping? No worries. Click the 
-        **Edit Mapping**
-         button inside any log entry. We save the "Raw Metadata" (the full payload) from every webhook, so you can re-map fields like Email or Name at any time.
-      </Accordion>
-
-      <Accordion title="Troubleshooting Failures" icon="bug">
-        If a webhook shows as 
-        **Failed**
-        , it's usually because the external platform is "shooting blanks." If they send an empty payload without a Name or Email, we can't identify the contact, and the mapping will fail.
-      </Accordion>
-    </AccordionGroup>
-
-    Once your mappings are saved, hit **Save Changes** and away you go! Your webhooks are now powering your conversion tracking.
-  </Accordion>
-
-  <Accordion title="Pixel">
-    <div style={{position: 'relative', paddingBottom: '57.9617834394904%', height: 0}}>
-  <iframe src="https://www.loom.com/embed/320dda9a65e84d83a4bd69bca3f167a1" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}} />
-</div>
-
-    # Pixel Conversion Sources
-
-    Alright, the next conversion source we’re going to look at is the **Pixel** source. This is for when you already have our pixel installed on your website and you want to trigger a specific conversion event when a user takes an action or lands on a specific page.
-
-    We have two ways to fire these conversions: **URL Parameters** and **Body Tracking Snippets**.
-
-    ## 1. URL Parameters
-
-    This method is perfect for redirects. If you redirect a lead to a specific "Thank You" page only after they qualify, you can use a URL parameter to count them as a "Qualified Lead."
-
-    <Steps>
-      <Step title="Select Pixel Type">
-        Inside your event settings, click **Add Source**, select **Pixel**, and choose **URL Parameter**.
-      </Step>
-      <Step title="Configure & Set De-dup">
-        Give your source a name and set your **Deduplication (De-dup) Window**.
-
-        **What is a De-dup window?** This prevents us from double-counting conversions if someone refreshes the page. For something like a lead, I'd typically set this to at least **2 days**. This means if they refresh 7,000 times in 48 hours, we still only count it once.
-      </Step>
-      <Step title="Copy and Append">
-        Click **Submit**, then copy the generated parameter. You'll simply append this to the end of your success URL (e.g., `yourwebsite.com/thanks?conv=12345`).
-      </Step>
-    </Steps>
-
-    ## 2. Body Tracking Snippets
-
-    If you’re familiar with how the Meta (Facebook) pixel fires standard events, this will feel very natural. This is a small script you paste into the body of a specific page.
-
-    <Steps>
-      <Step title="Select Snippet Type">
-        Choose **Body Tracking Snippet** from the Pixel Type dropdown.
-      </Step>
-      <Step title="Copy the Snippet">
-        Once you hit submit, copy the generated code. It'll look like a small script tag starting with `corq('track', ...)`.
-      </Step>
-      <Step title="Install on Your Page">
-        Go to your website builder (like GoHighLevel, as shown in the video) and find the **Tracking Code** or **Custom JS** section for that specific page.
-
-        Paste the snippet into the **Body/Footer Tracking** area—not the header. Hit **Save** and **Publish**.
-      </Step>
-    </Steps>
-
-    ## Testing Your Setup
-
-    Once you’ve added your parameter or snippet, load the page in your browser.
-
-    <Tip>
-      You don't need the URL parameter visible in the address bar if you used the Body Snippet; the script fires silently in the background.
-    </Tip>
-
-    Go back to your Conversion Setup dashboard and refresh the view. You should see a "1" appear in the **Success** column, confirming the pixel is communicating perfectly with our server.
-
-    This is a bit more on the technical side, so if you're feeling stuck with URL parameters or code snippets, just reach out to the support team and we’ll help you get it sorted!
-  </Accordion>
-
-  <Accordion title="CSV">
-    <div style={{position: 'relative', paddingBottom: '57.84597563803706%', height: 0}}>
-  <iframe src="https://www.loom.com/embed/ea33cd1f07de4ecea8a00d40c348859c" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}} />
-</div>
-
-    CSV Lead & Conversion Imports If you need to upload leads or conversion data from another platform, the CSV upload is your go-to tool. Here is how to get your data synced and mapped correctly.
-
-    <Note>
-      **Pro Tip:** Before you start your import, make sure you have **AI Ad Optimization** turned on and set up. When you upload your CSV, the system can send that data back to your Meta pixel to help train it, giving you a major leg up on your ad performance.
-    </Note>
-
-    Step 1: Create the Source Select CSV Upload from the integration menu. Give your source a clear name (e.g., "Historical Leads Import"). Click Continue.
-
-    Step 2: Upload and Map Your Data Drag and drop your CSV file into the uploader. Once uploaded, you’ll need to map your file’s columns to the system fields: Required Fields: Ensure Contact Email and Contact Phone are mapped correctly, as these are vital for identifying your leads. Identity Fields: Map First Name and Last Name. Value Fields: If you’re importing sales, map the Conversion Value and Currency columns. Time & Attribution: Map the Conversion Date. You can also map Ad Name (Last Touch) or Ad Name (First Touch) if you want the system to try and match the data against your existing ad campaigns.
-
-    Step 3: Data Cleaning You have the option to Remove Duplicates. Enabled: The system will only count the first conversion it finds for a specific contact. Disabled: Every row in your CSV will be imported as a unique conversion event.
-
-    Step 4: Preview and Import Before finalizing, the system will show you an Attribution Breakdown: Ad Match Rate: See how many leads successfully matched to your existing ad data. Total Revenue: Verify the total value of the import. Invalid Rows: Review any rows that will be skipped (usually due to missing email or phone data). Once everything looks good, hit Start Import. Your data will begin syncing immediately, and you’ll see the progress update in real-time on your dashboard.
-
-    <Tip>
-      If you see rows being skipped under "Invalid Rows," double-check your CSV to ensure every contact has at least an email or a phone number before re-uploading.
-    </Tip>
-  </Accordion>
+## 1. Connect Your Meta Pages
+
+Meta Lead Forms have their own dedicated tab because there are a few extra steps to get them synced up.
+
+<Steps><Step title="Navigate to Meta Lead Forms">Go to **Conversion Setup** and click the **Meta Lead Forms** tab.</Step><Step title="Select Your Pages">Click the **All Pages** button to see a list of every Facebook page you have access to. Toggle the switch to **On** for any page you want to track.</Step><Step title="Activate Specific Forms">Once a page is connected, you'll see a list of its lead forms. By default, most of these will be turned on, but you can manually toggle individual forms on or off depending on what you want us to track.</Step></Steps>
+
+## 2. Map Your Fields
+
+By default, we automatically map the basics for you: **Email**, **Full Name**, and **Phone Number**. You don't have to lift a finger for those.
+
+<Tip>If you want to track extra data—like custom questions about their industry or budget—you can click **Map Fields**. You can map these to our **Contact Custom Fields**, which is especially useful if you're using AI Agents that need that context to handle follow-ups.</Tip>
+
+## 3. The Meta "Handshake" (Important!)
+
+Meta is notoriously picky with permissions. Even if everything looks right in our dashboard, you **must** verify the lead access permissions inside your Facebook Business Suite.
+
+1. Go to [**business.facebook.com/settings**](https://www.google.com/url?sa=E&q=https%3A%2F%2Fbusiness.facebook.com%2Fsettings).
+2. On the left-hand sidebar, go to **Integrations** > **Lead Access**.
+3. Click on the page you're tracking.
+4. Click on the **CRMs** tab.
+5. If you don't see **Cortana AI** listed, click **Assign CRM**, search for it, and hit **Confirm**.
+
+<Warning>If Cortana AI isn't assigned as the CRM for Lead Access inside Facebook, Meta will block us from pulling your leads. Always double-check this step!</Warning>
+
+## 4. Finalize the Conversion Source
+
+Now that the plumbing is set up, we just need to tell the system which "bucket" to put these leads in.
+
+1. Go back to the **Conversion Events** tab.
+2. Find your **Lead** event (or whichever event you use for new leads) and click the edit icon.
+3. Click **Add Source**.
+4. Select **Meta Ads** as the integration and **Lead Form Submissions** as the source.
+5. Select your Ad Account and hit **Submit**.
+
+That's it! Now, every time a lead form fires on Facebook or Instagram, that data will flow right into our system and be attributed to the correct campaign. If you run into any permission snags, just reach out to the support team in the bottom right.
+
+</Accordion>
+
+<Accordion title="Webhooks">
+
+<div style={{position: "relative", paddingBottom: "57.903879559930516%", height: 0}}><iframe src="https://www.loom.com/embed/0dde051aba1b41fca4b468634045f96b" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></iframe></div>
+
+# Webhook Conversion Sources
+
+Alright, to set up a conversion event via a Webhook source, we're going to dive into the event settings and get that data flowing from your external platforms.
+
+## 1. Create the Webhook Source
+
+First, find the event you want to track and click the edit icon.
+
+<Steps><Step title="Add Source">Click the **Add Source** button and select **Webhook** from the integration dropdown.</Step><Step title="Name Your Webhook">Give your webhook a name so you know what it does (e.g., "Shopify Purchase" or "Calendly Booking").</Step><Step title="Copy Your Webhook URL">Once saved, you'll see a unique **Webhook URL**. Copy this — you'll paste it into whatever platform you're connecting.</Step></Steps>
+
+## 2. Map Your Fields
+
+Once your external platform starts sending data, you'll need to tell our system how to connect the dots.
+
+<Steps><Step title="Open the Mapping Tool">Click **Map Fields** inside your webhook source settings.</Step><Step title="Match the Fields">You'll see the raw data keys from the incoming payload on the left. Match them to our contact fields on the right (e.g., map `email` → **Email**, `name` → **Full Name**).</Step><Step title="Save Your Mapping">Hit **Save Changes** when done.</Step></Steps>
+
+## 3. Test Your Webhook
+
+Before going live, it's a good idea to fire a test event.
+
+<Steps><Step title="Use Test Mode">Toggle the source to **Test** mode and fire a test event from your external platform.</Step><Step title="Check the Logs">Head to the **Requests** column in your conversion source list. You should see the test event appear with all the data fields.</Step><Step title="Promote to Live">Once you're happy with the mapping, switch the source back to **Live** mode.</Step></Steps>
+
+### AI Agent Data
+
+If you're using our AI Agents, you'll want to map fields like **Company**, **City**, or **Address**. This gives the agent the context it needs to have meaningful conversations with your leads.
+
+## 4. Managing Webhook Logs
+
+If something isn't looking right, or you just want to verify the data, check the **Requests** column in your conversion source list.
+
+<AccordionGroup><Accordion title="Promoting Test Events" icon="circle-check">If you sent a real event while in "Test" mode, you can go into the logs, find that request, and swap the status from **Test** to **Successful** to count it.</Accordion><Accordion title="Re-Mapping Data" icon="route">Mess up a mapping? No worries. Click the **Edit Mapping** button inside any log entry. We save the "Raw Metadata" (the full payload) from every webhook, so you can re-map fields like Email or Name at any time.</Accordion><Accordion title="Troubleshooting Failures" icon="bug">If a webhook shows as **Failed**, it's usually because the external platform is "shooting blanks." If they send an empty payload without a Name or Email, we can't identify the contact, and the mapping will fail.</Accordion></AccordionGroup>
+
+Once your mappings are saved, hit **Save Changes** and away you go! Your webhooks are now powering your conversion tracking.
+
+</Accordion>
+
+
+
+<Accordion title="Pixel">
+
+<div style={{position: 'relative', paddingBottom: '57.9617834394904%', height: 0}}><iframe src="https://www.loom.com/embed/320dda9a65e84d83a4bd69bca3f167a1" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}></iframe></div>
+
+# Pixel Conversion Sources
+
+Alright, the next conversion source we’re going to look at is the **Pixel** source. This is for when you already have our pixel installed on your website and you want to trigger a specific conversion event when a user takes an action or lands on a specific page.
+
+We have two ways to fire these conversions: **URL Parameters** and **Body Tracking Snippets**.
+
+## 1. URL Parameters
+
+This method is perfect for redirects. If you redirect a lead to a specific "Thank You" page only after they qualify, you can use a URL parameter to count them as a "Qualified Lead."
+
+<Steps>
+  <Step title="Select Pixel Type">
+      Inside your event settings, click **Add Source**, select **Pixel**, and choose **URL Parameter**.
+        </Step>
+          <Step title="Configure & Set De-dup">
+              Give your source a name and set your **Deduplication (De-dup) Window**.
+
+    **What is a De-dup window?** This prevents us from double-counting conversions if someone refreshes the page. For something like a lead, I'd typically set this to at least **2 days**. This means if they refresh 7,000 times in 48 hours, we still only count it once.
+                              </Step>
+                                <Step title="Copy and Append">
+                                    Click **Submit**, then copy the generated parameter. You'll simply append this to the end of your success URL (e.g., `yourwebsite.com/thanks?conv=12345`).
+                                      </Step>
+</Steps>
+## 2. Body Tracking Snippets
+
+If you’re familiar with how the Meta (Facebook) pixel fires standard events, this will feel very natural. This is a small script you paste into the body of a specific page.
+
+<Steps>
+  <Step title="Select Snippet Type">
+      Choose **Body Tracking Snippet** from the Pixel Type dropdown.
+        </Step>
+          <Step title="Copy the Snippet">
+              Once you hit submit, copy the generated code. It'll look like a small script tag starting with `corq('track', ...)`.
+                </Step>
+                  <Step title="Install on Your Page">
+                      Go to your website builder (like GoHighLevel, as shown in the video) and find the **Tracking Code** or **Custom JS** section for that specific page.
+
+                          Paste the snippet into the **Body/Footer Tracking** area—not the header. Hit **Save** and **Publish**.
+                            </Step>
+                            </Steps>
+
+## Testing Your Setup
+
+Once you’ve added your parameter or snippet, load the page in your browser.
+
+<Tip>You don't need the URL parameter visible in the address bar if you used the Body Snippet; the script fires silently in the background.</Tip>
+
+Go back to your Conversion Setup dashboard and refresh the view. You should see a "1" appear in the **Success** column, confirming the pixel is communicating perfectly with our server.
+
+This is a bit more on the technical side, so if you're feeling stuck with URL parameters or code snippets, just reach out to the support team and we’ll help you get it sorted!
+
+
+</Accordion>
+
+<Accordion title="CSV">
+
+<div style={{position: 'relative', paddingBottom: '57.84597563803706%', height: 0}}><iframe src="https://www.loom.com/embed/ea33cd1f07de4ecea8a00d40c348859c" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}></iframe></div>
+
+
+CSV Lead & Conversion Imports
+If you need to upload leads or conversion data from another platform, the CSV upload is your go-to tool. Here is how to get your data synced and mapped correctly.
+
+<Note>
+**Pro Tip:** Before you start your import, make sure you have **AI Ad Optimization** turned on and set up. When you upload your CSV, the system can send that data back to your Meta pixel to help train it, giving you a major leg up on your ad performance.
+</Note>
+
+Step 1: Create the Source
+Select CSV Upload from the integration menu.
+Give your source a clear name (e.g., "Historical Leads Import").
+Click Continue.
+
+
+Step 2: Upload and Map Your Data
+Drag and drop your CSV file into the uploader. Once uploaded, you’ll need to map your file’s columns to the system fields:
+Required Fields: Ensure Contact Email and Contact Phone are mapped correctly, as these are vital for identifying your leads.
+Identity Fields: Map First Name and Last Name.
+Value Fields: If you’re importing sales, map the Conversion Value and Currency columns.
+Time & Attribution: Map the Conversion Date. You can also map Ad Name (Last Touch) or Ad Name (First Touch) if you want the system to try and match the data against your existing ad campaigns.
+
+
+Step 3: Data Cleaning
+You have the option to Remove Duplicates.
+Enabled: The system will only count the first conversion it finds for a specific contact.
+Disabled: Every row in your CSV will be imported as a unique conversion event.
+
+
+Step 4: Preview and Import
+Before finalizing, the system will show you an Attribution Breakdown:
+Ad Match Rate: See how many leads successfully matched to your existing ad data.
+Total Revenue: Verify the total value of the import.
+Invalid Rows: Review any rows that will be skipped (usually due to missing email or phone data).
+Once everything looks good, hit Start Import. Your data will begin syncing immediately, and you’ll see the progress update in real-time on your dashboard.
+<Tip>
+If you see rows being skipped under "Invalid Rows," double-check your CSV to ensure every contact has at least an email or a phone number before re-uploading.
+</Tip>
+
+</Accordion>
+
 </AccordionGroup>

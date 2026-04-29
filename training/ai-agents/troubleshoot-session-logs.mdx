@@ -1,0 +1,86 @@
+---
+title: "8. How To Troubleshoot & Read Session Logs"
+description: "Learn how to read your AI agent's session logs and troubleshoot workflows"
+---
+
+# *Video Tutorial*
+
+<iframe src="https://www.loom.com/embed/89d22d74cf244394a870a5f60a6008e2" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+Alright, so in this video, we're going to walk you through how to actually look at your session logs. Now, as you've watched the training on how to actually set up an agent and we show you the testing flow, I believe that video is specifically called understanding how your agent works. If you've seen that video, then you'll know that when you're testing an agent live, you can actually see the session logs in the test flow, but you are obviously going to send this agent out into the real world and you want to see what's happening.
+
+So, in between every single message, we show you the logs that happen, kind of like it's a timeline. So let's take a peek. We have this one, "Hey Alisha here, just to confirm, this is Arun, right?" So let's see the logs. As you see, we triggered the AI. Um, it will go ahead and remove any other AI agents so it doesn't, you know, continue, um, conversating and having multiple conversations, it would feel weird. So it'll basically kill anything else if there is anything. Um, and then it kind of gets the initial message, so it triggers it, and then it'll tell you what the next one whatever, and then your AI sent a response, "Hey Alisha here, just to confirm this is Arun right," and then we can see that. This is it here.
+
+Then you see the next six logs. So the agent received a message, it's waiting, it finished waiting, and then your agent receives all the messages, which is "Sorry... Alisha who??!," uh which is again right here. And then it said, "Oh soz, I'm Alisha, Matei's team! My boss Matei wanted me to offer you a free AI sales audit. Can I send you some availability? 😊" So again, you can see the agent reasoning. So he said, "Sorry... Alisha who??!"
+
+So we can then see the, the reasoning of the AI agent. So the goal was to determine if you're speaking with Arun. We have the different output flows, the different conversational triggers. Um, the selected path, and then you'll also see the reasoning. Again, if you haven't watched the other video of how understanding how your agent works, please stop this video right now and go watch that video. That video is very important for you to understand the actual flow and how the entire thing works. But if you've already watched that video, you know that our AI uses a reasoning model before sending the conversation forward, and this is always going to be the most important, the final decision. The user neither confirmed nor denied, so that was one of the output flows, the milestone node. It matched out with a 90%, and then that was the decision. So winner, is that. Why? This beats alternatives, it directly matches the user's request for clarification and absence of confirmation/denial, whereas the hostility scenario only partially fits tone but not intent.
+
+So again, um, that is how you can see the reasoning model or the reasoning within the conversation. Um, so it did the reasoning, it then generated a response. So again, that's a response. Uh, we then have six logs, so the agent received a new message, "whats the pricing of this ai agent." Kind of waited for all the messages, the waiting was over, and then it got one final message, which is "whats the pricing of this ai." And as you see, it's going to keep going back and forth. It's going to use a reasoning, it's then going to send a message. It's then going to get a message, kind of wait to see if there's any more messages that have been sent. If the wait time is over, it will then pass everything off to the AI.
+
+Uh, then here is actually where you can also see some more stuff. So again, you can kind of see the reasoning within it. Then you can see that the AI went ahead and it grabbed calendar availability. So it grabbed the availability here. Um, I think we have kind of the same thing. Yeah, the time zone, it'll go ahead, it'll grab the time zone, the calendar ID from GoHighLevel which is what we're using in this example, all the different dates and times. And then, so you can actually see, like if there's ever an issue with availability and you're like, "Yo, what's going on?" You can always come in here, which is what we're going to do with you if you reach out to the support team, by the way. We're always going to come in here with you. We're going to look, we're going to make, alright, is this the right calendar ID? We'll confirm with you live on a support. Yes, it is the right calendar. Cool. This is what, uh, if it's GoHighLevel in this example, this is what GoHighLevel sent us on the 22nd, the 23rd, the 25th, the 26th. Uh, it basically sent us all these different time zones.
+
+And then we can also show it to you in like human format. Um, so start time 12:00 to 12:30 for tomorrow. Uh, then Saturday we have 2:00 AM to 2:30. Uh, there's only one hour available on Monday. Uh, there was some more availability on Tuesday, etc, etc. So again, you can kind of see the different time zones and if you're like, "Yo, why is it available from 12:00 to 2:30 AM?" That is probably because, if we take a peek here, uh we have the time zone as Asia, so it translated the time zone to Asia for them specifically. Uh, so again, you can always see the actual tool calling when it's pulling calendar availability. He says, "I have availability, which works better?" It said, "can we do next monday." Um, which I think would have been here. Said "what timezone works for you," said "im in toronto." Uh, and then it went ahead and it grabbed calendar availability for Monday, and let's see what came back. So we checked the Monday, we had, uh, these different time slots, which is now Eastern. Um, 2:00 PM, 5:00 PM. So it did have that availability. "I have Monday at 3pm available, should I book that for you?" You said, "yes pls." Then we can see that the AI booked the appointment directly in the calendar. So this was the ID of the appointment. Uh, whoops. This is the ID of the appointment, the user or the title, the status is booked, this is the address, right? All calendar ID, contact ID, um, all these different things you can then see inside of the logs.
+
+Then, as you see, "You're booked for Monday the 25th." And then we have this message, this message never gets sent to the user. This is just a system message, which is why it says "S," AI near for the AI agent. Um, but as you see, this is a system. We only show this to you guys. So as you can see, it responded. Um, and then, yes, it killed the workflow because it now hit that stop node.
+
+So, very important. If you guys ever do have any questions or anything, like even if you come to us, this is what we're going to do with you, is we're going to look at these session logs together and we're going to see what's going on and troubleshoot it. Uh, if you need any help, feel free again to reach out, but I implore you guys, start to learn how these logs work, uh, that way you can understand the pattern and you know where to look if you ever do need to troubleshoot your conversations. These logs are going to be your best friend.
+
+That's it for this video in the session logs. If you guys do have any other questions, feel free to reach out on Discord or to our support team. Uh, if not, I'll see you guys in the next video.
+</Accordion>
+
+---
+
+## Understanding and Using Session Logs
+
+**Introduction**
+
+Session logs provide a detailed, behind-the-scenes look at every interaction your AI Agent has. They are an essential tool for monitoring agent performance, understanding its decision-making process, and troubleshooting any issues that arise. This guide will walk you through how to access, read, and interpret these logs to gain a deeper understanding of your agent's behavior.
+
+## Accessing Session Logs
+
+In AgentKong, session logs are conveniently located within each conversation thread. They are presented in a timeline format, appearing between the messages exchanged between the contact and the AI agent.
+
+**Step-by-Step Instructions:**
+
+1. Navigate to the **Conversations** tab on the left-hand menu.
+2. Select the specific conversation you wish to review.
+3. In the conversation view, you will see buttons between messages labeled with a number and "logs" (e.g., 9 logs, 6 logs).
+4. Click on a **logs** button to expand and view the detailed sequence of events that occurred before that message was sent.
+
+## Interpreting the Logs
+
+The logs provide a chronological record of the agent's actions and reasoning. Here are the common types of entries you will encounter:
+
+- **Agent Session Created:** This indicates the start of an interaction and the activation of the AI agent for the conversation.
+- **AI Agent Used a Tool:** This entry appears when the agent performs a specific action. A common action is terminating previous agent sessions to ensure there is only one active agent per conversation, preventing confusion.
+- **Agent Received Message:** This shows that the agent has successfully received and processed an incoming message from the user.
+- **Waiting For More Messages:** The system briefly waits after receiving a message to see if the user sends any follow-up messages in quick succession.
+- **Message Wait Over:** This confirms that the waiting period has ended, and the agent will now process the received message(s).
+- **AI Agent Responds:** This log details the response that the AI agent has formulated and sent to the user.
+- **AI Agent Books an Appointment:** When an appointment is successfully scheduled, this log will appear, containing the raw data of the booking, including the appointment ID, calendar ID, and contact details.
+
+## The AI Agent Reasoning Log: A Deeper Dive
+
+The most critical log for understanding your agent's thought process is the **AI Agent Reasoning** log. This provides a comprehensive breakdown of how the agent analyzed a user's message and decided on the best course of action.
+
+When you expand this log, you will find several key components:
+
+- **Goal:** The immediate objective the AI was trying to achieve at that point in the conversation (e.g., "determine if we're speaking with Arun").
+- **Output Flows:** The potential paths or outcomes the agent could choose from based on its programming (e.g., "Yes we are speaking with the right person," "No the user denies that we are speaking with the right person").
+- **Conversational Triggers:** Pre-defined conditions that can alter the conversation's path, often related to user sentiment (e.g., "The lead becomes hostile, aggressive, or seems irritated").
+- **Selected Path:** The specific output flow the AI determined was the most appropriate response.
+- **AI Reasoning Steps:** A detailed, multi-step analysis:
+  1. **Message Analysis:** Breaks down the raw user message, identifies keywords, and determines the core intent.
+  2. **Available Output Flows:** Lists the possible paths the conversation can take.
+  3. **Semantic Matching Process:** The AI analyzes the user's intent against the available output flows and conversational triggers to find the best match.
+  4. **Final Decision Ranking Analysis:** The agent ranks the potential paths by a "Match Score" and provides a decision logic explaining why the winning path was chosen.
+
+## Troubleshooting with Logs
+
+Session logs are your primary tool for diagnosing and resolving issues.
+
+- **Calendar & Availability Issues:** If an agent is not offering the correct times, you can inspect the **AI Agent Used a Tool** log for "check_availability." This will show you the raw data of available slots that were pulled from your calendar, including the time zone. This allows you to verify if the information AgentKong received is correct.
+- **Incorrect Responses:** By reviewing the **AI Agent Reasoning** log, you can see exactly why the agent chose a particular response. This helps identify if a conversational flow needs to be adjusted or if the agent's interpretation was incorrect.
+
+By familiarizing yourself with these logs, you can effectively manage, optimize, and troubleshoot your AI agents to ensure they are performing as intended.

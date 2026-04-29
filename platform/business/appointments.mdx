@@ -1,0 +1,89 @@
+---
+title: "Appointments"
+description: "Manage AI-booked appointments, calendar integrations, and scheduling."
+---
+
+<iframe src="https://www.loom.com/embed/11b0cb76a8a84184a1eb211bbebe0a05" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+---
+
+## Introduction to the Appointments Page
+
+The Appointments page is where you manage all appointments booked by your AI Agent, configure your availability, integrate your calendar, and white-label your confirmation emails.
+
+## 1. Navigation
+
+1. From the top-left dropdown, select the desired **Business**.
+2. In the left sidebar menu, click on **Appointments**.
+
+## 1. Appointment Views
+
+The Appointments page offers two main views for tracking your booked appointments:
+
+- **Calendar View:** Displays a monthly calendar with all appointments booked by your AI Agent. This provides a visual overview of your schedule.
+- **List View:** Displays a detailed list of all appointments, including the contact name, scheduled date and time, source (e.g., AGENT KONG), status (e.g., Booked), phone number, and creation date.
+
+**Note:** This section only displays appointments booked by your AI Agent, not manually booked appointments.
+
+## 2. Settings
+
+Click the **Settings** tab to configure your calendar and email preferences for the booking system.
+
+## 2.1) Integrations (Calendar Integration)
+
+This section allows you to connect your external calendar to AgentKong to manage availability and automatically sync appointments.
+
+### Google Calendar Integration
+
+This is the platform's native calendar integration, which allows you to bypass other third-party schedulers.
+
+1. Click the **Connect Google Calendar** button.
+2. A Google Sign-in screen will appear. Choose the Google account you wish to connect.
+3. Review the access permissions (AdKong requests permission to view, edit, share, and permanently delete events on your calendars).
+4. Click **Allow** to complete the connection.
+
+Once connected:
+
+- Appointments booked in AgentKong will sync to your Google Calendar automatically.
+- Changes (create, update, or cancel) in AgentKong will be reflected in your Google Calendar.
+- An event link will be saved for each appointment.
+- The connection status will show as **Calendar Connected**.
+
+**Note:** The Integrations tab under **Settings** in the main sidebar displays all available third-party integrations, including Calendly (coming soon), which you can use as an alternative to native calendar integration if desired.
+
+## 2.2) Email Settings (White Label Email)
+
+This section allows you to white-label the email address used to send appointment confirmation emails to your customers, replacing the default AgentKong email.
+
+1. Enter your **Domain Name** (e.g., example.com).
+2. Enter the **Sender Email** that will appear as the sender (e.g., noreply@example.com).
+3. (Optional) Enter a **Sender Name** (e.g., Your Business Name).
+4. Click **Add Domain**.
+5. **DNS Records Required:** The system will display a list of DNS records (typically CNAME and TXT) that you must add to your domain's DNS settings via your domain provider (e.g., Cloudflare, GoDaddy).
+   - **Instructions** on where to add these records are provided below the records list.
+6. Click **Verify Setup** once the records have been added to your DNS.
+   - **Note:** DNS changes may take up to 48 hours to propagate and verify.
+   - If the domain is not authenticated, confirmation emails will default to being sent from hello@agentkong.ai.
+
+## 2.3) Schedule (Weekly Availability)
+
+This section defines the weekly schedule during which your AI Agent is allowed to book appointments.
+
+1. Toggle the switch next to each day (**Monday** through **Sunday**) to turn your availability **ON** or **OFF** for that day.
+2. For each active day, use the dropdown menus to set the **Start Time** and **End Time**.
+3. **Add/Remove Time Slots:** Click the **+** button to add multiple, non-consecutive time blocks within a single day (e.g., 9:00 AM – 1:00 PM and 2:00 PM – 5:00 PM). Click the **trash can icon** to remove a time slot.
+4. **Copy Schedule:** Use the **Copy icon** next to a time slot to copy that schedule to all other days.
+5. **Timezone:** Select your desired **Timezone** from the dropdown menu.
+6. **Slot Duration (minutes):** Enter the duration in minutes for each appointment slot (e.g., 30, 60, 90). The allowed range is 15–240 minutes.
+7. Click **Save Changes**.
+
+## 3. Setting up Booking in the AI Agent Workflow
+
+Once your calendar and schedule are configured, you can use the **Booking** node in your AI Agent workflow.
+
+1. Add a **Booking** node to your agent's workflow.
+2. **Booking System:** In the node's settings, you can select your preferred booking system:
+   - **GHL (GoHighLevel):** If you are integrated with GoHighLevel via the main **Settings** page, you can select a specific calendar from your GHL account.
+   - **Google:** If you have connected your Google Calendar via the **Appointments Settings** page, the system will automatically use the connected calendar and your defined weekly schedule.
+3. Configure optional settings: **Confirm Timezone**, **Save Contact Timezone**, and **Skip Confirmation**.
+4. The Agent will now offer appointment slots based on your availability and the chosen calendar system.

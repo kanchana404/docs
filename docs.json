@@ -19,33 +19,110 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Cortana Training",
+        "tab": "Platform Guide",
+        "icon": "book-open",
         "groups": [
           {
-            "group": "Ad Tracking Training",
-            "icon": "crosshairs",
+            "group": "Overview",
             "pages": [
-              {
-                "group": "A-Z Setup Guide",
-                "pages": [
-                  "1-connect-integrations",
-                  "2-setup-pixel",
-                  "3",
-                  "4-conversion-setup",
-                  "4-conversion-tracking",
-                  "5",
-                  "6",
-                  "7-customizing-your-dashboard",
-                  "8-customer-journey-views",
-                  "9-how-to-set-up-shopify"
-                ]
-              }
+              "platform/overview"
             ]
           },
           {
-            "group": "AI Agents Training",
-            "icon": "user-robot",
-            "pages": []
+            "group": "Control Centre",
+            "icon": "gauge",
+            "pages": [
+              "platform/control-centre/unified-attribution",
+              "platform/control-centre/businesses",
+              "platform/control-centre/users",
+              "platform/control-centre/settings",
+              "platform/control-centre/affiliate-portal",
+              "platform/control-centre/white-label"
+            ]
+          },
+          {
+            "group": "Business",
+            "icon": "building",
+            "pages": [
+              "platform/business/dashboard",
+              "platform/business/ai-agents",
+              "platform/business/agent-hub",
+              "platform/business/agent-workflow",
+              "platform/business/conversations",
+              "platform/business/contacts",
+              "platform/business/follow-ups",
+              "platform/business/appointments",
+              "platform/business/ad-tracking",
+              "platform/business/settings"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Ad Tracking Training",
+        "icon": "crosshairs",
+        "groups": [
+          {
+            "group": "A-Z Setup Guide",
+            "icon": "rocket",
+            "pages": [
+              "1-connect-integrations",
+              "2-setup-pixel",
+              "3",
+              "4-conversion-tracking",
+              "5",
+              "6",
+              "7-customizing-your-dashboard",
+              "8-customer-journey-views",
+              "9-how-to-set-up-shopify"
+            ]
+          },
+          {
+            "group": "Deep Dives",
+            "icon": "magnifying-glass",
+            "pages": [
+              "4-conversion-setup",
+              "5-adding-url-parameters-critical",
+              "6-set-up-ai-ad-optimization",
+              "7-customize-your-report",
+              "8-customer-journey-report"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "AI Agents Training",
+        "icon": "robot",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": [
+              "training/ai-agents/creating-business-and-users",
+              "training/ai-agents/connecting-integrations",
+              "training/ai-agents/creating-an-agent",
+              "training/ai-agents/train-ai-connect-channels"
+            ]
+          },
+          {
+            "group": "Building Your Agent",
+            "icon": "hammer",
+            "pages": [
+              "training/ai-agents/building-agent-intro",
+              "training/ai-agents/building-agent-how-to",
+              "training/ai-agents/building-agent-settings",
+              "training/ai-agents/building-agent-understanding"
+            ]
+          },
+          {
+            "group": "Managing Your Agent",
+            "icon": "sliders",
+            "pages": [
+              "training/ai-agents/triggering-agent",
+              "training/ai-agents/stopping-agent",
+              "training/ai-agents/troubleshoot-session-logs",
+              "training/ai-agents/editing-agent"
+            ]
           }
         ]
       },
@@ -56,7 +133,6 @@
           {
             "group": "Getting Started",
             "pages": [
-              "index",
               "authentication",
               "quickstart"
             ]

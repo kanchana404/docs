@@ -1,0 +1,608 @@
+---
+title: "5.2) Building An Agent - How To Build Your AI Agent"
+description: "Understand what nodes exist and how to use them to build your Agent Workflows."
+---
+
+# *Quick Intro*
+
+⚠️ Below are going to be individual training videos for EACH NODE type. We **highly recommend** you familiarize yourself with each node by watching the videos below.
+
+To add a node, you can either:
+
+- Click the **blue plus (+) icon** on the left menu to open the node pallet
+- Click on nodes or drag them from the node pallet onto the canvas
+- Hover an existing node on the canvas and click the blue plus icon that appears to quick connect a node to the previous node.
+
+---
+
+# 📌 Communication Nodes
+
+*The communication nodes are used to define the flow of conversation between your AI Agent & the prospect.*
+
+<Accordion title="Milestone Node">
+
+<iframe src="https://www.loom.com/embed/104accecb4304399b207042c48b18e58" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+All right, so now we're going to be going through each and every individual node that currently exists. I'm just going to walk you through them one by one. I'm gonna make a video for each one because as we add more and more nodes, we can go ahead and create specific training videos for each node. This is not going to be showing you how to actually build an agent A to Z. We are going to have other training videos on that. This is literally going to be walking you through each individual node one by one. So without further ado, let's go through the Milestone node. So if I click the Milestone node, you can drag like that, or you can just click and it will be added on. Another way you can actually do that is by hovering this, you see this little blue button, then we click that and it automatically connects the Milestone node. And the Milestone node specifically is like a point in time of conversation. It's a specific milestone that we need to hit and achieve. And the specific reason that we have this little icon here is because if you're walking in the forest or walking down the path, just like any conversation, these are specific points in time where you can actually, you know, have different paths. You can go path A, path B, path C, which you'll see in just a second. But the Milestone is going to be one of the easiest to build with and also one of the most like predictable in flows and how it conversates and how it responds. And that is because of our setup here. So a Milestone node is specifically made up of a goal. So if you see right here, it's we tell you, 'Tell your AI agent what goal it should accomplish. Keep it simple and short as your AI agent performs better with short, easy to understand goals.' You know I've often had times where people come in here they're like, 'Tell the lead that we are XYZ and see how they feel and dig deep into their pain points and all this bullshit.' That is not how you leverage the goal. The goal is simple, clear, easy to understand, right? Things like, 'Determine if they're open to scheduling an appointment' or 'Get their phone number.' So if we build out a quick little flow here together, I'm going to say 'at' actually I'm gonna say 'determine if we're speaking with' and then instead of hitting this at button to insert a variable, I can actually just come in, I can use my keyboard and just put you know shift two to type the at symbol and then it'll put here so I can do first name. Determine if we're speaking with first name. Then I can give it extra instructions here. I can do things like say this in your first message, right? I can tell it what to say. 'Hey Alisha here.' I like to always do smiley face emojis. That's why I like to use women's names because it's kind of weird if men are always throwing up blushy smiley emojis. Um so we can come in, we can actually say break. If you type the word break like this with this closed and open arrow, it will tell the AI it needs to send this in multiple messages so it'll actually break it apart. So I always like to do that. 'Hey Alisha here, we're gonna send that as one message, break. Just to confirm, this is @First Name... Right?' And also just to kind of read what we put here in the tool tips. So the extra instructions is going to be extra help or information about to tell your AI about this goal. Use this to give more details or tell it exactly what to say. So for example, if it's an appointment booking node, the example is, 'This appointment is regarding our AI sales agent audit. We will audit their sales pipeline and build a strategy to launch an AI sales agent. If possible, include 'My boss Matty wanted me to reach out and offer you a free AI sales audit. Can I send you some availability?' So we can actually leverage this not just to tell it what to say, but we can also give it more context about this specific point in time. So that is what the extra instructions are for. And then we have our output flows. So the output flows is going to tell your AI what responses are good enough to move forward. Your AI checks if any of these conditions have been met. If one matches, the conversation moves to the next step. If none match, the AI stays here and keeps trying. So for example, if this is determine if we're speaking with first name, I'll say yes, we are speaking with the right person. Again, like it's just conversational, right? Like don't overthink it, what do I say, what do I say? Like don't overthink it. My favorite way of explaining this is explain it as if it's talking to a 10 year old, right? Simple, sweet, like you don't gotta get crazy and drop a freaking paragraph. like simple, very easy to understand, right? So we'll go yes we're speaking with the right person. And then here we will say, 'no we are not speak' or 'no the user denies that we are speaking with the right person.' Right? So they denied it's not me. Um so this would be two different options. Now one caveat to mention, I did this on purpose, I only left yes or no. So the AI is specifically looking for a yes where the person is going to say, 'Yes, I am Matty, how can I help?' or 'Yes, it is me.' So a a sort of confirmation that we are speaking with the right person, or if the user denies where they say, 'No, I'm not Matty,' 'No, you got the wrong number.' So it's only these two options that allow it to move forward. However, if the person says something like, 'Sorry, Alisha from where?', question mark. So it neither denies nor agrees that it's the right person. The AI is not going to move forward. It's going to stay inside of this specific node which is this milestone, and it's going to answer their question, overcome their objection, whatever they threw at us, and then it's going to re-attempt to get the goal accomplished. So if it says, if you said something like, sorry Alisha who? then the user neither confirmed nor denied, so it'll actually go to the next one. It's not just going to say my boss, Matty, it'll actually like conversate and it'll flow the conversation between the two nodes very nicely. So if I said, 'Sorry, Alisha who?' it'll say, 'Ah, I apologize, I'm actually Alisha from Agent Kong. My boss, Matty, actually wanted me to personally reach out.' That's why I said if possible incorporate this in your message because it's going to take the response from here and incorporate it and try to achieve the goal forward. So that is why I did the user neither confirmed nor denied, push it there. And then if the user denies that we're speaking with the right person, maybe we just want to kind of stop the agent and actually this would be the agent complete and done. I promise you if you tried this very simple agent, you would shit yourself as to how powerful this is. I know it looks simple and basic, but I promise you something like this will book a lot of appointments and we see it right now actively. We build a lot of these small simple agents and they are crushing it. But that is at the end of the day how you use a milestone node. You give it a goal, if you need to, give it some instructions and then define what allowed it to go forward. Actually, I will also put this one here. The user neither confirmed nor denied that way, just to kind of give you the example of how this would flow. If we say, 'Hey Alisha here, just to confirm this is Matty, right?' and I'm like, 'Sorry, Alisha who?' then the user neither confirmed nor denied, so it'll actually go to the next one. It's not just gonna say, 'My boss Matty,' it'll actually like conversate and it'll flow the conversation between the two nodes very nicely. So if I said, 'Sorry Alisha who?', it'll say, 'Ah I apologize, I'm actually Alisha from Agent Kong. My boss Matty actually wanted me to personally reach out.' That's why I said if possible, incorporate this into your message because it's going to take the response from here and incorporate it and try to achieve the goal forward. So that is why I did the user neither confirmed nor denied, push it there. And then if the user denies that we're speaking with the right person, maybe we just want to kind of stop the agent and actually this would be the agent complete and done. I promise you if you try this very simple agent, you would shit yourself as to how powerful this is. I know it looks simple and basic, but I promise you something like this will book a lot of appointments and we see it right now actively. We build a lot of these small simple agents and they are crushing it. But that is really at the end of the day how you use a milestone. You give it a goal, if you need to give it some instructions, and then define what allowed it to move forward. Actually, I will also put this one here, the user neither confirmed nor denied that way just to kind of give you the example of how this would flow. If we say 'Hey Alisha here, just to confirm this is @First Name, right?' and I'm like 'Sorry, Alisha who?' then the user neither confirmed nor denied, so it'll actually go to the next one. It's not just gonna say, 'My boss Matty,' it will actually like conversate and it'll flow the conversation between the two nodes very nicely. So if I said, 'Sorry Alisha who?', it'll say, 'Ah I apologize, I'm actually Alisha from Agent Kong. My boss Matty actually wanted me to personally reach out.' That's why I said if possible, incorporate this in your message because it's going to take the response from here and incorporate it and try to achieve the goal forward. So that is why I did the user neither confirmed nor denied, push it there. And then if the user denies that we're speaking with the right person, maybe we just wanna kind of stop the agent and actually this would be the agent complete and done. I promise you if you try this very simple agent, you'd shit yourself as to how powerful this is. I know it looks simple and basic but I promise you something like this will book a lot of appointments and we see it right now actively. We've built a lot of these small, simple agents and they are crushing it. But that is the end of the day how you use the Milestone Node. And again, if you do have any more questions, please reach out. We'd be more than happy to help. If not, then I'm going to move on into the next video. One more thing to actually add on this Milestone Node. I completely forgot to go over our advanced settings. So, to show you what the advanced settings does, we're gonna hit edit, we're then gonna click on this. And as you see, we now have this option that says fields to sync and skip step. So, if we don't have any fields to sync, you can't skip the step. What basically that does is it will sync this field. So we have name, email, first name, last name, phone, company, address, city, state, zip code, country. And if we choose the phone number, for example, which is exactly what we did here, get the user's phone number, it will then take the phone number and update the contact's phone number for you. So this is actually how you can generate leads with Agent Kong is by asking for specific details and then syncing it to your CRM. So if you use GoHighLevel or if you use our platform internally, it will sync it to that. If you use HubSpot, then again it'll sync it to your HubSpot. But this is the syncing happens, which is really really cool. In order to do that, you're going to open advanced settings, you're going to come down here, you're going to choose the thing that you want to sync, and if you don't want the AI to ask this because you already have it, you can hit skip this step. And if we already have a phone number, it's going to completely ignore this question and move right on to the booking node. So that is one other thing to mention is you can actually leverage the Milestone node to sync fields to the contact by selecting the right fields to sync and then hitting save.
+</Accordion>
+
+---
+
+## The Milestone Node: Your Agent's Brain
+
+The Milestone Node is the core building block for creating intelligent, goal-oriented conversations. Think of each Milestone as a specific objective or a point in the conversation that your AI needs to achieve before moving on. Unlike a simple "Send Message" node, a Milestone gives the AI a goal and allows it to have a dynamic, multi-path conversation to reach it.
+
+Let's break down its components, which you can see by clicking the **edit pencil icon** on the node.
+
+### 1. Goal
+
+The **Goal** is the single most important part of the Milestone. It's a simple, short, and clear instruction that tells your AI exactly what it should accomplish at this stage.
+
+- **Best Practices:** Keep your goals concise and easy to understand, as if you were instructing a 10-year-old. The AI performs best with straightforward objectives.
+- **Examples:**
+  - "Determine if we are speaking with @First Name"
+  - "Get their phone number"
+  - "Determine if they are open to scheduling an appointment"
+
+### 2. Extra Instructions
+
+This field allows you to give the AI more context, nuance, and specific directions for how to achieve its goal. You can provide detailed information or even dictate the exact first message it should send.
+
+- **Providing Context:** Give the AI background information it can use in the conversation (e.g., *"This availability is regarding an AI sales agent audit..."*).
+- **Scripting Messages:** You can write out the exact message(s) you want the agent to send. Use the `<break>` tag to split the text into multiple, separate messages.
+
+### 3. Output Flows & AI Reasoning
+
+Output Flows are what make the Milestone Node so intelligent. They define the different paths the conversation can take based on the prospect's response.
+
+Crucially, every time a message is received at a Milestone, **Agent Kongai uses AI Reasoning models to analyze the user's intent**. This isn't a simple keyword match; the AI reasons through the context of the conversation to intelligently decide which path is the best one to send the conversation towards.
+
+- **How it Works:**
+  1. The AI engages in conversation to achieve the **Goal**.
+  2. The prospect responds.
+  3. The AI Reasoning model analyzes the response and matches it to the most relevant **Output Flow** condition you've created.
+  4. If a match is found, the conversation proceeds down that specific path.
+  5. If **no match is found**, the AI remains at the current Milestone, continues the conversation, and keeps trying to achieve the Goal.
+- **Creating Output Flows:** Click the **"+ Output Flows"** button to add a new path. In the text field, describe the condition that needs to be met. For example:
+  - **Path 1:** yes we are speaking with the right person
+  - **Path 2:** no the user denies that we are speaking with the right person
+  - **Path 3:** the user neither confirmed nor denied
+
+### 4. Advanced Settings
+
+Clicking "Advanced Settings" reveals two powerful automation features.
+
+- **Fields to Sync:** This allows the agent to extract key information from the conversation (like a phone number or email) and automatically update that contact's record in your CRM.
+- **Skip Step:** If enabled, the agent will check if the contact record *already has* the information it's supposed to collect. If it does, it will skip the milestone to avoid asking redundant questions.
+
+</Accordion>
+
+<Accordion title="Conversation Node">
+
+<iframe src="https://www.loom.com/embed/3524c04d0652445f98351fa7c9b685b9" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+All right, welcome to the training on the conversational trigger node. Now the conversational trigger node is quite literally exactly what it sounds like. It triggers specific flows at any point of conversation. So how we're using it in this agent, for example, this is a booking confirmation and rescheduling agent.
+
+So here we're using a conversation node. Someone just booked a call, again, contact the lead to book a call with us, greet them, tell them to watch this video, then tell them if you need to reschedule your call just a minute, I can help. Right. So it's just a booking agent. And if at any point in time, the person sends a message and says, Hey, I need to reschedule my appointment, the AI knows that we need to trigger this because of the description.
+
+So the description is basically the prompt again, this conversational trigger allows you to trigger new flows mid-conversation based on specific user input. Perfect for scenarios like I want to reschedule my appointment, I need to cancel, they have other questions, whatever, they can go ahead and trigger that.
+
+So yeah, honestly, it's nothing too crazy. Once you understand the concept that you can trigger a new flow at any point in conversation, it allows you to get really creative. This is one example, right? The user is in here. They send a message. They say, hey, I'm looking to reschedule. The AI understands that we have a schedule, a trigger here that says the user is looking to reschedule. So we'll go there or to say, hey, I need to cancel, then this will pick it up because the user is looking to cancel their appointment.
+
+It will then go in and then it will ask them which appointment they have and which one to cancel if they have one. Uh, and yeah, very, very simple there. Let's actually pull up another example just so you can start to see more of how this would work.
+
+So here we have a flow. This is one that we built out on one of these trainings. We want to see if we're talking to the right person, then we want to see if we can offer them an available time slot and book them in for an appointment. But let's say throughout any of this time, let's say maybe the lead becomes hostile, aggressive, or irritated/angry.
+
+Like maybe there's an issue. Maybe the guy says whatever, maybe he's frustrated. Actually, we looked into a conversation, and someone was talking to a lead that they already actually had as a client. And I guess the lead got into the system again, they rebooked, became a lead, and then the AI reached out and they were pissed off because no one reached out and they thought the AI was a real human and like, oh, you only reach out to new leads. I've been trying to reach you for a while.
+
+Again, business problems happen across the board. Not my place to talk about or comment about that. But this could actually be a perfect example because we did see someone become hostile. So we actually came back and added this in there after the fact, just because, you know, at the time we didn't realize that people might be irritated or hostile.
+
+But this, for example, if the AI is triggering at any point in time, maybe talking about a booking, and the guy, for whatever reason, is upset. Maybe he's asking how much it costs and you trained the AI not to talk about pricing, and he keeps pushing for it. And the AI keeps not answering it. And maybe he gets mad and starts swearing or like gets irritated, aggravated.
+
+The AI would then realize this after every single message. So the way this actually works, important caveat, after every single message that the AI receives at any point in time, like it could be up in here, it could be in the booking notice. But every time the AI receives a message, the first thing it does is it scans to see if we have any conversational triggers that fit the conversation up to this point.
+
+So if the lead is starting to become hostile, aggressive, and seems irritated or angry, the AI will see this as an option, it'll then match this to the message and the conversation. And if this conversational trigger fits, it'll actually trigger this conversational trigger right here and then obviously we're going to stop the agent because we don't need to keep talking, the person's probably irritated as we keep responding, let's just kill the conversation and let a human jump in to save the day.
+
+So this is another example again, this could be triggered at any time. At any point throughout the conversation, it's like, yo, the guy's becoming irritated, hostile, aggressive, let's stop the node, maybe we want to create a new one here, conversational trigger. We've actually seen this one quite a few times, the user no longer wants to talk to us / is not interested.
+
+Right, maybe the guy's like, hey, not interested, please stop messaging me, or hey, stop messaging me. If this is not there, depending on where the conversation is at and what type of output flows you have, it may still follow up. But if we have this here, you know, the user no longer wants to talk to us / is not interested, then if at any point in time the AI receives a message and it thinks that this is a good fit, it'll send it here, and then it'll push it down to the next node, which is now going to be the stop node.
+
+So this is another example of how to use the conversation nodes, because again, these conversation nodes can be triggered at any point in time for the conversation, and it just gives you way more control, way more fine-tuning on how you should handle conversations.
+
+And yeah, that is the conversational trigger in a nutshell. If you guys do have any questions, feel free to reach out to us on Discord or to the support team. And I'll catch you guys in the next video.
+</Accordion>
+
+---
+
+## Introduction: The Power of Dynamic Dialogue
+
+Welcome to the training module for the **Conversation Node**. While the Milestone Node is perfect for building structured, predictable workflows, the Conversation Node is designed for scenarios where the dialogue is more natural, open-ended, and unpredictable.
+
+It allows you to use AI to have a complete, free-flowing conversation with a prospect from within a single, powerful node. This is ideal for situations like inbound inquiries or providing post-booking support, where you can't predict the exact path the conversation will take.
+
+## Anatomy of the Conversation Node
+
+Unlike the Milestone Node with its distinct paths, the Conversation Node consolidates all instructions into one comprehensive **Conversation Prompt**. This prompt is the agent's complete playbook for the entire interaction.
+
+Let's break down the components of an effective Conversation Prompt, using the post-call booking example from the video:
+
+### 1. Context
+
+The context sets the stage for the AI. It tells the agent the situation and why the conversation is happening.
+
+- **Example:** Context: The lead just booked a call with us.
+
+### 2. Goals
+
+This is a prioritized list of objectives for the agent. The AI will work to accomplish Goal 1 first before moving to Goal 2, and so on.
+
+- **Goal 1:** Goal 1: Greet the user (their name is @First Name first), then tell them to watch this video before our meeting to learn more about what we do. www.example.com/video. Then tell them "If you need to reschedule your call, just lmk & I can help 🙂"
+- **Goal 2:** Goal 2: After you accomplish goal 1, just be here to support and answer questions.
+
+### 3. Rules
+
+Rules define the agent's behavior, personality, and boundaries. This is where you fine-tune its communication style.
+
+- **Example Rules:**
+  - Rules:
+  - \- Never ask them to reschedule, only help if THEY ask.
+  - \- Keep conversations light.
+  - \- Keep your responses short and sweet unless more characters are necessary.
+
+## Use Case Example: Abandoned Cart Recovery
+
+The Conversation Node is incredibly effective for complex but common scenarios. In the video, a single Conversation Node was used to follow up with leads who abandoned a $17 purchase.
+
+- **Context:** The agent was told the user filled out the order form but didn't complete the purchase.
+- **Goal:** Its goal was to answer questions, address concerns, and handle objections to get the user to buy.
+- **Rules:** Critical rules were added, such as "Don't always send the link and be so pushy for the sale. Keep it conversational and light." and "We are NOT to sound desperate."
+
+This simple, one-node setup recovered over $130 in sales in the first two hours, demonstrating the power of natural, AI-driven conversation.
+
+## Advanced Flow Control with Conversational Triggers
+
+While a Conversation Node can manage an entire dialogue, you can add powerful branching logic to it by pairing it with **Conversational Trigger** nodes.
+
+A Conversational Trigger listens for a specific user intent *during* the open conversation. When that intent is detected, it pulls the user out of the main conversation and directs them into a specific, new workflow.
+
+**How it Works (Post-Booking Example):**
+
+1. A user is in the "Greeting and Support" Conversation Node after booking a call.
+2. The user sends a message: "Hey, I actually need to reschedule my appointment."
+3. The AI detects this intent and matches it to a **Conversational Trigger** you have created with the description: "User is looking to reschedule their appointment."
+4. The trigger activates and routes the user to the next connected node—in this case, a **Booking Node** to begin the rescheduling process.
+
+This allows you to handle key events like rescheduling or cancellations with dedicated workflows, while letting the main Conversation Node manage all other general inquiries.
+
+</Accordion>
+
+<Accordion title="Send Message Node">
+
+<iframe src="https://www.loom.com/embed/b65e4b3346f245f184e88d7ddf46312c" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+0:00 All right, so welcome to the training video for the send message node. And the send message node is honestly a fairly simple one. 0:08 So if we go ahead and we click on it, you can see that right away we're greeted with something that says prompt, static, and then also a spot for you to upload an image. 0:17 So the send message node is quite simple. It is, as it says here, it's going to send a message and then continue on to the next node. 0:24 So if you had the send message node in between any of these nodes, Again, it will just pass through, it'll say what you want it to say and then it'll continue on and it does not need to wait for a response. 0:40 Now, again, if we come in here, you'll see that there's prompt. So you can also say, uh, you can prompt the AI what to say. 0:46 So tell the user something, or maybe, maybe you'll say like, apologize. Maybe you'll put this here, uh, to the user for any inconvenience. 1:03 So maybe you want to use this when, uh, you're stopping an agent and maybe they're upset or something, you know, you're apologize for any inconvenience, it'll then just create its own apology. 1:13 If you static, then it'll word for word say, I'm sorry for upsetting you. Now, it'll literally, just take this and send it there. 1:22 Also important to mention in the prompt, you can actually use custom fields. So if you hold shift and hit the at symbol or click on this at symbol, you'll then be able to see this. 1:36 So insert variables. So you can say something like, um, at first name is spending or is making blank in monthly in MRR congratulate them on that stat so then it would pull in from here and it would say Hey John, I see you're making around 20K a month in revenue. 2:05 Congratulations on that. So it'll kind of just pull some of the data and create some customized messages as well. And you can also go ahead and upload an image so you can simply hit select image, upload it. 2:20 And when you go ahead and upload an image, then it is going to allow you to send this image. So as you see, it will now add this image in the message as well and send it out with that. 2:34 So you can also use this. Now, what we have found to be best for sending images using things like reactivation campaigns. 2:42 So if you have a case study to show or an example or testimonial or a transformation or something, you can go ahead and send some images. 2:51 If maybe you want to send a coupon code or a promotion or something like that, or a flyer or just some sort of asset. 2:58 Uh, maybe it's a actually common pool construction where you send them a brochure or an image of the different pool models. 3:06 So you could send them that. And then again, the AI will send it to them and they can have a conversation with them about that image. 3:11 So that is something that you can also do and what we have seen the best with the images are again using them for database reactivations to share or client proof or stats or things like that. 3:22 Um, or to also give out coupons, brochures and other type of asset materials.
+</Accordion>
+
+---
+
+## Understanding the Send Message Node
+
+The **Send Message** node is a fundamental component of the workflow builder. Its primary function is to deliver a message (text and/or image) to the user and immediately transition to the next step in your flow.
+
+**Key Characteristic:** Unlike conversation nodes that wait for a user to reply, the Send Message node is a **"pass-through"** node. It sends the content you define and automatically continues to the next connected node without pausing for a response.
+
+## Configuration Modes
+
+When setting up this node, you have two distinct ways to define the text content: **Prompt** and **Static**.
+
+### 1. Prompt Mode (AI-Generated)
+
+In Prompt mode, you provide instructions to the AI, and it generates the actual message sent to the user. This is useful for keeping the tone dynamic or context-aware.
+
+- **How it works:** You type an instruction rather than the final message.
+- **Example:**
+  - *Input:* "Apologize to the user for any inconvenience."
+  - *Output to User:* "I sincerely apologize for the trouble you've experienced. We are working to resolve this."
+
+### 2. Static Mode (Verbatim)
+
+In Static mode, the system sends exactly what you type, word-for-word. This is best for legal disclaimers, specific notifications, or when you need absolute control over the phrasing.
+
+- **How it works:** You type the exact message you want delivered.
+- **Example:**
+  - *Input:* "I am sorry for upsetting you."
+  - *Output to User:* "I am sorry for upsetting you."
+
+## Advanced Features
+
+### Using Custom Variables
+
+You can personalize messages by inserting dynamic data from your contact database (Custom Fields).
+
+- **How to Insert:**
+  1. Click inside the text box.
+  2. Type the **@** symbol (or hold Shift + @).
+  3. Select the desired variable from the dropdown menu (e.g., First Name, Email, or custom metrics like MRR).
+- **Example Use Case:**
+  - *Setup:* @First Name is making @Current MRR in monthly revenue.
+  - *Result:* "John is making $20,000 in monthly revenue."
+
+### Sending Images
+
+You can attach visual media to your message. This is highly effective for marketing and engagement.
+
+- **How to Upload:**
+  1. Locate the **URL / Upload** section at the bottom of the node settings.
+  2. Click **Select Image**.
+  3. Choose a file from your computer.
+  4. Once uploaded, click **Upload to GHL** (or your system's equivalent button) to save the asset.
+
+## Best Practices & Use Cases
+
+Based on successful campaign data, here are the most effective ways to utilize the Send Message node:
+
+### 1. Database Reactivation & Social Proof
+
+Use this node to send images showing results to re-engage old leads.
+
+- **Strategy:** Send a "Before & After" photo, a screenshot of a client testimonial, or a case study graphic.
+- **Why it works:** Visual proof often captures attention better than text alone.
+
+### 2. Delivering Assets (Coupons & Brochures)
+
+Ideal for delivering promised materials without requiring immediate feedback.
+
+- **Strategy:** If a user requests information on a product (e.g., pool models), use this node to instantly deliver a brochure image or a discount flyer.
+
+### 3. Status Notifications
+
+Use this for system alerts where a reply isn't needed.
+
+- **Strategy:** "Congratulations! We have updated your profile with your new revenue stats."
+
+### 4. Stopping an Agent
+
+If you are using a "Stop Agent" node (to remove an AI from the conversation), place a Send Message node immediately before it to politely close the conversation.
+
+- **Strategy:** Use **Prompt Mode** to say: "Apologize to the user for the confusion and let them know a human will take over."
+
+</Accordion>
+
+# 📌 Control & Logic Nodes
+
+*These nodes are used to give you fine tuned control over your agent workflows.*
+
+<Accordion title="Conversational Trigger Node">
+
+<iframe src="https://www.loom.com/embed/c0bc88780e694ba28ac1462c3eeb4b69" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+All right, welcome to the training on the conversational trigger node. Now the conversational trigger node is quite literally sounds like it triggers specific flows at any point of conversation. So how we're using it in this agent, for example, this is a booking confirmation and rescheduling agent. So here we're using a conversation node, someone just booked a call with us, greet them, tell them to watch this video, then tell them if you need to reschedule your call, just let me know and I can help.
+
+Right? So it's just a booking agent and if at any point in time, the person sends a message and says, hey, I need to reschedule my appointment, the AI knows that we need to trigger this because of the description. So the description is basically the prompt and this conversational trigger allows you to trigger new flows mid conversation based on specific user input. Perfect for scenarios like I want to reschedule my appointment, I need to cancel, they have other questions, whatever, uh they can go ahead and trigger that.
+
+So, yeah, honestly, it's nothing too, too crazy once you understand the concept that you can trigger a new flow at any point in conversation. It allows you to get really creative. Uh, this is one example, right? The user is in here, they send a message, they say, Hey, I'm looking to reschedule. The AI understands that we have a trigger here that says the user looking to reschedule, will go there or if they say, hey, I need to cancel, then this will pick it up because the user is looking to cancel their appointment, it will then go in and then it will ask them which appointment they have and which one to cancel if they have one.
+
+And yeah, very, very simple there. Let's actually pull up another example just so you can start to see more of how this would work. So here we have a flow. This is one that we built out on one of these trainings where it's very simple. We want to see if we're talking to the right person, then we want to see if we can offer them an available time slot and book them in for an appointment. But let's say throughout any of this time, uh, let's say maybe the lead becomes hostile, aggressive or seems irritated/angry, right?
+
+Like maybe maybe there's an issue. Maybe the guy says whatever, maybe he's frustrated. Actually, we looked into a conversation um, and someone was talking to a lead that they already actually had a client and I guess the lead got into the, they rebooked, became a lead and then the AI reached out and they were pissed off because no one reached out and they thought the AI was a real human and like, oh, you only reach out to new leads. I've been trying to reach you for a while. Again, this is problems happens across the board, not my place to talk about or comment about that. Uh but this could actually be a perfect example because we did see someone become hostile, so we actually came back and added this in there after the fact, just because you know, at the time we didn't realize that people might be irritated or hostile, but this, for example, if the AI is triggering at any point in time, maybe it's talking about a booking, uh, and the guy for whatever reason is upset, maybe he's asking how much it costs and you trained the AI not to talk about pricing, uh, and he keeps pushing for it and the AI keeps not answering and maybe he gets mad and starts swearing or like gets, you know, irritated, aggravated.
+
+The AI would then realize this at after every, so the way this actually works, important caveat, after every single message that the AI receives at any point in time, like it could be up in here, it could be in the booking node, but every time the AI receives a message, the first thing it does is it scans to see if we have any conversational triggers that fit the conversation up to this point. So if the lead is starting to become hostile, aggressive and seems irritated or angry, the AI will see this as an option and it'll then match this to the message and the conversation and if this conversational trigger fits, it'll actually trigger this conversational trigger right here and then obviously we're going to stop the agent because we don't need to keep talking. The person's probably irritated as going to be responding. Let's just kill the conversation and let a human jump in to save the day. So this is another example. Again, this could be triggered at any point throughout the conversation. It's like, yo, the guy is becoming irritated, hostile, aggressive, let's stop the node, maybe we want to create a new one here, conversational trigger. We've actually seen this one quite a few times.
+
+The user no longer wants to talk to us/ is not interested, right? Maybe the guy's like, Hey, I'm not interested, please stop messaging me or hey, stop messaging me. Um if this is not there, depending on where the conversation is at and what type of output flows you have, it may still follow up. Uh but if we have this here, you know, the user no longer wants to talk to us/ is not interested, then if at any point in time the user or the AI receives a message and it thinks that this is a good fit, it'll send it here and then it'll push it down to the next node, which is now going to be the stop node. So this is another example of how to use the conversation nodes because again, these conversation nodes can be triggered at any point in time for the conversation and it just gives you way more control, way more fine tuning on how you should handle conversations. and yeah, that is the conversational trigger in a nutshell. If you guys do have any questions, feel free to reach out to in the Discord or to the support team and I'll catch you guys in the next video.
+</Accordion>
+
+---
+
+## Understanding the Conversational Trigger Node
+
+The "Conversational Trigger" node is a powerful tool in Agent Kong that allows you to dynamically alter the course of a conversation based on specific user input. Think of it as a listener that's always active; it can be triggered at any point in the workflow if a user's message matches the scenario you've described. This enables you to build more flexible and responsive agents that can handle unexpected requests or changes in user intent.
+
+## How to Set Up a Conversational Trigger Node
+
+1. **Add the Node**: In the workflow editor, click the blue **+** button to open the "Add Workflow Node" panel.
+2. **Select Conversational Trigger**: Under the "CONTROL & LOGIC" section, choose the "Conversational Trigger" node.
+3. **Configure the Trigger**: Click on the newly added node to open its configuration panel. In the "Description" field, clearly define the user's intent or the scenario that should activate this trigger.
+
+## Key Features
+
+- **Mid-Conversation Redirection**: This node allows the AI to trigger entirely new workflows mid-conversation based on specific user input.
+- **Always-On Scanning**: After every message the AI receives from a user, it first scans all available "Conversational Trigger" nodes to see if the user's intent matches any of the descriptions.
+- **Flexible and Dynamic Flows**: By anticipating various user intents (like rescheduling, canceling, or expressing frustration), you can build more robust and intelligent conversational flows.
+
+## Use Case Examples
+
+Conversational Triggers are perfect for managing common user requests that can occur at any time.
+
+- **Rescheduling or Canceling Appointments**:
+  - **Description**: User is looking to reschedule their appointment.
+  - **Action**: This trigger could lead to a "Booking" node to find a new time.
+  - **Description**: User is looking to cancel their appointment.
+  - **Action**: This trigger could lead to a confirmation message and then a "Stop" node.
+- **Handling Negative or Hostile Behavior**:
+  - **Description**: The lead becomes hostile, aggressive, or seems irritated/angry.
+  - **Action**: This trigger can be immediately linked to a "Stop Agent" node to end the conversation and prevent further negative interaction.
+- **Managing Disengagement**:
+  - **Description**: The user no longer wants to talk to us / is not interested.
+  - **Action**: Similar to the above, this can be connected to a "Stop Agent" node to respectfully end the conversation.
+
+## Pro Tip: Think Globally
+
+Unlike other nodes that follow a linear path, Conversational Triggers function globally within your workflow. The AI evaluates these triggers after every user response, no matter where the conversation is in the main flow. This makes them ideal for handling common "off-script" scenarios.
+
+</Accordion>
+
+<Accordion title="Wait Node">
+
+<iframe src="https://www.loom.com/embed/5d6351ddb2834f5494a3590596a3368d" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+So this is going to be the training for the wait node and the wait node is quite literally just like it says wait x amount of time and move on to the next node. So you can wait 5 seconds, you can wait minutes, hours, days. And we're not really using this a whole whole lot because once we get into the settings training, you'll see that you can have a uh where did it go? You can have a message delay. So the AI will wait 25 seconds before generating a response. This can be 120 seconds, it can be however long you want it to be. Uh so we do have already a setting for waiting in between messages. So it's not like you need to send it or add it in between every single node. That would just be redundant, annoying and ugly.
+
+It's very much if you want specific fine tuned control. So let me show you actually where we would use something like this. So right out the gate, one of the most prominent ways to use this is if you have multi-channel architecture. Now by multi-channel architecture, I mean simply this, you have, you know, different channels and each channel is going to fire the second this trigger goes off. So once the agent gets triggered, it will send all three conversations in all three channels. So if you want to prioritize, maybe we'll do SMS first. So it triggers it goes through, we're not going to use any weight steps, but maybe after that it's going to go to what's up.
+
+So if we click on what's up and we maybe delete this one, we kind of pop this back a bit and we add a wait step. It will wait, maybe two minutes. Boom. And then it will move forward. Now we're adding a bit of control, right? So we have iMessage, it goes first. We don't have any wait step in here. Now WhatsApp has a two minute wait step and then email, I don't think I set up the email flow. Uh maybe it might just be actually for a test. Let's not pay attention to the actual use case for the email because this is probably not what you would do inside of an email.
+
+Um but let's say we had this properly set up, we would probably want to come in here at a wait node, wait, and maybe here we'll wait 3 minutes. Then and then we'll send the first email. So this then basically gives you a controlled approach as to when each channel is firing because again, this one has no weight step. WhatsApp had a two minute weight step and then email had a three minute weight step. So first it'll send the text, then it will send the WhatsApp, then it will send the email.
+
+I'm actually thinking about this, the AI is probably gonna send a message regardless on all. So maybe instead of waiting two minutes, we'll wait 1 minute for this because we'll send a text in 60 seconds that he'll get hit on WhatsApp and then wherever they respond first, the agent will pick up. Um, so that is probably how I would do it is like, you know, zero, one minute, maybe two minutes or 1.5 minutes, but that is one use case to actually leveraging the wait node. You could also leverage this in between nodes specifically. So, you know, again, we have our 25 second message delay here and maybe for whatever reason before it goes here to the apology and farewell, maybe you want to add a wait step. I don't know why. Um, again, just kind of letting your brain and your mind understand how this could work. But maybe here we want to wait, you know, two minutes. So once the person responds, let's say he says, no, it's not me at the wrong number, the AI is going to wait 25 seconds to see if he sends any more messages once the 25 seconds time delay hits, then it will pass forward and then it's going to hit the wait note, it'll wait two minutes and then it will send this message. So again, it just gives you more fine grained control over maybe that odd case scenario, uh where you do want to add a wait step for whatever reason, primarily, I would say the most common use case is going to be for controlling which flow starts first. So it feels more natural and they don't get an SMS or WhatsApp and an email all in one feels kind of spammy, right? It's SMS first, then a minute later, WhatsApp, then a minute later, email. Uh So that is probably the most common use case, but again, you can use it at any point in time and once it hits it, again, it will wait two minutes and then it will pass it on to the next node, which in this case would say apologize for disturbing, wishing them a great day. And then boom, it will stop the agent. So that is how you use a wait node. Again, fairly simple. So I'll catch you guys in the next video.
+</Accordion>
+
+---
+
+## Understanding the Wait Node
+
+The "Wait" node is a simple yet powerful tool within Agent Kong that allows you to pause a workflow for a specific duration before it proceeds to the next action. This functionality is essential for creating more natural, human-like conversations and for strategically timing your messages in multi-channel communication sequences.
+
+## How to Set Up a Wait Node
+
+1. **Add the Node**: In the workflow editor, click the blue **+** button or a node connector to open the "Add Workflow Node" panel.
+2. **Select Wait**: Under the "CONTROL & LOGIC" section, choose the "Wait" node.
+3. **Configure the Duration**: Click on the "Wait" node to open its settings.
+   - **Duration**: Enter a numerical value for how long you want the workflow to pause.
+   - **Time Unit**: Select the unit of time from the dropdown menu (Seconds, Minutes, Hours, or Days).
+4. **Connect the Next Node**: Connect the output of the Wait node to the next node in your sequence. The workflow will only proceed to this next node after the specified time has elapsed.
+
+## Key Features
+
+- **Precise Timing**: Control the flow of your conversations with delays ranging from a few seconds to several days.
+- **Human-like Pacing**: Introduce short delays between messages to prevent the agent from responding instantly, making the interaction feel more natural.
+- **Multi-Channel Coordination**: Stagger messages across different platforms like SMS, WhatsApp, and Email.
+
+## Use Case Example: Multi-Channel Outreach
+
+The most common and effective use for the "Wait" node is to manage multi-channel messaging sequences. When an agent is triggered, it will attempt to send messages on all connected channels (e.g., SMS, WhatsApp, Email) simultaneously. The Wait node allows you to create a more controlled and less spammy experience.
+
+**Here's how you could structure a multi-channel follow-up:**
+
+1. **Agent Trigger → SMS Node**: The workflow starts, and an initial SMS is sent immediately (no wait step in the SMS channel)
+2. **Agent Trigger → WhatsApp Node:** Add a wait node at the beginning of your WhatsApp workflow to send the first WhatsApp message 1 minute AFTER the SMS channel
+3. **Agent Trigger → Email Node**: Add a wait node at the beginning of your Email workflow to send the first Email 2 minutes after the SMS channel.
+
+This sequence ensures the user receives messages in a staggered, logical order rather than all at once.
+
+## Important Note: Node-Specific vs. Global Delays
+
+The Wait node provides fine-tuned control for specific points *within* a workflow. However, Agent Kong also has a global **Message Delay** setting. This global setting introduces a pause *before every* AI response to a user's message. Using the global delay is often more efficient than adding a Wait node between every single conversational node.
+
+</Accordion>
+
+<Accordion title="Stop Node">
+
+<iframe src="https://www.loom.com/embed/07db08bb2a19465d8431b2844c43ddd9" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+All right, so welcome to this training video. We're going to talk about the stop node and the stop node is honestly is exactly what you think it is. We hover over this, you're going to see it says stops the agent from talking to the lead across all apps and unassigns the agent. So once we get to the stop node, it will stop the agent completely from talking not only across WhatsApp, but from SMS and from email because WhatsApp is not the agent. iMessage is not the agent, email is not the agent. This is the agent, right? The agent is everything.
+
+So once it hits the stop node, it basically turns the agent off from the contact completely. So if the contact ever replies, the agent will not engage with them at all. So that's pretty much it. Uh if you want to maybe make a funny analogy, imagine this as a birth canal and you have a load of swimmies going to find the egg, which is, you know, in this case booking the appointment. That's like the golden juice, right? Booking the appointment or disqualifying themselves.
+
+Uh so it's like, you know, these are really just trying to get there to one of these nodes as fast as possible. And once something enters into it, boom, it won the game. No other opportunity is available. No one else can hit the stop node. It will completely disengage the agent, completely from that human, from that lead, from that contact, which is yeah, the end game, you want the agent to do its job, complete its job and hit a stop node. So I'm not going to beat around it anymore. I think this is a very simple and easy to understand node. You use this when you want to stop the agent completely.
+
+One important caveat to mention if you do have follow-up settings, which we'll get to in another module, which is going to be dialing in your agent settings. But let's say you do have, you know, some follow-ups where it'll continuously follow up and let's say instead of stopping the agent for whatever reason, you add them to a conversation node, right? We'll just call it test.
+
+If you add it to a conversation node, if you still have follow ups that need to happen based off your follow up settings, it will actually continue to follow up with them. So let's say they say they're not interested in booking the appointment and you send them here or what I've seen other people do which is actually more realistic with use an actual use case. Someone books the appointment and then they want to keep the conversation alive. The AI will say uh keep the conversation alive. So if it does the booking and it goes here, if there are any follow ups on this channel, which is I think WhatsApp or if there's any follow ups on SMS or email, again, it will actually continue to follow up with them. It's not going to stop the agent. So that is why we recommend once the agent has completed its job, send it to a stop node. That way it can wrap it up. It's finished, it's done and it's not going to continue following up with the lead. But that's it for this video. I'll catch you guys in the next one.
+</Accordion>
+
+---
+
+## Understanding the Stop Node
+
+The "Stop" node is a terminal node in Agent Kong that serves a critical function: to completely and definitively end an agent's interaction with a contact. When a workflow reaches a Stop node, it ceases all communication and unassigns itself from the user across all platforms.
+
+## How to Set Up a Stop Node
+
+1. **Add the Node**: In the workflow editor, click the blue **+** button or a node connector to open the "Add Workflow Node" panel.
+2. **Select Stop**: Under the "CONTROL & LOGIC" section, choose the "Stop" node.
+3. **Connect the Node**: Place the Stop node at the end of any workflow path where you want the conversation to conclude.
+
+## Key Features
+
+- **Halts All Communication**: The Stop node doesn't just end the conversation on the current channel (e.g., WhatsApp); it stops the agent from communicating with that specific lead across **all** configured apps, including SMS and Email.
+- **Unassigns the Agent**: When triggered, this node immediately unassigns the agent from the contact. This means the agent's job is complete. If the user messages again in the future, your AI Agent will not respond (unless you trigger another agent).
+- **Prevents Unwanted Follow-ups**: If you have global follow-up sequences configured in your agent's settings, the Stop node will override them. This ensures that once a conversation has reached a logical conclusion (e.g., an appointment is booked, or a user is not interested), no further automated follow-ups for that specific workflow will be sent.
+
+## Pro Tip: The Definitive End to a Workflow
+
+Lets say your goal is to book an appointment, and after the booking node you send the flow to a conversation node - IF you have any follow ups, the AI will continue following up here. Best practice is to end the Agent Session with a stop node in this case and use a NEW agent to keep the conversation going.
+
+</Accordion>
+
+<Accordion title="If / Else Node">
+
+<iframe src="https://www.loom.com/embed/8cbb6c21e23f4e80afde3bffb419c68a" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+0:00 Alright ladies and gentlemen, so in this video we're going to be talking about the if-else node, which again can be found in the node palette by clicking the top left blue icon up here and dragging it on the canvas, or by hitting this blue plus quick add button and then going ahead and then adding an 0:18 if-else branch. So what this node really allows you to do is to go ahead and create different paths based off of a contact condition. 0:30 So, opening this up, you'll see right at the gate we have something called Default Branch. So this branch will be triggered when no other conditions are met. 0:39 So what that means is, let's say, we had branch number 1, I'm going to rename it, uhm, Contact Field, because I'm going to say, let's say the contact field, uhm, let me see, what do I have in here, give me a second, is, and let's say I know the value, 50k per month, let's say that is the one. 1:12 So we have a certain thing, and then it is 50k per month. So basically what this means is if that contact field equals 50k per month, hypothetically, and we save it, if the contact data for that field equals that, then we will go down this path. 1:32 However, if the contact doesn't equal that, and it's nothing, then it's going to go down the default path, which will go down this way. 1:42 So again, that is how this works. You can then go ahead and add more conditions in here, right, So you can add a series like any of these or all of these so it has to match all of them Again, so you can literally get very very custom let's say You wanted someone to be making this amount of money, and 2:03 you want them to, based off another custom field or tag, be something else, so you want them to match both conditions, it'll be all, if it's any, then you're like, cool, I'm okay if it's this or this, but all is going to be, it has to be everything in here. 2:17 And then again, you can always add more branches. There's no limit to how many branches you can add. So you can continue to add more branches, which again, would allow you to send the conversation towards these different paths. 2:29 So hopefully that makes sense. If you have any questions, please feel free to reach out. But again, this is going to be very, very good for qualification or if you pre-qualify people on the fly. 2:40 So if you have questions, please free to reach out to me, and I'll be happy to realtor or working with realtors. 3:12 If they're looking to buy a home, it'll go down one path or if they're looking to sell a home, it'll go down another path. 3:17 So again, these are different ways that you can use the branch to do that. Or if else, to send conversations down different pathways based off of the customer's information that you have or that they may have entered.
+</Accordion>
+
+---
+
+The Branch (If/Else) node allows you to create different conversation paths within your workflow based on specific conditions related to the contact's data, such as custom field values or tags. This is crucial for pre-qualification, segmentation, and personalizing the conversation flow.
+
+## 1. Accessing the Branch Node
+
+1. Open the **Workflow Node** palette by clicking the blue icon in the top left corner.
+2. Locate the **Control & Logic** section.
+3. Drag and drop the **If/Else** node onto the canvas, or click the blue **Quick Add** button connecting to an existing node and select the **If/Else** node.
+
+## 2. Configuring Branches
+
+The Branch node's configuration screen allows you to define the conditions for up to 10 different branches.
+
+1. **Node Name:** Change the default name (e.g., "Branch") to something descriptive (e.g., "Qualified Lead").
+2. **Add First Branch:** Click **+ Add First Branch** to define your first conditional path.
+
+## 2.1. Setting up a Conditional Branch
+
+For each branch, you define one or more conditions that a contact must meet to be routed down that path.
+
+1. **Branch Name:** Rename the branch (e.g., "Contact Field = 50k/mo").
+2. **Match Logic:** Select the logic for multiple conditions:
+   - **Any:** The contact must match at least **one** of the conditions listed below.
+   - **All:** The contact must match **all** of the conditions listed below.
+3. **Define Conditions:**
+   - Click on the first dropdown (e.g., **Contact Details** or **Tags**). You can select from various contact fields (like Name, Phone, Email, or any custom field you've created) or tags.
+   - Select an **Operator** (e.g., is, is not, contains, does not contain, is empty, is not empty, etc.).
+   - Enter the required **Value** (e.g., if you select the custom field "What Is Your Current MRR?" and the operator is, you might enter "50K/mo" as the value).
+4. **Add More Conditions:** Click **+ Add Condition** to add another criterion to the current branch. This is where the **Match Logic (Any/All)** becomes relevant.
+5. **Add More Branches:** Click **+ Add Branch** (top right of the Branches section) to create another distinct conditional path.
+
+## 2.2. The Default Branch
+
+- The **Default Branch** is always present and cannot be removed.
+- This branch will be triggered when the contact meets **none** of the conditions defined in your custom branches.
+- It serves as a fallback path for contacts who do not qualify for any of your specified conditional flows.
+
+1. **Save Changes:** After setting up all your branches and conditions, click **Save Changes**.
+
+## 3. Connecting the Workflow
+
+Once the branches are configured, they will appear as distinct output ports on the right side of the Branch node.
+
+1. **Connect Conditional Branches:** Drag the blue connection point next to each named branch (e.g., "Contact Field = 50k/mo," "Branch 2," etc.) to the next node in your workflow for that specific path.
+   - *Example: If the contact matches the "Contact Field = 50k/mo" branch, you could connect it to a **Milestone** node that marks them as qualified.*
+2. **Connect Default Branch:** Drag the blue connection point next to the **Default** branch to the flow that should handle contacts who did not meet any of your specific conditions.
+   - *Example: Connect the Default branch to a **Milestone** or **Stop** node to end the conversation or route them to a general follow-up flow.*
+
+## 4. Use Cases
+
+The Branch node is versatile for advanced conversational logic:
+
+- **Prequalification:** Branch conversations based on custom fields like **current revenue**, **budget**, or **industry**.
+- **Segmentation:** Route users down different flows based on their **goals** (e.g., "Lose Weight" vs. "Gain Muscle").
+- **Tag-Based Routing:** Use tags to immediately send a contact to a specific flow if they were previously tagged as a "VIP" or "Not Interested."
+- **A/B Testing Flows:** Send contacts down different, parallel flows to test which conversational approach performs best.
+
+</Accordion>
+
+# 📌 AI Tool Nodes
+
+*These nodes are "tools" that you give your AI Agent to use during the conversation.*
+
+<Accordion title="Booking Node">
+
+<iframe src="https://www.loom.com/embed/96c9278a4d014069853a9e36233fb759" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+All right, so welcome to the training video where we go over the booking node. The booking node can also be found right here. You can just drag it on the canvas, or, oops, you can click on the palette to add it to the screen, whatever your preference is. But the booking node is a simple node. The booking node, once it enters, it starts to immediately try booking. Now, there's a few caveats here.
+
+The first thing is the confirm time zone. So if confirm time zone is on, the first thing that the AI does when it hits this booking node is it says, what is your time zone? It'll confirm the time zone of the contact. And then I would always recommend save contact time zone being turned on as well, because then we'll update the contact inside of your CRM so that it saves with the proper time zone.
+
+And why that's really, really cool is when this is turned on, the AI will ask for the time zone. And then if I say I'm in Dubai, it will understand what time zone that is and it will give me the time availability in my time zone, not the time zone of the calendar. Then when I select the right time zone, the AI will take that time and go book it back in the calendar in the time zone of the calendar. So it's not, you know, trying to book 8:30 Dubai time in 8:30 EST, it'll do the calculation, it'll revert it back to the calendar and then it will book it accordingly, which is really, really cool.
+
+So if confirm time zone is on first, again, once the AI pushes things out and it goes to the booking node, the first thing that it will say is awesome, what time zone are you in or what time zone works for you, something along the of that nature is the first message that gets sent in. If this is turned off, so if we hit edit and turn these off, and that's how it stays, then the AI will provide them availability. So we have trained Agent Kong from the ground up to be an appointment setter. So it's not, you know, a GPT wrapper or an 8N template, everything is custom built from the ground up. And we specifically trained it how to be an appointment setter. And one of the things that we trained it to do is when it grabs availability, it's always going to provide the next two available days on the calendar. So if today is Thursday and you take only Monday to Friday, it will offer Friday and Monday. If today is Saturday, it will offer Monday and Tuesday if that's the next availability, so on and so forth. I think you understand.
+
+So that's what an appointment setter is trained and is supposed to do, right? Like anyone who's built appointment setting teams, they know, hey, go grab the next two available days and provide them dates. So that's what it does if confirm time zone is off. Once it hits this, it'll say something like I have, uh, tomorrow the 21st available or next Monday, which one works for you. So that is if this is turned off, if confirm time zone is turned on, which is what we like to do, especially for international booking, then it'll ask which is your time zone and then it will go and it will provide the next two available dates from the calendar that is selected.
+
+Now, with that being said, that means that you need to use this kind of strategically, right? Because if you think about conversation, if you just out of nowhere are like, I have tomorrow or Thursday and you've never spoken about booking or anything, it's kind of strange, right? So there's a few ways that we do this. Uh number one, this is actually an Instagram DM or messenger DM, uh determine if they're open to scheduling a live demo, uh the user stated they are interested in scheduling an appointment, then we get the phone number to obviously have the phone number to book them in so we can call them, et cetera.
+
+Uh so they've already agreed to it, right? It's like, awesome, are you, can I send you some availability? They'll say yes. Then the AI will say, perfect, real quick, what's the best phone number for you? They'll give them the phone number and then it'll go awesome. What time zone works for you or if it's turned off after he gives the numbers like, awesome, I can do tomorrow or Friday, which one works for you. So, important caveat, make sure you're setting up the booking appointment so that it makes sense conversationally by asking them if we can set them availability or if they'd be open to booking a call. Uh so that way they're not just getting hit out of left field because if you had, you know, the right person and then you go into the booking node, be like, hey, is this Matei? and be like, yeah, who's this? It's like, awesome, I can do tomorrow or Thursday.
+
+Uh so make sure you set up the booking node. It's really all the point is, make sure you're setting it up. I'm actually going to find another example here to show you. Perfect. Here's another flow. I think we actually built this one together on one of the other ones, but very simple, determine if we're speaking with the right person, ask them if we can send them a call, be straight to the point of why we're reaching out if they say yes, then it'll be like awesome, I can do tomorrow or Friday because we don't have confirm time zone turned on. So always make sure that you set up the booking appointment so that it makes sense conversationally. So the person has said yes, cool, send me some availability and then it will go ahead and do it.
+
+All right, so now that we've gone through the regular use case of the booking to actually book appointments, it's very important to mention that that's not all the booking node can do. The booking node can also reschedule appointments. So this is going to be the workflow that you can leverage something like this. You're going to send it into a conversation node to keep it open-ended that way. The AI is always on without pursuing any specific, specific goals or feeling as rigid. And then if the user ever says at any point, I need to reschedule my appointment and you have a conversational trigger on the screen, then it will send it down into the booking node, which if you see right here, is how we are going to actually reschedule the appointment. So it's important to mention that this is not going to create a new appointment inside of your calendar. It's actually going to find the original appointment and then edit and modify the date and time of that appointment, quite literally rescheduling it in your calendar, not creating a new one.
+
+So that is something that's really cool. If by the way people have multiple appointments, which obviously does happen if you've run any online ads, you've probably seen leads that have two appointments booked on different dates. So like, all right, which one are we keeping? If that happens, the AI will see, hey, I see you're booked on Tuesday at 3:00 p.m. and Friday at 4:00 p.m. which one would you like to reschedule? Um and then you can all it will also ask like, you know, should I cancel the other one if it thinks it's necessary. Uh so the AI is smart, the booking node is not only for creating new appointments in the calendar, it can also be used to actually reschedule the existing one or if you see right here, if the user is looking to cancel their appointment, we can send it into the booking node and the AI is smart, it understands exactly what's going on in the conversation. It knows what's been spoken up to this point in time and it will go ahead and it will ask them if there's multiple, which one do you want to cancel, if there's obviously not multiple, just cancel the one that's inside of the calendar, but it will actually cancel the appointment as well. And important to mention that by cancel, it's not going to delete the appointment, it's just going to mark it as canceled. So it no longer shows up in the calendar and takes up the space. So that is the complete tutorial on the booking. Again, you can use it to actually book appointments or you can use it to reschedule appointments and cancel appointments. So it does three functions and it's all inside of one nice beautiful node. Now, if you do have any more questions, of course, feel free to reach out to the support team. We're more than happy to help and assist.
+</Accordion>
+
+---
+
+## Understanding the Booking Node
+
+The "Booking" node is a specialized AI tool in Agent Kong designed to handle all aspects of appointment scheduling. This powerful node can book new appointments, reschedule existing ones, and even process cancellations. It intelligently interacts with your integrated calendar to offer available time slots and can also confirm a user's time zone to prevent scheduling errors.
+
+## How to Set Up a Booking Node
+
+1. **Add the Node**: In the workflow editor, click the blue **+** button or a node connector to open the "Add Workflow Node" panel.
+2. **Select Booking**: Under the "AI TOOLS" section, choose the "Booking" node.
+3. **Configure the Settings**: Click on the "Booking" node to open its configuration panel.
+   - **Calendar**: Select the specific calendar you want the agent to book appointments on.
+   - **Confirm Timezone**: Toggle this on to have the AI first ask the user for their time zone before presenting available times. This is highly recommended, especially for international booking.
+   - **Save Contact Timezone**: When enabled, this option will update the contact's record in your CRM with the time zone they confirm.
+
+## Key Features
+
+- **Appointment Booking**: When the workflow reaches this node, the AI will automatically look for the next two available days on the selected calendar and offer them to the user.
+- **Appointment Rescheduling**: If a user indicates they need to reschedule, you can use a "Conversational Trigger" to direct them to the Booking node. The AI will find the original appointment and modify its date and time, rather than creating a duplicate.
+- **Appointment Cancellation**: The Booking node can also handle cancellations. It will locate the user's appointment in the calendar and mark it as canceled, freeing up the time slot. Note that it does not delete the appointment entirely.
+- **Time Zone Confirmation**: To avoid confusion, especially with users in different locations, enabling "Confirm Timezone" prompts the AI to ask for the user's time zone first. It then presents availability in their local time and handles the conversion when booking.
+
+## Pro Tip: Set the Context Before Booking
+
+For a natural-feeling conversation, it's best to lead into the Booking node with a milestone or conversation node. This allows you to first confirm that the user is ready to book an appointment before the AI starts offering dates and times. For example, have a milestone that asks, "Are you open to scheduling a live demo?" before connecting to the Booking node.
+
+## Important Note: Multi-Appointment Handling
+
+If a user has multiple appointments scheduled and asks to reschedule or cancel, your AI Agent is smart enough to recognize this. It will ask the user to clarify which appointment they are referring to before taking any action.
+
+</Accordion>
+
+<Accordion title="Edit Tags Node">
+
+<iframe src="https://www.loom.com/embed/8dd7090c9cd5429aa278b06edb299691" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+All right, so on this training video we're going to be going over the tag node, which basically allows you to edit or delete tags. So as you see, right here, we can go ahead, we can drop this here, and when we drop it, we will then be able to add a tag or remove a tag from the contact and then we can obviously select the tags that we're going to remove or select the tags that we are going to add. So very simple, you either add or remove a tag. Now why this is actually important and why would we want to actually use this? Well, for example, if you have a third-party CRM like HubSpot or GoHighLevel, whenever you add a tag to a contact in our system, we automatically send that data over to your third-party CRM because there's always a two-way sync going on between any CRM that you have connected and our platform. And on top of that, if you leverage something like let's say GoHighLevel, you can actually trigger an automation once a certain tag gets added, again, in an external system. So just to show you an actual use case, this is for a car dealership seeing if we can actually or if they're okay with us calling them. Um so if they say yes, they would like us to call them, then we will uh add a tag here that says call and then that way inside of HighLevel, it'll trigger an automation sending the sales rep an instant notification to call the team, or if it's only text, so please text me, then they will add a tag saying text only, and then again that's going to trigger a separate automation inside of GoHighLevel so that the sales rep gets a text only notification. Now, obviously, that is just a very basic format, you can definitely use this to trigger automations for very complex stuff. I'll let your imagination take you wild. But again, in this training video, very simple, you can always go ahead, open the node palette, find your Edit Tags, drop one on, and then you can simply add tag or remove tag and then select the tag or multiple tags that you would like to add. And that's it for this training video. If you guys have any questions, please feel free to reach out to the support team. If not, then we'll see you in the next video.
+</Accordion>
+
+---
+
+## The Tag Node: Adding and Removing Contact Tags
+
+The **Tag** node is a fundamental workflow tool that allows you to manage contact tags within your automation. It gives you the ability to **add** a new tag to a contact's record or **remove** an existing tag.
+
+## How to Set Up an Edit Tags Node
+
+1. **Add the Node:** In your workflow editor, open the "Add Workflow Node" panel (from the left menu or by clicking a connector) and select **Edit Tags**
+2. **Configure the Settings:** Click on the **Edit Tags** node to open its configuration panel.
+3. **Select Action:** Use the **Action** dropdown menu to choose between:
+   - **Add Tags:** To attach one or more tags to the contact.
+   - **Remove Tags:** To detach one or more tags from the contact.
+4. **Select Tags:** Click **+ Select tags to add/remove...** to bring up the tag list. You can:
+   - **Search** for existing tags.
+   - **Create a new tag** by typing the name and clicking the **Create** button.
+   - Select multiple tags for a single node action.
+
+## Key Benefits and Use Cases
+
+### 1. External CRM Integration
+
+The primary importance of the **Edit Tags** node is its seamless integration with third-party Customer Relationship Management (CRM) systems like **GoHighLevel** or **HubSpot**.
+
+- **Two-Way Sync:** When you add a tag to a contact in our system, that data is automatically sent over to your connected third-party CRM.
+- **Triggering Automations:** In external systems like GoHighLevel, a tag being **added** to a contact can be used to **trigger a new automation**. This allows you to manage complex, multi-system workflows.
+
+### 2. Workflow Logic and Branching
+
+Tags serve as vital markers to inform the rest of your automation flow:
+
+These tags can then be used in your external CRM to:
+
+- **Notify a sales rep** to call the contact ("Call" tag).
+- **Trigger a separate, text-based follow-up sequence** ("TextOnly" tag).
+- Create unique, custom automations tailored to you / your business
+
+</Accordion>

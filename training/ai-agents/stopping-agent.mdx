@@ -1,0 +1,204 @@
+---
+title: "7. How To Stop Your AI Agent"
+description: "Learn how to Stop your AI Agent and stop it from responding to the user."
+---
+
+# Different Ways To Kill / Stop Your Agent
+
+*Below are going to be several ways of killing / stopping your AI Agent.*
+
+*Use Case Examples:*
+
+- *Lead booked an appointment themselves AFTER the agent was triggered*
+- *Prospect purchases a product online and you want to stop the Agent from engaging*
+
+---
+
+<Accordion title="📌 Kill Agent Using A Webhook">
+
+<iframe src="https://www.loom.com/embed/f1ce992502b14edfbeb8265ad62b945f" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+<Accordion title="Transcript">
+All right, so in this video we're going to be walking you through how to actually kill your AI agent with a webhook because there might be a point in time where you've triggered an agent and you would like to then kill the agent afterwards. So the first thing we're going to do is again, we're going to find the webhook URL from the agent. We're going to copy the webhook URL and then we're going to go inside of our automation platform. For this example, we're going to use Go high level just because it's a nice all in one CRM and it takes care of a lot of stuff for you. This can work with Zapier with make.com with NNN with any other type of automation, probably whatever, whatever platform you're using, you can leverage the exact same thing. But for this case, we're going to be using Go high level. So let's assume that we have an agent and this is an appointment booking agent. So we get a new lead, we want to hit them on my message on WhatsApp and on email to book the appointment.
+
+Now let's assume for whatever reason, maybe a human called them or maybe the lead actually called the business and spoke with a human and they booked without the AI agent. We're going to do uh customer booked appointment. We're going to leave it like that. We're not going to get too in depth. You can obviously choose the specific calendar, all that fun stuff. But let's say when the customer books the appointment, we're then going to send out another webhook. We're going to paste the web hook URL in there and then we're going to add this kill. I don't know why it shows that there. Let's just uh add a bunch of spaces. Cool. So it is the exact same URL, nothing is changing on the URL side, all you're going to type is a forward slash kill. If you add forward slash kill, hit save, and then this triggers the webhook. If this agent is already talking on WhatsApp and it's maybe halfway there uh and it's had a conversation already, the AI will completely be removed from that contact. It will kill the agent from that contact because it uses, it's important to note that this will not kill every conversation.
+
+We're looking for the contact that comes with the webhook. So whether it's Zapier or go high level, we will get the data, the contact name, the contact email, the contact phone number, we will find that contact and if that contact is assigned to this specific agent because of the URL again is specific to this agent, it will then kill this agent for that contact. Hope that makes sense. If you guys have any questions, jump in on Discord, ask us, ask us in the support and we'll see you in the next video.
+</Accordion>
+
+---
+
+## How to Stop an Active Agent with a Webhook
+
+There are situations where you need to stop an agent from continuing its conversation with a lead. For example, a lead might call your business directly to book an appointment, or a sales representative might take over the conversation manually. In these cases, you can send a "kill" command via a webhook to immediately halt all further communication from that specific agent to that specific lead.
+
+## How the Kill Command Works
+
+The kill command uses your agent's unique **Agent Trigger URL** with a simple modification. By appending "/kill" to the end of the standard trigger URL, you create a new endpoint that tells Agent Kong to stop the agent's current activities for the contact information sent in the webhook.
+
+## How to Create and Use the "Kill" Webhook
+
+Follow these steps to set up an automation that can stop your agent. This example uses GoHighLevel, but the principle is the same for any platform that supports webhooks (e.g., Zapier, Make.com).
+
+1. **Copy the Agent Trigger URL**: Navigate to your Agent Hub and copy the standard **Agent Trigger URL** for the agent you want to control.
+2. **Create the "Kill" URL**: Paste the URL into your automation platform's webhook action. Then, simply add "/kill" to the end of the URL.
+   - **Kill Command URL**: https://app.agentkong.ai/your-unique-agent-id**/kill**
+3. **Set Up the Automation**: In your CRM or automation tool, create a new workflow that triggers on the event that should stop the agent.
+   - **Trigger Example**: Customer Booked Appointment.
+   - **Action**: Add a **Webhook** action.
+   - **Method**: Set the method to **POST**.
+   - **URL**: Paste the newly created /kill URL.
+4. **Save and Activate**: Save your workflow. Now, whenever a contact books an appointment, this automation will send their details to the /kill webhook.
+
+## Important Note: What the Kill Command Does
+
+When the /kill webhook is received for a specific contact, Agent Kong does the following:
+
+- It immediately **stops** the agent from sending any further messages in its current workflow.
+- The command works across **all channels**, halting potential SMS, WhatsApp, and Email messages from that agent.
+- It **unassigns** the agent from the contact. The agent's job is now considered complete for that user, and it will not re-engage unless triggered again by a new, separate automation.
+
+This functionality gives you precise control over your agent's lifecycle, ensuring it only communicates when it's supposed to and gracefully steps aside when a human takes over or a goal is achieved outside of the AI's flow.
+
+</Accordion>
+
+<Accordion title="📌 Kill Agent In The App">
+
+<iframe src="https://www.loom.com/embed/694303ff87534b99914fa10700e82bab" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+---
+
+## Manually Removing an AI Agent from a Conversation
+
+While Agent Kong is designed for automation, there are times when manual intervention is necessary. Whether a lead has booked a call directly, or a situation requires a human touch, you have complete control to stop an agent's interaction with a contact. This can be done directly within the **Conversations** tab.
+
+## How to Access the Agent Removal Options
+
+1. Navigate to the **Conversations** tab from the main menu.
+2. Select the active conversation you wish to take over.
+3. At the top of the chat window, you will see a button indicating which AI Agent is currently assigned to the conversation (e.g., "test"). Click on this button.
+4. A **"Remove AI Agent"** pop-up window will appear, presenting you with three distinct options for how to proceed.
+
+## Understanding Your Options
+
+Choosing the right option is critical, as each has a different impact on the agent's current and future behavior with the contact.
+
+- ### Keep Agent
+
+  This is the default, non-destructive option. Selecting this will simply close the pop-up window and the agent will continue its conversation without any interruption.
+
+- ### End Current Session
+
+  This option removes the agent from the *current* conversation, effectively ending its active workflow for that specific session.
+
+  - **What it does**: The agent will immediately stop and will not send any more messages related to its current task.
+  - **Future Assignment**: This action **allows** the same contact to be assigned to an agent in the future. For example, if this contact is later added to a new campaign, a new agent session can be triggered.
+
+- ### End & Disable AI
+
+  This is the most definitive action and acts as a permanent "kill switch" for a specific contact.
+
+  - **What it does**: The agent is immediately removed from the current conversation.
+  - **Future Assignment**: This action **prevents** this contact from *ever* being assigned to any AI agent in the future. The system will block any subsequent attempts to trigger an agent for this user.
+
+## Pro Tip: When to Use "End Current Session"
+
+"End Current Session" is the ideal choice for temporary takeovers. Use it when you need to step in to answer a specific question or handle a unique request, but you still want the contact to be eligible for future automated follow-ups or campaigns.
+
+## Important Note: The Permanence of "End & Disable AI"
+
+The "End & Disable AI" function is a permanent action for that specific contact. Only use this option if you are certain that you want all future interactions with this person to be handled manually.
+
+</Accordion>
+
+<Accordion title="📌 Kill Agent From Go High Level">
+
+<Accordion title="Go High Level Tags">
+
+<iframe src="https://www.loom.com/embed/2df070d759cb4e81b0ba49248205aae0" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+# Turning Off an AI Agent for a Specific Contact Inside Of GoHighLevel
+
+This guide will show you how to quickly turn off an AI agent for an individual contact within Go High Level by using a specific tag.
+
+## The Agent Off Tag
+
+Our system is designed to automatically push an **agent-off** tag into your sub-account. This is the tag you'll use to disable the AI agent. If for any reason the tag is not there, you can manually create it yourself by copy and pasting this: agent-off
+
+## Step-by-Step Instructions
+
+1. **Open a contact's profile** or **contact conversation** within Go High Level.
+2. In the right or left sidebar (right for conversations, left for contact page) locate the **Tags** section.
+3. Click on the input field and type **agent-off**.
+4. Press **Enter** to add the tag.
+
+As soon as the tag is applied, the system will automatically turn off the AI agent for that specific contact. You can confirm this by checking the AI agent toggle at the top of the conversations page within AgentKong. It should now be in the "off" position.
+
+## How to Turn the AI Agent Back On
+
+To re-enable the AI agent for the contact, simply go back to the contact's profile and delete the **agent-off** tag. The system will recognize the change and reactivate the agent automatically. You can also toggle the AI Mode from within AgentKong's conversations page for that specific lead
+
+</Accordion>
+
+<Accordion title="Go High Level Automations">
+
+![Go High Level Automations](https://downloads.intercomcdn.com/i/o/nkz7jznk/1853802764/720a73da97a6f08cf4992e04a96b/image.png?expires=1777422600&signature=373f040a24cdc995abf67dcec685d347bda024eb3904afeed8c2752409292376&req=dSgiFcF%2Bn4ZZXfMW1HO4zViloBrQrZj7RKoDrjhy%2BnQ9%2BA9xy7C0fJVFT2yg%0ALgKb%0A)
+
+**Steps:**
+
+1. Open Go High Level Automations
+2. Define your trigger (ex: appointment booked)
+3. Search for the "Kill Agent" action step
+4. Select which agent you want to kill (stop the AI from conversating)
+5. Click save.
+
+</Accordion>
+
+</Accordion>
+
+<Accordion title="📌 Stop ALL Active Conversations">
+
+<iframe src="https://www.loom.com/embed/3257827faad840048fe1b1fe5b704340" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+---
+
+## Bulk-Removing an Agent From All Conversations
+
+There may be instances where you need to immediately stop an agent's activity across all of its assigned conversations. This could be to halt a campaign, rehaul a workflow, etc. The "Disconnect Agent from Conversations" feature allows you to perform this bulk action quickly and efficiently from the AI Agents dashboard.
+
+## How to Disconnect an Agent
+
+1. Navigate to the **AI Agents** tab from the main menu on the left.
+2. Locate the agent card for the agent you wish to disconnect from all its current conversations.
+3. Click the **Disconnect agent from conversations** icon (human with an x icon) near the top right of the agent card.
+4. A confirmation pop-up window will appear.
+5. Click the orange **Disconnect Agent** button to confirm the action.
+
+After confirming, you will see a notification that the agent was disconnected successfully. You will also notice that the **Conversations** count on that agent's card has dropped to zero, providing a clear visual confirmation that it is no longer active in any chats.
+
+Disconnecting an agent is a powerful, non-reversible action.
+
+## IMPORTANT
+
+Turning an Agent OFF will not remove the conversations. If turned back on again, the Agent will pick up where it left off from.
+
+Use THIS button to "remove all contact sessions" from an AI Agent.
+
+</Accordion>
+
+<Accordion title="📌 Permanently Disable A Contact From Engaging With AI">
+
+<iframe src="https://www.loom.com/embed/8960863595b0414e98b8f40959366dd8" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+---
+
+## Taking Control: AI vs. Human Mode
+
+Within any active conversation, you can see the agent's status at the top right of the chat window.
+
+- **AI Agent (Toggle On)**: The agent is active and will respond automatically based on its workflow logic.
+- **Human (Toggle Off)**: This is **Manual Mode**. The agent is disabled for this conversation, and all further responses must be sent by you.
+
+To switch to Manual Mode, simply click the **"AI Agent"** toggle. A confirmation pop-up will appear. Once you confirm, the toggle will switch to "Human," and the AI's automatic responses for that chat will be disabled. You can then use the multi-channel message composer at the bottom to send messages manually via Email, SMS, or WhatsApp.
+
+</Accordion>

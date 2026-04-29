@@ -1,0 +1,88 @@
+---
+title: "AI Agents"
+description: "Create, monitor, and manage your AI-powered agents."
+---
+
+<iframe src="https://www.loom.com/embed/76df94240ff6444ea69a5a6bd1e59784" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+---
+
+## Introduction to AI Agents
+
+The **AI Agents** page is the command center for all the AI-powered agents within a specific business account. From here, you can create new agents, monitor their performance at a glance, configure their core settings, and access their training modules. Each agent you create is a distinct AI entity with its own name, role, and memory settings, allowing you to build a specialized AI workforce for different tasks.
+
+## Navigating the AI Agents Page
+
+To get to the AI Agents page, simply select the business you want to work on from the top-left dropdown menu and then click **AI Agents** from the main navigation panel.
+
+On this page, you will see a card for each AI agent you have created. If you have a long list of agents, you can use the **search bar** at the top to find a specific agent by its name or description.
+
+## Creating a New AI Agent
+
+1. Click the **+ New Agent** button in the top-right corner of the screen.
+2. A "Create a new AI Agent" pop-up will appear. You will need to configure your AI's identity by providing two key pieces of information:
+   - **Agent Role:** Specify the official role or job title of the agent (e.g., "IG Sales Agent," "Appointment Setter," "Customer Support Rep"). This helps the AI understand its primary function.
+   - **Agent Name:** Give your agent a name (e.g., "Alex," "Sarah," "SupportBot"). This is the name the AI will use to identify itself if a contact asks.
+3. Click **Create Agent**. Your new agent will now appear on the AI Agents page.
+
+## Managing an AI Agent
+
+Each agent is represented by a card that contains vital information and management controls.
+
+## Agent Card Overview
+
+- **Agent Role & Name:** Displays the identity you configured.
+- **Status Toggle:** A switch to turn the agent on or off. An active agent will respond to triggers and engage with contacts. A disabled agent will not.
+- **Performance Stats:** A quick summary of the agent's activity:
+  - **Conversations:** The total number of conversations the agent has handled.
+  - **Total Contacted:** The number of unique contacts the agent has interacted with.
+  - **Total Replied:** The number of times the agent has sent a reply.
+  - **Appointments Booked:** The total appointments secured by the agent.
+  - **Conversion Rate:** The percentage of conversations that result in a booked appointment.
+- **Memory Toggles:**
+  - **Agent Memory (Self-Training AI):** When enabled, the AI analyzes its successful interactions to learn and improve its performance over time. It identifies what works best for booking appointments or achieving goals and adapts its strategy accordingly.
+  - **Contact Memory:** When enabled, the AI remembers all past interactions with a specific contact. This allows for highly personalized and context-aware conversations, as the AI can reference previous discussions.
+- **Train AI Button:** This button takes you to the agent's specific workflow hub, where you can build out its logic, define its triggers, and provide it with detailed training data.
+
+## Quick Actions
+
+At the top-right of each agent card, you will find three icons for quick management:
+
+- **Edit Agent (Pencil Icon):** Allows you to change the Agent Role and Agent Name.
+- **Copy Agent Trigger URL (Copy Icon):** Copies the unique webhook URL for this agent. This URL is used to trigger the agent's workflow from external applications.
+- **Delete Agent (Trash Can Icon):** Permanently deletes the agent and all its associated data. This action cannot be undone.
+
+## Full AI Agent Management: Export & Import
+
+A recent powerful update now allows you to export and import entire AI agents, which includes **all** associated channel workflows, conversation settings, and the complete **Train AI Knowledge Base**. This is a significant time-saver for agencies and users managing multiple agents or transferring a successful agent configuration to a new business unit.
+
+### 1. Exporting a Complete AI Agent
+
+The export function is now available from the main **AI Agents** dashboard.
+
+#### Step-by-Step:
+
+1. Navigate to the **AI Agents** dashboard via the left sidebar.
+2. Locate the card for the Agent you wish to export.
+3. Hover over the agent card's top bar and click the **Export Agent** icon (a box with a downward arrow).
+4. A file dialog will open, prompting you to save the agent as a **JSON Source File**. This single file contains:
+   - The Agent's name and job title.
+   - All configured channel workflows (e.g., WhatsApp, iMessage & SMS flow logic).
+   - All configured settings within the workflow (e.g., Message Delays, Follow Up Modes).
+   - All data within the **Train AI** section (Business Information, Competitor Analysis, Objection Handling, etc.).
+5. Click **Save** to download the complete agent file to your local machine.
+
+### 2. Importing a Complete AI Agent
+
+You can import a previously exported JSON file to quickly set up a fully trained agent.
+
+#### Step-by-Step:
+
+1. Navigate to the **AI Agents** dashboard.
+2. Click the **Import** button located in the top-right corner of the dashboard.
+3. Select the **JSON Source File** you wish to import.
+4. A **Preview Agent Import** modal will appear, allowing you to review the imported configuration.
+   - **Agent Details:** You can rename the **Agent Name** and **Job Title** of the new agent before importing.
+   - **Objectives:** The modal will list all Objectives (communication channels) that will be imported with their corresponding workflows.
+5. **Important Note:** The system will display a warning: "This will create a NEW agent. A new agent will be created with the imported configuration. All objectives will start as **INACTIVE** and will need to be configured and activated manually."
+6. Click **Import Agent** to create the new, fully configured agent.

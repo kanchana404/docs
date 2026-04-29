@@ -1,0 +1,65 @@
+---
+title: "Contacts"
+description: "Manage your contact database, custom fields, and tags."
+---
+
+<iframe src="https://www.loom.com/embed/d26e02aeafdd40e39746dea7b5b8e166" frameBorder="0" allowFullScreen style={{ width: "100%", height: "400px" }} />
+
+---
+
+# Managing Your Contacts in AgentKong
+
+The Contacts page is your central database or Customer Relationship Management (CRM) hub within each business account. This is where every individual your AI interacts with is stored and managed. Here you can view contact details, add new contacts, manage their information, and create custom data fields and tags to enhance your AI's knowledge.
+
+## Navigating the Contacts Page
+
+The Contacts page is divided into three main tabs: **Contacts**, **Contact Custom Fields**, and **Contact Tags**.
+
+## 1. The Main Contacts List
+
+This is the default view and it displays all the contacts associated with the selected business.
+
+- **Viewing Contacts:** All your contacts are listed in a table format, showing their name and other key details.
+- **Searching and Loading:**
+  - Use the **Search bar** at the top to quickly find a specific contact.
+  - The list loads 50 contacts at a time. To see more, simply click the **Load More** button at the bottom of the list.
+- **Adding a New Contact:**
+  - Click the **+ Add Contact** button in the top-right corner.
+  - A form will appear where you can manually enter the contact's information, including basic details, business information, location, and any custom fields.
+  - Click "Create" to save the new contact.
+- **Viewing a Contact's Conversation:**
+  - Clicking directly on a contact's name in the list will take you to the **Conversations** page, filtered to show only the interaction history with that specific individual. This allows you to quickly review all communications.
+
+## Actions for Individual Contacts
+
+On the far right of each contact's row, there is a **three-dot menu** that provides several actions:
+
+- **Update:** This opens a pop-up window where you can edit all the information for that contact, including their name, email, phone number, company, address, tags, and any custom fields you have created.
+- **View Session Logs:** This takes you to a detailed log of every interaction and event the AI has had with the contact. It shows the type of interaction (e.g., message, event, tool call), the input message, the agent's reply, and other technical data. This is extremely useful for troubleshooting and understanding the AI's decision-making process, especially if an agent isn't responding as expected.
+- **Copy ID:** This copies the contact's unique ID to your clipboard.
+- **Delete:** This allows you to permanently remove the contact and all their associated data from the system.
+
+## 2. Contact Custom Fields
+
+Custom fields allow you to store additional, specific information about your contacts beyond the standard fields. This data is crucial for personalizing your AI's conversations.
+
+- **Automatic Sync with Your CRM:** If you have integrated a CRM like GoHighLevel, AgentKong will automatically sync and display all the custom fields from that platform. The sync is two-way, meaning updates in either AgentKong or your CRM will be reflected in the other.
+- **Manual Creation:**
+  - Navigate to the **Contact Custom Fields** tab.
+  - Click **Add Custom Field**.
+  - A pop-up will appear. Define your new field:
+    - **Label:** Give the field a descriptive name (e.g., "Monthly Revenue," "Deal Size," "Follow-up Status").
+    - **Type:** Choose the type of data this field will hold (Text, Number, Date, URL, Single-Select, Multi-Select).
+  - Click **Create Field**.
+- **Viewing Contacts with Custom Fields:** In the Contacts column, you can click the number to see a list of all contacts who have that specific custom field filled out.
+
+## 3. Contact Tags
+
+Tags are simple labels you can apply to contacts to segment and organize them.
+
+- **Automatic Sync:** Like custom fields, tags have a two-way sync with integrated CRMs like GoHighLevel. Adding or removing a tag in one system will update the other.
+- **Source:** The Source column shows where a tag originated (e.g., GHL for GoHighLevel, MANUAL, or SYSTEM).
+- **System Tags:**
+  - AgentKong uses a special, non-deletable system tag called **Agent-Off**.
+  - This tag is automatically applied to a contact when you manually turn off the AI for them in the Conversations page.
+  - You can also add this "Agent-Off" tag to a contact within your CRM (like GoHighLevel) to disable the AI for that contact, and the change will sync to AgentKong.
