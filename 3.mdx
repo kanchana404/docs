@@ -3,19 +3,12 @@ title: "3) Contact Tracking"
 ---
 
 <div style={{ position: 'relative', paddingBottom: '60.3358425014476%', height: 0 }}>
-  <iframe
-    src="https://www.loom.com/embed/70fe237634c24b74aa153e2d9a7fd378"
-    frameborder="0"
-    webkitallowfullscreen
-    mozallowfullscreen
-    allowfullscreen
-    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-  ></iframe>
+  <iframe src="https://www.loom.com/embed/70fe237634c24b74aa153e2d9a7fd378" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} />
 </div>
 
 # Contact Identity Resolution
 
-Alright, now that we've got the pixel on the website, we need to handle **Contact Identity Resolution**. This basically means we want to know exactly *who* is visiting—not just that a "visitor" landed, but their name, email, and phone number. We want as much data on them as humanly possible.
+Alright, now that we've got the pixel on the website, we need to handle **Contact Identity Resolution**. This basically means we want to know exactly _who_ is visiting—not just that a "visitor" landed, but their name, email, and phone number. We want as much data on them as humanly possible.
 
 ### How it Works
 
@@ -51,11 +44,11 @@ If you're using an embedded form, follow these steps to make sure we don't miss 
   <Step title="Map the Fields">
     Your redirect URL should look something like this:
 
-```text
-    https://yourwebsite.com/thank-you?email={email}&phone={phone}&firstname={firstname}&lastname={lastname}
-```
+    ```text
+        https://yourwebsite.com/thank-you?email={email}&phone={phone}&firstname={firstname}&lastname={lastname}
+    ```
 
-    *Note: Use the "Insert Variable" feature in your form builder to make sure the brackets pull the actual user data.*
+    _Note: Use the "Insert Variable" feature in your form builder to make sure the brackets pull the actual user data._
   </Step>
 </Steps>
 
@@ -72,12 +65,3 @@ It's so good at tracking that even if you try to hide in an Incognito tab on Saf
 <Tip>
   Stuck on a specific form embed? Reach out to our support team in the bottom right of the dashboard and we'll help you get your URL parameters mapped out.
 </Tip>
-````
-
-The key changes:
-1. **Code fence fixed** — language tag on its own line, URL on its own line, closing fence on its own line, with blank lines around the whole block.
-2. **`</Tip>` added** at the end.
-3. **Components broken onto multiple lines** with proper indentation — this is the Mintlify-recommended style and avoids edge cases where inline content with special characters confuses the parser.
-4. Added blank line after frontmatter for safety.
-
-One thing to be aware of going forward: the curly braces in `{email}`, `{phone}` etc. inside the code block are fine because they're inside a fenced code block. But if you ever write them in regular prose, MDX will try to interpret them as JSX expressions and you'll get the same parsing error. Always wrap them in backticks.
