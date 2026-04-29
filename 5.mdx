@@ -59,55 +59,153 @@ title: "5) URL Parameters (CRITICAL)"
 
     > NOTE: we are backwards compatible with Hyros URL Parameters
   </Accordion>
-</AccordionGroup>
 
-<Accordion title="Google Ads">
-  <div style={{position: 'relative', paddingBottom: '57.961783439490446%', height: 0}}>
+  <Accordion title="Google Ads">
+    <div style={{position: 'relative', paddingBottom: '57.961783439490446%', height: 0}}>
   <iframe src="https://www.loom.com/embed/3a7cedf0ea0f416a93eb953f300a605d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}} />
 </div>
 
-  # URL Parameters for Google Ads
+    # URL Parameters for Google Ads
 
-  Adding URL parameters to your Google Ads account is quite simple. Whether you're updating your existing campaigns or starting a fresh one, here’s how to get your tracking set up.
+    Adding URL parameters to your Google Ads account is quite simple. Whether you're updating your existing campaigns or starting a fresh one, here’s how to get your tracking set up.
 
-  ### For Existing Campaigns
+    ### For Existing Campaigns
 
-  If you already have Google ads running, follow these steps to bulk update your tracking:
+    If you already have Google ads running, follow these steps to bulk update your tracking:
 
-  1. Navigate to **Campaigns** in your Google Ads dashboard.
-  2. Click the **Settings** tab.
-  3. Select all the campaigns you want to track.
-  4. Click the **Edit** button and select **Change tracking templates**.
-  5. Copy and paste the URL parameters below in your dashboard into the **New tracking template** field.
-  6. Hit **Apply**.
+    1. Navigate to **Campaigns** in your Google Ads dashboard.
+    2. Click the **Settings** tab.
+    3. Select all the campaigns you want to track.
+    4. Click the **Edit** button and select **Change tracking templates**.
+    5. Copy and paste the URL parameters below in your dashboard into the **New tracking template** field.
+    6. Hit **Apply**.
 
-  <Note>
-    ```text wrap
-    {lpurl}?campaign_id={campaignid}&medium_id={adgroupid}&ad_id={creative}&utm_keyword={keyword}
-    ```
-  </Note>
+    <Note>
+      ```text wrap
+      {lpurl}?campaign_id={campaignid}&medium_id={adgroupid}&ad_id={creative}&utm_keyword={keyword}
+      ```
+    </Note>
 
-  ### For New Campaigns
+    ### For New Campaigns
 
-  If you’re creating a new campaign from scratch, you can set your tracking template during the setup process:
+    If you’re creating a new campaign from scratch, you can set your tracking template during the setup process:
 
-  1. Start your new campaign creation.
-  2. Navigate to the **Campaign settings** section.
-  3. Scroll to the bottom, click **More settings**, and then select **Campaign URL options**.
-  4. Paste your tracking code into the **Tracking template** field.
-  5. Click **Next** and continue with your campaign build—away you go!
+    1. Start your new campaign creation.
+    2. Navigate to the **Campaign settings** section.
+    3. Scroll to the bottom, click **More settings**, and then select **Campaign URL options**.
+    4. Paste your tracking code into the **Tracking template** field.
+    5. Click **Next** and continue with your campaign build—away you go!
 
-  <Tip>
-    Setting your tracking at the campaign level ensures that all ads within that campaign automatically inherit the correct URL parameters, saving you time and preventing manual errors.
-  </Tip>
-</Accordion>
+    <Tip>
+      Setting your tracking at the campaign level ensures that all ads within that campaign automatically inherit the correct URL parameters, saving you time and preventing manual errors.
+    </Tip>
+  </Accordion>
 
-<AccordionGroup>
   <Accordion title="TikTok Ads">
   </Accordion>
-</AccordionGroup>
 
-<AccordionGroup>
   <Accordion title="Bing Ads">
+  </Accordion>
+
+  <Accordion title="Organic Attribution (YouTube, Email, IG Organic, etc)">
+    <iframe src="https://www.loom.com/embed/e42c01896ff74e35ab3cee1ad2c7b437" title="Loom video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+    ---
+title: "Organic Attribution & URL Builder"
+description: "Track where your organic traffic comes from using UTM parameters and the Attribution Builder."
+icon: "link"
+---
+
+## Overview
+
+Cortana's **Attribution Builder** lets you tag any organic traffic source — YouTube, Instagram, email, or anything else — so you can see exactly which content drives opt-ins, calls, and purchases inside your attribution table.
+
+You don't *need* Cortana to build UTM links, but the builder makes it dead simple and keeps your naming consistent.
+
+<Note>
+  The page you're sending traffic to **must have the Cortana pixel installed**. Without it, page views and visitor tracking won't work — none of this data will show up.
+</Note>
+
+## Accessing the Attribution Builder
+
+<Steps>
+  <Step title="Open URL Builder">
+    Navigate to **Ad Tracking** → **URL Builder**.
+  </Step>
+  <Step title="Switch to the Attribution tab">
+    Click the **Attribution Builder** tab at the top of the URL Builder page.
+  </Step>
+</Steps>
+
+## Understanding UTM Dimensions
+
+Think of UTMs like **nested folders** that organize where your traffic came from. Each layer gets more specific:
+
+| Dimension    | What it represents         | Example                        |
+|-------------|---------------------------|--------------------------------|
+| **Source**   | The platform               | `YouTube Organic`, `Instagram Organic`, `Email` |
+| **Campaign** | The channel or project     | `mateis-channel`, `weekly-newsletter` |
+| **Medium**   | The specific piece of content | `awesome-video-1`             |
+| **Ad**       | The exact placement or link | `link-in-bio`, `pinned-comment` |
+
+<Tip>
+  There's no single "perfect" structure — just think top-down. What's the broadest category? What's underneath it? Keep nesting until you've captured enough detail to be useful.
+</Tip>
+
+## Building a Tracking URL
+
+<Steps>
+  <Step title="Enter your destination URL">
+    Paste the page URL you're sending traffic to (e.g. `mylandingpage.com/vsl`). Optionally give it a title for your own reference.
+  </Step>
+  <Step title="Add UTM dimensions">
+    Fill in the dimensions from top to bottom:
+    - **Source** → `YouTube Organic`
+    - **Campaign** → `mateis-channel`
+    - **Medium** → `awesome-video-1`
+    - **Ad** → `awesome-video-1-link-in-bio`
+
+    Click **Create** after entering each value.
+  </Step>
+  <Step title="Copy the generated URL">
+    The builder appends query parameters to your base URL automatically:
+
+    ```
+    mylandingpage.com/vsl?utm_source=YouTube+Organic&utm_medium=awesome-video-1&utm_campaign=mateis-channel&utm_content=awesome-video-1-link-in-bio
+    ```
+
+    Everything after the `?` is tracking data — the visitor still sees the same page.
+  </Step>
+  <Step title="Place the link">
+    Paste the generated URL wherever the traffic will come from (link in bio, video description, email CTA, etc.).
+  </Step>
+</Steps>
+
+## How the Data Shows Up
+
+Once someone clicks your tagged link, Cortana tracks their full journey. Inside the **Attribution Table** you can:
+
+- Filter by **source** (e.g. `YouTube Organic`) to see all traffic from that platform.
+- Drill into **campaign** to compare channels or projects.
+- Go deeper into **medium** and **ad** to see which specific video or link placement drove the conversion.
+
+If you left a dimension empty, the table will display **"No campaign provided"** (or the equivalent for that level) — which is totally fine if you don't need that layer of detail.
+
+## Keeping It Simple (Email Example)
+
+Not every source needs four layers. For email, if you just want to know "this came from email" without breaking it down further, you can set **all four dimensions** to `email`:
+
+| Dimension  | Value   |
+|-----------|---------|
+| Source     | `email` |
+| Campaign   | `email` |
+| Medium     | `email` |
+| Ad         | `email` |
+
+This keeps your attribution table clean without creating unnecessary granularity.
+
+<Info>
+  If you only fill in **Source** and leave the rest blank, the attribution table will show the source correctly but display "no campaign provided" when you try to drill down. Fill all four with the same value if you want a clean look without extra detail.
+</Info>
   </Accordion>
 </AccordionGroup>
