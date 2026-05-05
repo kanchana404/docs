@@ -21,7 +21,7 @@
       {
         "tab": "Ad Tracking Training",
         "icon": "crosshairs",
-        "groups": [
+        "pages": [
           {
             "group": "A-Z Setup Guide",
             "icon": "rocket",
@@ -37,7 +37,8 @@
               "8-customer-journey-views",
               "9-how-to-set-up-shopify"
             ]
-          }
+          },
+          "frequently-asked-questions"
         ]
       },
       {
