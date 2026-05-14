@@ -111,6 +111,12 @@
             ]
           },
           {
+            "group": "Businesses",
+            "pages": [
+              "api-reference/endpoint/create-business"
+            ]
+          },
+          {
             "group": "Contacts",
             "pages": [
               "api-reference/endpoint/list-contacts",
