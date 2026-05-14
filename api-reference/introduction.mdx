@@ -5,15 +5,23 @@ description: "The Cortana AI Public REST API v1"
 
 # API Reference
 
-The Cortana AI Public API provides programmatic access to contacts, conversations, messages, agents, appointments, conversions, tracking sessions, tags, custom fields, financial data (Stripe, Shopify, Whop), and voice call logs/transcripts.
+The Cortana AI Public API provides programmatic access to contacts, conversations, messages, agents, appointments, conversions, tracking sessions, tags, custom fields, financial data (Stripe, Shopify, Whop), voice call logs/transcripts, and **creating businesses** for automated agency onboarding.
 
 ## Base URL
+
+Most resources live under a business:
 
 ```
 https://app.usecortana.ai/api/v1/businesses/{businessId}
 ```
 
-All endpoints are scoped to a business and require Bearer token authentication.
+**Create business** (agency-level, no existing `businessId`):
+
+```
+POST https://app.usecortana.ai/api/v1/businesses
+```
+
+All endpoints require Bearer token authentication.
 
 ## Authentication
 
@@ -40,6 +48,9 @@ See [Authentication](/authentication) for creating and managing API keys.
 ## Endpoint Groups
 
 <CardGroup cols={2}>
+  <Card title="Businesses" icon="building" href="/api-reference/endpoint/create-business">
+    Create a new client business under your agency (API onboarding)
+  </Card>
   <Card title="Contacts" icon="address-book" href="/api-reference/endpoint/list-contacts">
     CRUD + tag management for CRM contacts
   </Card>
