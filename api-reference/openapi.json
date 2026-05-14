@@ -3,7 +3,7 @@
   "info": {
     "title": "Cortana AI Public API",
     "version": "1.0.0",
-    "description": "The Cortana AI Public API enables programmatic access to contacts, conversations, messages, agents, appointments, conversions, tracking sessions, tags, custom fields, financial data (Stripe, Shopify, Whop), voice call logs/transcripts, and agency-level business creation. Most endpoints are scoped to a business (`/api/v1/businesses/{businessId}/...`); creating a new business uses `POST /api/v1/businesses`. All endpoints require Bearer token authentication.",
+    "description": "The Cortana AI Public API enables programmatic access to contacts, conversations, messages, agents, appointments, conversions, tracking sessions, tags, custom fields, financial data (Stripe, Shopify, Whop), voice call logs/transcripts, and agency-level business creation. Most endpoints are scoped to a business (`/api/v1/businesses/{businessId}/...`); creating a new business uses `POST /api/v1/businesses`, and **agency business templates** (same as *Copy as template* in the app) are listed with `GET /api/v1/businesses/templates` for use as `templateId` on create. All endpoints require Bearer token authentication.",
     "contact": {
       "name": "Cortana AI Support",
       "url": "https://usecortana.ai"
@@ -75,7 +75,7 @@
     },
     {
       "name": "Businesses",
-      "description": "Create businesses under your agency (programmatic onboarding)"
+      "description": "Create businesses and list agency business templates (programmatic onboarding)"
     }
   ],
   "paths": {
@@ -86,7 +86,7 @@
         ],
         "operationId": "createBusiness",
         "summary": "Create a business",
-        "description": "Creates a new business under the API key owner's agency (same as adding a business in the Control Centre), including defaults or an optional agency template.\n\n**Authentication:** Bearer API key with the **`businesses:write`** scope. This scope is not included in the default *Chrome Extension* preset — use *Agency / onboarding automation* or add **Businesses → Write** when generating the key.\n\n**Who may call:** The key must belong to an **agency owner**, **superuser**, or **manager with Admin** access. Non-superusers need an **active plan**.\n\n**After success:** Use the returned `id` as `{businessId}` on routes such as `GET /api/v1/businesses/{businessId}/contacts`.",
+        "description": "Creates a new business under the API key owner's agency (same as adding a business in the Control Centre), including defaults or an optional agency template.\n\n**Authentication:** Bearer API key with the **`businesses:write`** scope. This scope is not included in the default *Chrome Extension* preset — use *Agency / onboarding automation* or add **Businesses → Write** when generating the key.\n\n**Who may call:** The key must belong to an **agency owner**, **superuser**, or **manager with Admin** access. Non-superusers need an **active plan**.\n\n**Templates:** To copy configuration from an agency template created in the UI (*Copy as template*), call **`GET /api/v1/businesses/templates`**, pick an `id`, and pass it as **`templateId`** in this request body.\n\n**After success:** Use the returned `id` as `{businessId}` on routes such as `GET /api/v1/businesses/{businessId}/contacts`.",
         "security": [
           {
             "BearerAuth": []
@@ -123,6 +123,15 @@
                     "timezone": "America/Los_Angeles",
                     "managedPlan": false,
                     "manageBilling": false
+                  }
+                },
+                "fromTemplate": {
+                  "summary": "Create using agency template id",
+                  "value": {
+                    "name": "New client from template",
+                    "industry": "SAAS",
+                    "businessOwnership": "client",
+                    "templateId": "00000000-0000-4000-8000-000000000001"
                   }
                 }
               }
@@ -184,6 +193,90 @@
           },
           "413": {
             "description": "Request body exceeds 1 MB"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/businesses/templates": {
+      "get": {
+        "tags": [
+          "Businesses"
+        ],
+        "operationId": "listBusinessTemplates",
+        "summary": "List business templates",
+        "description": "Returns agency **business templates** (the same assets you save with *Copy as template* in the Control Centre). Use a template **`id`** as **`templateId`** on `POST /api/v1/businesses`.\n\n**Privacy:** Pass **`omitSource=true`** to omit `sourceBusinessId` and `sourceBusinessName` when you do not want API consumers to see which client business a template was copied from.\n\n**Authentication:** Bearer API key with the **`businesses:write`** scope (same as create business).\n\n**Who may call:** Same rules as create business — **agency owner**, **superuser**, or **manager with Admin**; non-superusers need an **active plan**.",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "omitSource",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "description": "When `true` (or `1` / `yes`), each item omits `sourceBusinessId` and `sourceBusinessName` so the response does not reveal the originating client business."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Templates for the API key owner's agency",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessTemplateListResponse"
+                }
+              }
+            },
+            "headers": {
+              "X-RateLimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Request limit per window"
+              },
+              "X-RateLimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Remaining requests in window"
+              },
+              "X-RateLimit-Reset": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Unix timestamp when window resets"
+              },
+              "X-Request-Id": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Unique request id for support"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Insufficient scope, wrong role, inactive plan, or cannot resolve agency",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           },
           "429": {
             "$ref": "#/components/responses/RateLimited"
@@ -5982,6 +6075,99 @@
           }
         }
       },
+      "BusinessTemplateAssetCounts": {
+        "type": "object",
+        "properties": {
+          "conversionConfigurations": {
+            "type": "integer"
+          },
+          "attributionPresets": {
+            "type": "integer"
+          },
+          "customMetrics": {
+            "type": "integer"
+          },
+          "customFieldDefinitions": {
+            "type": "integer"
+          },
+          "tagDefinitions": {
+            "type": "integer"
+          },
+          "trackingPixels": {
+            "type": "integer"
+          },
+          "dashboardTabs": {
+            "type": "integer"
+          },
+          "capiMappings": {
+            "type": "integer"
+          }
+        }
+      },
+      "BusinessTemplateListItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "version",
+          "createdAt",
+          "updatedAt",
+          "assetCounts"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Use as `templateId` on `POST /api/v1/businesses`"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "integer"
+          },
+          "sourceBusinessId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "description": "Originating business UUID when the template was created from *Copy as template*. Omitted when `omitSource=true`."
+          },
+          "sourceBusinessName": {
+            "type": "string",
+            "nullable": true,
+            "description": "Originating business display name. Omitted when `omitSource=true`."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "assetCounts": {
+            "$ref": "#/components/schemas/BusinessTemplateAssetCounts"
+          }
+        }
+      },
+      "BusinessTemplateListResponse": {
+        "type": "object",
+        "required": [
+          "templates"
+        ],
+        "properties": {
+          "templates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BusinessTemplateListItem"
+            }
+          }
+        }
+      },
       "CreateBusinessRequest": {
         "type": "object",
         "required": [
@@ -6483,7 +6669,8 @@
           },
           "templateId": {
             "type": "string",
-            "description": "Optional agency business template ID to copy configuration from"
+            "format": "uuid",
+            "description": "Optional agency template to copy (same as *Copy as template* in the app). List IDs with `GET /api/v1/businesses/templates`."
           },
           "businessConfig": {
             "type": "object",

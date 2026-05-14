@@ -36,6 +36,6 @@ The fastest way to start is the MCP server — connect Claude or Cursor to your 
     ```
   </Step>
   <Step title="Explore the API">
-    Browse the [API Reference](/api-reference/introduction) for all endpoints. Agencies automating client setup can use [Create business](/api-reference/endpoint/create-business) (`POST /api/v1/businesses` with the `businesses:write` scope).
+    Browse the [API Reference](/api-reference/introduction) for all endpoints. Agencies automating client setup can use [Create business](/api-reference/endpoint/create-business) (`POST /api/v1/businesses` with the `businesses:write` scope). To apply a saved configuration template, call [List business templates](/api-reference/endpoint/list-business-templates) first and pass the chosen `id` as `templateId` on create.
   </Step>
 </Steps>
