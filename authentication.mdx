@@ -5,7 +5,7 @@ description: "Create and manage API keys for the Cortana AI API and MCP Server"
 
 # Authentication
 
-All API requests and the MCP server require a Bearer token. Most API keys are used with **per-business** routes (`/api/v1/businesses/{businessId}/...`) and configurable scopes. **Creating a new business** uses `POST /api/v1/businesses` (no `businessId` in the path) and requires the **`businesses:write`** scope — use the **Agency / onboarding automation** preset or add that scope manually; it is **not** included in the default Chrome Extension preset.
+All API requests and the MCP server require a Bearer token. Most API keys are used with **per-business** routes (`/api/v1/businesses/{businessId}/...`) and configurable scopes. **Creating a new business** uses `POST /api/v1/businesses`, and **listing agency business templates** (for `templateId`) uses `GET /api/v1/businesses/templates` — both use the same path prefix without `{businessId}` and require the **`businesses:write`** scope — use the **Agency / onboarding automation** preset or add that scope manually; it is **not** included in the default Chrome Extension preset.
 
 ## Create an API Key
 
@@ -55,7 +55,7 @@ curl -H "Authorization: Bearer sk-ak-your-api-key" \
 | `shopify:read` | Shopify orders, customers, products, analytics |
 | `whop:read` | Whop payments, customers, memberships |
 | `meetings:read` | Read meetings / Fathom data |
-| `businesses:write` | **Create new businesses** under your agency (`POST /api/v1/businesses`) — agency owner, superuser, or admin manager only |
+| `businesses:write` | **Create businesses** and **list agency business templates** (`POST /api/v1/businesses`, `GET /api/v1/businesses/templates`) — agency owner, superuser, or admin manager only |
 
 ## Find Your Business ID
 

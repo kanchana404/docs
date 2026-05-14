@@ -21,6 +21,12 @@ https://app.usecortana.ai/api/v1/businesses/{businessId}
 POST https://app.usecortana.ai/api/v1/businesses
 ```
 
+**List business templates** (saved with *Copy as template* in the Control Centre — use an `id` as `templateId` when creating):
+
+```
+GET https://app.usecortana.ai/api/v1/businesses/templates
+```
+
 All endpoints require Bearer token authentication.
 
 ## Authentication
@@ -49,7 +55,7 @@ See [Authentication](/authentication) for creating and managing API keys.
 
 <CardGroup cols={2}>
   <Card title="Businesses" icon="building" href="/api-reference/endpoint/create-business">
-    Create a new client business under your agency (API onboarding)
+    Create a new client business (`POST /api/v1/businesses`) and list agency templates (`GET /api/v1/businesses/templates`) for `templateId`
   </Card>
   <Card title="Contacts" icon="address-book" href="/api-reference/endpoint/list-contacts">
     CRUD + tag management for CRM contacts
